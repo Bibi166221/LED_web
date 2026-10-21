@@ -12,6 +12,9 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
 
+    <script type="text/javascript"
+        src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=gcTGt9ZXv4rro4BOYMeBbP9ouTs9HQMB2X40ualX8z4G71dD2-MPGjHUEdCata1t-2eaTnsvPxtudeoTzBvQ-sT8GX0m4yxqvcZ0wl0-YYUevAgUKUahNCfG7_2Lv6jkNMqew0NnOJge0Sb40WslbEGRN5Dc0GWmy5O_IH4K-ZI25lqAKZrGDknU06EItloVrnGGFJqs1MqgoJPWNfhDFvOZVWmmtqPAB-Vb-Ink4NhiHe0JHRzFuPWjcsMtvAOf1Ih-QeZrunA4obVBZrDQ43AXmtzMmgQJtvhGypRv0idJrN_cNW3f5hApruSxd9qBZi1NSoStyEMMAM2TEZ6khg"
+        charset="UTF-8"></script>
     <style>
         :root {
             --bg: #0d0f1a;
@@ -899,9 +902,17 @@
         }
 
         @keyframes pulseGlow {
-            0% { box-shadow: 0 0 0 0 rgba(34, 211, 160, 0.6); }
-            70% { box-shadow: 0 0 0 6px rgba(34, 211, 160, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(34, 211, 160, 0); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(34, 211, 160, 0.6);
+            }
+
+            70% {
+                box-shadow: 0 0 0 6px rgba(34, 211, 160, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(34, 211, 160, 0);
+            }
         }
 
         /* Blink Controls in Left Column */
@@ -1168,9 +1179,20 @@
         }
 
         @keyframes marchingAnts {
-            0% { border-color: #4f8ef7; box-shadow: 0 0 10px rgba(79, 142, 247, 0.35); }
-            50% { border-color: #22d3a0; box-shadow: 0 0 10px rgba(34, 211, 160, 0.35); }
-            100% { border-color: #4f8ef7; box-shadow: 0 0 10px rgba(79, 142, 247, 0.35); }
+            0% {
+                border-color: #4f8ef7;
+                box-shadow: 0 0 10px rgba(79, 142, 247, 0.35);
+            }
+
+            50% {
+                border-color: #22d3a0;
+                box-shadow: 0 0 10px rgba(34, 211, 160, 0.35);
+            }
+
+            100% {
+                border-color: #4f8ef7;
+                box-shadow: 0 0 10px rgba(79, 142, 247, 0.35);
+            }
         }
 
         .selection-float-canvas {
@@ -1436,6 +1458,331 @@
             transform: translateY(-1px);
             box-shadow: 0 4px 20px rgba(124, 58, 237, 0.5);
         }
+
+        /* ── Region Slide Builder: fixed artwork + editable text / image area ── */
+        .region-builder {
+            margin: 14px 0;
+            padding: 15px;
+            border: 1px solid rgba(79, 142, 247, .38);
+            border-radius: var(--radius-sm);
+            background: linear-gradient(145deg, rgba(79, 142, 247, .09), rgba(124, 58, 237, .055));
+        }
+
+        .region-heading {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 7px;
+        }
+
+        .region-help {
+            font-size: 11px;
+            color: #a1afc8;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .region-row {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .region-coords {
+            color: var(--green);
+            font: 11px 'JetBrains Mono', monospace;
+        }
+
+        .region-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            color: #a1afc8;
+            margin-bottom: 5px;
+        }
+
+        .region-field-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .region-builder textarea,
+        .region-builder select,
+        .region-builder input:not([type=file]):not([type=color]) {
+            display: block;
+            width: 100%;
+            min-width: 0;
+            padding: 7px 9px;
+            background: var(--bg);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            outline: none;
+            font: 12px 'Inter', sans-serif;
+        }
+
+        .region-builder textarea {
+            resize: vertical;
+            min-height: 60px;
+            line-height: 1.45;
+        }
+
+        .region-builder input[type='color'] {
+            width: 38px;
+            height: 28px;
+            cursor: pointer;
+            border: 0;
+            background: none;
+        }
+
+        .region-builder input[type=file] {
+            color: #a1afc8;
+            font-size: 11px;
+            width: 100%;
+        }
+
+        .region-builder .region-btn {
+            border-radius: 6px;
+            border: 1px solid rgba(79, 142, 247, .45);
+            background: rgba(79, 142, 247, .13);
+            color: #b9d3ff;
+            padding: 8px 10px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .region-builder .region-btn:hover {
+            background: rgba(79, 142, 247, .24);
+        }
+
+        .region-builder .region-btn.primary {
+            background: #4f8ef7;
+            color: white;
+        }
+
+        .region-builder .region-btn.primary:hover {
+            background: #3475e7;
+        }
+
+        .region-builder .region-btn.subtle {
+            border-color: var(--border);
+            background: var(--surface2);
+            color: var(--text-muted);
+        }
+
+        .region-color-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .region-status {
+            font-size: 11px;
+            color: var(--green);
+            line-height: 1.5;
+            min-height: 16px;
+        }
+
+        .region-motion-preview {
+            width: 100%;
+            display: block;
+            background: #000;
+            image-rendering: pixelated;
+            border: 1px solid #35507d;
+            border-radius: 4px;
+            max-height: 155px;
+            margin-top: 7px;
+        }
+
+        /* Full off-screen pixel strip: edits are made at the original LED-pixel resolution. */
+        .strip-editor {
+            margin-top: 14px;
+            padding: 12px;
+            background: #080e1d;
+            border: 1px solid #426598;
+            border-radius: 8px;
+        }
+
+        .strip-editor.fullscreen {
+            position: fixed;
+            z-index: 9500;
+            top: 2vh;
+            left: 2vw;
+            width: 96vw;
+            height: 95vh;
+            overflow: auto;
+            box-shadow: 0 0 0 200vmax rgba(0, 0, 0, .78);
+            margin: 0;
+        }
+
+        .strip-editor.fullscreen .strip-scroll-wrap {
+            max-height: calc(75vh - 140px);
+        }
+
+        .strip-live {
+            background: #000;
+            image-rendering: pixelated;
+            display: block;
+            width: min(100%, 700px);
+            max-height: 145px;
+            margin: 9px 0;
+            border: 1px solid #426598;
+        }
+
+        .strip-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            align-items: center;
+            margin: 8px 0;
+        }
+
+        .strip-actions button {
+            background: #1c2743;
+            border: 1px solid #40577a;
+            color: #d6e7ff;
+            border-radius: 5px;
+            padding: 6px 9px;
+            cursor: pointer;
+            font: 600 11px Inter, sans-serif;
+        }
+
+        .strip-actions button.selected {
+            background: #2563eb;
+            border-color: #60a5fa;
+            color: white;
+        }
+
+        .strip-actions input[type=color] {
+            width: 35px;
+            height: 29px;
+            border: 1px solid #40577a;
+            border-radius: 4px;
+            padding: 0;
+            background: transparent;
+        }
+
+        .strip-scroll-wrap {
+            max-width: 100%;
+            overflow: auto;
+            background: #030712;
+            border: 1px solid #465674;
+            border-radius: 5px;
+            padding: 4px 4px 8px;
+            min-height: 100px;
+        }
+
+        .strip-ruler {
+            height: 21px;
+            position: relative;
+            background: #dbe5f3;
+            color: #1e293b;
+            font: 10px monospace;
+            overflow: hidden;
+        }
+
+        .strip-ruler span {
+            position: absolute;
+            top: 4px;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+
+        .strip-canvas-holder {
+            position: relative;
+            margin-top: 3px;
+            line-height: 0;
+            background: #000;
+        }
+
+        .strip-pixel-canvas {
+            display: block;
+            image-rendering: pixelated;
+            cursor: crosshair;
+            touch-action: none;
+        }
+
+        .strip-grid {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background-image: linear-gradient(to right, rgba(190, 214, 255, .19) 1px, transparent 1px), linear-gradient(to bottom, rgba(190, 214, 255, .19) 1px, transparent 1px);
+        }
+
+        .strip-visible-region {
+            position: absolute;
+            top: 0;
+            pointer-events: none;
+            box-sizing: border-box;
+            background: rgba(50, 113, 245, .22);
+            border: 2px solid #60a5fa;
+            box-shadow: 0 0 0 1px #121b31;
+        }
+
+        .strip-visible-region::before {
+            content: 'LED WINDOW';
+            position: absolute;
+            left: 2px;
+            top: 1px;
+            font: 8px monospace;
+            color: #fff;
+            line-height: 1.1;
+            text-shadow: 0 1px 2px black;
+        }
+
+        .strip-selection {
+            position: absolute;
+            border: 2px dashed #facc15;
+            box-sizing: border-box;
+            pointer-events: none;
+        }
+
+        .strip-selection canvas {
+            image-rendering: pixelated;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .strip-note {
+            font-size: 11px;
+            color: #bfd0ec;
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        .strip-status {
+            font-size: 11px;
+            color: #34d399;
+            margin-top: 5px;
+            min-height: 15px;
+        }
+
+        .region-motion-panel {
+            margin: 12px 0 10px;
+            padding: 12px;
+            border: 1px solid #354666;
+            border-radius: 8px;
+            background: #0a1022;
+        }
+
+        .region-motion-hint {
+            font-size: 11px;
+            color: #a7c1e9;
+            line-height: 1.6;
+            margin: 8px 0;
+        }
+
+        @media(max-width: 480px) {
+            .region-field-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -1458,8 +1805,10 @@
             <!-- Mode Toggle -->
             <div class="ctrl-label" style="margin-bottom:6px;">Generator Mode</div>
             <div class="mode-toggle" style="margin-bottom:16px;">
-                <button type="button" class="mode-btn active" id="modeStatic" onclick="setMode('static')">&#128444;&#65039; Static Image</button>
-                <button type="button" class="mode-btn" id="modeBlink" onclick="setMode('blink')">&#9889; Blink / Slideshow</button>
+                <button type="button" class="mode-btn active" id="modeStatic"
+                    onclick="setMode('static')">&#128444;&#65039; Static Image</button>
+                <button type="button" class="mode-btn" id="modeBlink" onclick="setMode('blink')">&#9889; Blink /
+                    Slideshow</button>
             </div>
 
             <!-- Static Mode Controls -->
@@ -1470,7 +1819,8 @@
                         accept="image/png,image/jpeg,image/gif,image/bmp,image/webp,.ino,.h,.cpp,.txt" />
                     <div class="upload-icon">&#128444;&#65039;</div>
                     <div class="upload-text">Drop image or .ino sketch here</div>
-                    <div class="upload-sub">JPG, PNG, BMP, GIF, WEBP, and .INO sketches supported (Drag &amp; Drop anywhere)</div>
+                    <div class="upload-sub">JPG, PNG, BMP, GIF, WEBP, and .INO sketches supported (Drag &amp; Drop
+                        anywhere)</div>
                     <div class="file-name" id="fileName"></div>
                 </div>
                 <button class="btn-blank-canvas" id="btnBlankCanvas" type="button" onclick="startBlankCanvas()">
@@ -1487,7 +1837,8 @@
                 <div class="blink-summary-bar">
                     <div class="blink-summary-badge" id="blinkSummaryBadge">2 Frames • 2000ms loop</div>
                     <div style="display:flex; gap:6px;">
-                        <button type="button" class="btn-blink-action btn-play-anim" id="btnBlinkPlayLeft" onclick="toggleBlinkAnimation()">
+                        <button type="button" class="btn-blink-action btn-play-anim" id="btnBlinkPlayLeft"
+                            onclick="toggleBlinkAnimation()">
                             <span id="leftPlayIcon">▶</span> <span id="leftPlayText">Play</span>
                         </button>
                         <button type="button" class="btn-blink-action" onclick="addBlankFrame()">
@@ -1498,9 +1849,12 @@
 
                 <!-- Action buttons for Blink Mode -->
                 <div style="display:flex; gap:8px; margin-bottom:12px;">
-                    <label class="btn-blank-canvas" style="flex:1; margin-top:0; cursor:pointer; text-align:center; padding:9px 10px; font-size:12px;" title="Open images from your computer into slideshow">
+                    <label class="btn-blank-canvas"
+                        style="flex:1; margin-top:0; cursor:pointer; text-align:center; padding:9px 10px; font-size:12px;"
+                        title="Open images from your computer into slideshow">
                         📂 Open Pictures
-                        <input type="file" multiple accept="image/*" style="display:none;" onchange="loadMultipleFiles(this.files); this.value='';" />
+                        <input type="file" multiple accept="image/*" style="display:none;"
+                            onchange="loadMultipleFiles(this.files); this.value='';" />
                     </label>
                     <button type="button" class="btn-blank-canvas" onclick="openImportModal()"
                         style="flex:1; margin-top:0; border-color:rgba(124, 58, 237, 0.4); color:#c4b5fd; background:rgba(124, 58, 237, 0.08); padding:9px 10px; font-size:12px;"
@@ -1511,13 +1865,230 @@
 
                 <div class="frames-list" id="framesList"></div>
 
+
+                <!-- Partial-screen slideshow composition. Frame C++ export stays compatible. -->
+                <div class="region-builder" id="regionBuilder">
+                    <div class="region-heading">✂️ Region Slides — Text + Pictures</div>
+                    <p class="region-help">Keep a logo or picture <strong>fixed outside a selected rectangle</strong>,
+                        while showing different text or pictures <strong>inside</strong> it. Each new slide is a full
+                        LED frame, so the existing .ino export still works.</p>
+                    <div class="region-row">
+                        <button type="button" class="region-btn" onclick="beginRegionSelection()">① Select Area on
+                            Matrix</button>
+                        <button type="button" class="region-btn" onclick="captureRegionAndBase()">② Save Area +
+                            Background</button>
+                        <span class="region-coords" id="regionCoords">No region selected</span>
+                    </div>
+                    <div class="region-field-grid">
+                        <div>
+                            <label class="region-label" for="regionContentType">Region content</label>
+                            <select id="regionContentType" onchange="toggleRegionContentFields()">
+                                <option value="text">Text slide</option>
+                                <option value="image">Picture slide</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="region-label" for="regionDuration">Slide duration (ms)</label>
+                            <input type="number" id="regionDuration" min="50" max="60000" step="50" value="2000" />
+                        </div>
+                    </div>
+                    <div id="regionTextFields">
+                        <label class="region-label" for="regionTextValue">Text (Enter for a new line)</label>
+                        <textarea id="regionTextValue" rows="2" placeholder="Type text to display…">HELLO</textarea>
+                        <div class="region-field-grid" style="margin-top:10px;">
+                            <div>
+                                <label class="region-label" for="regionTextSize">Text size (LED pixels)</label>
+                                <input type="number" id="regionTextSize" min="5" max="32" value="9" />
+                            </div>
+                            <div>
+                                <label class="region-label" for="regionTextAlign">Text alignment</label>
+                                <select id="regionTextAlign">
+                                    <option value="center">Center</option>
+                                    <option value="left">Left</option>
+                                    <option value="right">Right</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="region-label" for="regionTextFont">Font</label>
+                                <select id="regionTextFont">
+                                    <option value="sans-serif">Sans-serif</option>
+                                    <option value="monospace">Monospace</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="region-label" for="regionTextColor">Text color</label>
+                                <div class="region-color-row"><input type="color" id="regionTextColor"
+                                        value="#ffffff" /><span style="font-size:11px;color:var(--text-muted)">Choose
+                                        color</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="regionImageFields" style="display:none; margin-bottom:10px;">
+                        <label class="region-label" for="regionImageInput">Choose a picture (it will be cropped or
+                            fitted inside the selection)</label>
+                        <input type="file" id="regionImageInput"
+                            accept="image/png,image/jpeg,image/gif,image/bmp,image/webp"
+                            onchange="loadRegionPicture(this)" />
+                        <div style="margin-top:9px;">
+                            <label class="region-label" for="regionPictureFit">Picture fit</label>
+                            <select id="regionPictureFit">
+                                <option value="crop">Crop to fill selected area</option>
+                                <option value="fit">Fit inside selected area</option>
+                                <option value="fill">Stretch to fill</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="region-motion-panel">
+                        <label class="region-label" for="regionMotion">Movement of this region</label>
+                        <select id="regionMotion" onchange="toggleRegionMotionControls()">
+                            <option value="still">Still (normal slide)</option>
+                            <option value="left" selected>⬅ Scroll left — enter from right, fully exit left</option>
+                            <option value="right">➡ Scroll right — enter from left, fully exit right</option>
+                        </select>
+                        <div id="regionMotionControls" style="margin-top:10px;">
+                            <div class="region-field-grid">
+                                <div>
+                                    <label class="region-label" for="regionScrollStep">Speed: milliseconds per
+                                        pixel</label>
+                                    <input type="number" id="regionScrollStep" min="20" max="500" step="5" value="55" />
+                                </div>
+                                <div>
+                                    <label class="region-label" for="regionScrollPause">Pause after exiting (ms)</label>
+                                    <input type="number" id="regionScrollPause" min="0" max="10000" step="100"
+                                        value="400" />
+                                </div>
+                            </div>
+                            <p class="region-motion-hint">The entire text or picture starts off-screen and keeps moving
+                                until it has completely disappeared. Text stays on one line; it is NOT cut or wrapped at
+                                the region edge.</p>
+                        </div>
+                        <div class="region-row" style="margin-bottom:4px;">
+                            <button type="button" id="regionPreviewBtn" class="region-btn"
+                                onclick="toggleRegionMotionPreview()">▶ Preview movement</button>
+                            <span class="region-coords" id="regionMotionProgress">Ready to preview</span>
+                        </div>
+                        <canvas id="regionMotionPreview" class="region-motion-preview" width="128" height="32"></canvas>
+                        <div class="region-row" style="margin-top:8px; align-items:center;">
+                            <input type="range" id="regionPreviewSlider" min="0" max="100" value="0" step="1"
+                                style="flex:1;" oninput="scrubRegionMotionPreview(this.value)" />
+                            <button type="button" class="region-btn subtle" onclick="resetRegionPreviewPosition()">⟲
+                                Reset</button>
+                        </div>
+                        <div class="region-help" style="margin:6px 0 0;">Live LED preview: drag the slider or press
+                            Preview movement to see exactly how it will scroll while the fixed area stays unchanged.
+                        </div>
+                        <div class="strip-editor" id="stripEditorPanel">
+                            <div class="region-heading" style="margin-bottom:5px;">🧩 FULL SCROLL STRIP — Off-screen
+                                Pixel Editor</div>
+                            <p class="strip-note">The entire long artwork stays visible, including pixels
+                                <strong>outside the LED screen</strong>. The movable blue rectangle shows the actual
+                                screen window. Edit any pixel here, then save the slide.</p>
+                            <div class="strip-actions">
+                                <button type="button" onclick="openStripEditor(false)">✏️ Open / Edit Entire Scroll
+                                    Strip</button>
+                                <button type="button" onclick="openStripEditor(true)">↻ Rebuild from Text /
+                                    Picture</button>
+                                <button type="button" id="stripExpandBtn" onclick="toggleStripFullscreen()">⛶ Expand
+                                    Full Pixel Editor</button>
+                            </div>
+                            <div id="stripEditorWork" style="display:none;">
+                                <div class="strip-actions" id="stripToolBar">
+                                    <button type="button" class="selected" data-strip-tool="pencil"
+                                        onclick="setStripTool('pencil')">✏️ Pencil</button>
+                                    <button type="button" data-strip-tool="eraser" onclick="setStripTool('eraser')">🧹
+                                        Eraser</button>
+                                    <button type="button" data-strip-tool="fill" onclick="setStripTool('fill')">🪣
+                                        Fill</button>
+                                    <button type="button" data-strip-tool="picker" onclick="setStripTool('picker')">👁️
+                                        Pick</button>
+                                    <button type="button" data-strip-tool="select" onclick="setStripTool('select')">▣
+                                        Select / Move</button>
+                                    <input type="color" id="stripColor" value="#ffffff" title="Pixel color" />
+                                    <button type="button" onclick="stripUndo()">↶ Undo</button>
+                                    <button type="button" onclick="stripRedo()">↷ Redo</button>
+                                    <button type="button" onclick="stripCopy()">Copy</button>
+                                    <button type="button" onclick="stripPaste()">Paste</button>
+                                    <button type="button" onclick="stripDeleteSelection()">Delete Selection</button>
+                                </div>
+                                <div class="strip-actions">
+                                    <button type="button" onclick="stripZoomBy(-1)">− Zoom</button>
+                                    <span id="stripZoomLabel" style="font:11px monospace;color:#93c5fd;">5×</span>
+                                    <button type="button" onclick="stripZoomBy(1)">+ Zoom</button>
+                                    <button type="button" onclick="stripFitWhole()">Fit Entire Artwork</button>
+                                    <button type="button" onclick="stripExpand(32)">+32 px to end</button>
+                                    <button type="button" onclick="stripClear()">Clear All Pixels</button>
+                                    <span id="stripPixelHud" style="font:11px monospace;color:#a7b8d6;">X: — Y: —</span>
+                                </div>
+                                <div class="strip-scroll-wrap" id="stripScrollWrap" tabindex="0"
+                                    aria-label="Full scrolling art pixel editor">
+                                    <div id="stripRuler" class="strip-ruler"></div>
+                                    <div id="stripCanvasHolder" class="strip-canvas-holder">
+                                        <canvas id="stripPixelCanvas" class="strip-pixel-canvas"></canvas>
+                                        <div id="stripGrid" class="strip-grid"></div>
+                                        <div id="stripVisibleWindow" class="strip-visible-region"></div>
+                                        <div id="stripSelection" class="strip-selection" style="display:none;"><canvas
+                                                id="stripFloatCanvas" style="display:none;"></canvas></div>
+                                    </div>
+                                </div>
+                                <div class="strip-actions" style="margin-bottom:3px;">
+                                    <span style="font-size:11px;color:#bcd3fb;">Move LED viewing window:</span>
+                                    <input id="stripScrub" type="range" min="0" max="100" value="0" step="1"
+                                        style="flex:1;min-width:130px;"
+                                        oninput="scrubRegionMotionPreview(this.value)" />
+                                    <button type="button" onclick="toggleRegionMotionPreview()">▶ Play / Pause</button>
+                                </div>
+                                <canvas id="stripLivePreview" class="strip-live" width="128" height="32"></canvas>
+                                <p class="strip-note">Zoom and scroll horizontally to inspect every pixel. Drag to draw;
+                                    use Select to move/copy an area (Alt+drag duplicates). Click the main movement
+                                    slider above to move the <strong>blue LED-window outline</strong> across the full
+                                    strip. Edits update the preview automatically.</p>
+                                <div class="strip-actions"><button type="button" onclick="commitStripToSprite(true)">✓
+                                        Apply Pixels to Scroll Preview</button></div>
+                                <div class="strip-status" id="stripStatus">Ready.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="region-field-grid">
+                        <div>
+                            <label class="region-label" for="regionBackground">Selected area background</label>
+                            <select id="regionBackground">
+                                <option value="black">Black</option>
+                                <option value="keep">Keep original pixels</option>
+                                <option value="white">White</option>
+                            </select>
+                        </div>
+                        <div style="display:flex;align-items:end;">
+                            <span class="region-help" style="margin:0;">Outside the selection always stays
+                                unchanged.</span>
+                        </div>
+                    </div>
+                    <div class="region-row" style="margin:4px 0 8px;">
+                        <button type="button" class="region-btn primary" onclick="createRegionSlide(false)">➕ Add Region
+                            Slide</button>
+                        <button type="button" class="region-btn" onclick="createRegionSlide(true)">↻ Replace Current
+                            Slide</button>
+                        <button type="button" class="region-btn subtle" onclick="resetRegionBuilder()">Reset
+                            Region</button>
+                        <button type="button" class="region-btn" onclick="loadSelectedFrameToRegionEditor()">📝 Load
+                            Selected Slide to Editor</button>
+                    </div>
+                    <div class="region-status" id="regionStatus">Tip: Start with the picture or logo you want to stay
+                        fixed.</div>
+                </div>
+
                 <div class="blink-info">
                     <strong>💡 Frame Editing, Duplication &amp; Pixel Copying:</strong><br>
-                    • <strong>Drag &amp; Duplicate Slides:</strong> Drag ⠿ handle to reorder slides. Hold <strong>Alt</strong> while dragging to <strong>duplicate</strong> the slide anywhere!<br>
-                    • <strong>Copy Pixels Between Slides:</strong> Drag any slide card and drop it directly onto another slide card to copy all its pixels!<br>
-                    • <strong>Pixel Select &amp; Drag Tool (🔲):</strong> Select any pixel region, drag to move, or hold <strong>Alt</strong> to duplicate pixels. Press <strong>Ctrl+C</strong>, switch to another slide, and press <strong>Ctrl+V</strong> to paste!<br>
-                    • <strong>Quick Copy / Paste:</strong> Use <strong>📋 Copy Pixels</strong> and <strong>📥 Paste Pixels</strong> buttons on any slide card or in the preview bar.<br>
-                    • <strong>Image Drop:</strong> Drop pictures directly onto the canvas, frame list, or onto any specific frame card!
+                    • <strong>Drag &amp; Duplicate Slides:</strong> Drag ⠿ handle to reorder slides. Hold
+                    <strong>Alt</strong> while dragging to <strong>duplicate</strong> the slide anywhere!<br>
+                    • <strong>Copy Pixels Between Slides:</strong> Drag any slide card and drop it directly onto another
+                    slide card to copy all its pixels!<br>
+                    • <strong>Pixel Select &amp; Drag Tool (🔲):</strong> Select any pixel region, drag to move, or hold
+                    <strong>Alt</strong> to duplicate pixels. Press <strong>Ctrl+C</strong>, switch to another slide,
+                    and press <strong>Ctrl+V</strong> to paste!<br>
+                    • <strong>Quick Copy / Paste:</strong> Use <strong>📋 Copy Pixels</strong> and <strong>📥 Paste
+                        Pixels</strong> buttons on any slide card or in the preview bar.<br>
+                    • <strong>Image Drop:</strong> Drop pictures directly onto the canvas, frame list, or onto any
+                    specific frame card!
                 </div>
             </div>
 
@@ -1664,18 +2235,26 @@
             <!-- Blink Frame Navigation Bar (Active in Blink Mode) -->
             <div id="blinkFrameNav" class="blink-frame-nav" style="display:none;">
                 <div class="bf-left">
-                    <button type="button" class="editor-mini-btn" id="bfPrevBtn" onclick="prevFrame()" title="Previous Frame (Left Arrow)">◀ Prev</button>
+                    <button type="button" class="editor-mini-btn" id="bfPrevBtn" onclick="prevFrame()"
+                        title="Previous Frame (Left Arrow)">◀ Prev</button>
                     <span class="bf-title" id="bfCurrentTitle">Frame 1 of 2</span>
-                    <button type="button" class="editor-mini-btn" id="bfNextBtn" onclick="nextFrame()" title="Next Frame (Right Arrow)">Next ▶</button>
+                    <button type="button" class="editor-mini-btn" id="bfNextBtn" onclick="nextFrame()"
+                        title="Next Frame (Right Arrow)">Next ▶</button>
                 </div>
                 <div class="bf-right">
-                    <button type="button" class="editor-mini-btn btn-play-anim" id="bfPlayBtn" onclick="toggleBlinkAnimation()" title="Preview Animation">
+                    <button type="button" class="editor-mini-btn btn-play-anim" id="bfPlayBtn"
+                        onclick="toggleBlinkAnimation()" title="Preview Animation">
                         <span id="bfPlayIcon">▶</span> <span id="bfPlayText">Play Animation</span>
                     </button>
-                    <button type="button" class="editor-mini-btn" id="bfCopyPixelsBtn" onclick="copyActiveSlidePixels()" title="Copy slide pixels to clipboard (Ctrl+C)">📋 Copy Pixels</button>
-                    <button type="button" class="editor-mini-btn" id="bfPastePixelsBtn" onclick="pastePixelsToActiveSlide()" title="Paste copied pixels to this slide (Ctrl+V)">📥 Paste Pixels</button>
-                    <button type="button" class="editor-mini-btn" onclick="duplicateFrame()" title="Duplicate this Frame (Alt-drag cards in list also duplicates)">➕ Duplicate Slide</button>
-                    <button type="button" class="editor-mini-btn" onclick="addBlankFrame()" title="Add Blank Frame">📄 New Frame</button>
+                    <button type="button" class="editor-mini-btn" id="bfCopyPixelsBtn" onclick="copyActiveSlidePixels()"
+                        title="Copy slide pixels to clipboard (Ctrl+C)">📋 Copy Pixels</button>
+                    <button type="button" class="editor-mini-btn" id="bfPastePixelsBtn"
+                        onclick="pastePixelsToActiveSlide()" title="Paste copied pixels to this slide (Ctrl+V)">📥 Paste
+                        Pixels</button>
+                    <button type="button" class="editor-mini-btn" onclick="duplicateFrame()"
+                        title="Duplicate this Frame (Alt-drag cards in list also duplicates)">➕ Duplicate Slide</button>
+                    <button type="button" class="editor-mini-btn" onclick="addBlankFrame()" title="Add Blank Frame">📄
+                        New Frame</button>
                 </div>
             </div>
 
@@ -1756,7 +2335,8 @@
             <div class="preview-wrap" id="previewWrap">
                 <div class="preview-placeholder" id="previewPlaceholder">
                     <div style="font-size:36px; margin-bottom:12px;">🖼️</div>
-                    Upload or <strong>drag &amp; drop a picture here</strong>, or click <strong style="color:var(--accent);">"Create Blank LED Matrix"</strong> to
+                    Upload or <strong>drag &amp; drop a picture here</strong>, or click <strong
+                        style="color:var(--accent);">"Create Blank LED Matrix"</strong> to
                     start designing!
                 </div>
                 <div class="canvas-container" id="canvasContainer" style="display:none;">
@@ -1866,7 +2446,8 @@
             <div class="modal-body">
                 <p style="font-size:12px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
                     Upload an Arduino <strong>.ino</strong> sketch or paste C++ <code>const uint16_t PROGMEM</code> /
-                    <code>uint8_t</code> arrays below. Supports <strong>single images</strong> and <strong>multi-frame Blink / Slideshow animations</strong> with frame durations!
+                    <code>uint8_t</code> arrays below. Supports <strong>single images</strong> and <strong>multi-frame
+                        Blink / Slideshow animations</strong> with frame durations!
                 </p>
 
                 <div class="modal-upload-row">
@@ -3065,7 +3646,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                 if (hexTokens && hexTokens.length >= 100) {
                     var frameDur = 1000;
                     var durCommentMatch = fullMatch.match(/(?:duration|delay|frame)?\s*[:\-–]?\s*(\d+)\s*ms/i) ||
-                                          fullMatch.match(/\((\d+)\s*ms\)/i);
+                        fullMatch.match(/\((\d+)\s*ms\)/i);
                     if (durCommentMatch) {
                         frameDur = parseInt(durCommentMatch[1], 10);
                     } else if (extractedDurations[matches.length] !== undefined) {
@@ -3378,6 +3959,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                 var img = new Image();
                 img.onload = function () {
                     frameObj.img = img;
+                    frameObj.scroll = null;
                     frameObj.fileName = file.name || ('Frame ' + (idx + 1));
                     var parts = sizeSelect.value.split('x');
                     var tw = parseInt(parts[0]), th = parseInt(parts[1]);
@@ -3585,6 +4167,8 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                 var parts = sizeSelect.value.split('x');
                 var tw = parseInt(parts[0]), th = parseInt(parts[1]);
                 frames.forEach(function (f) {
+                    // A scrolling region uses absolute pixel coordinates; resizing invalidates it.
+                    if (f.scroll) f.scroll = null;
                     if (f.canvas) {
                         var temp = document.createElement('canvas');
                         temp.width = tw; temp.height = th;
@@ -4225,6 +4809,8 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                 fileName: source.fileName + ' (copy)',
                 duration: source.duration || 1000,
                 canvas: newCanvas,
+                scroll: source.scroll ? Object.assign({}, source.scroll, { sprite: cloneCanvasElement(source.scroll.sprite) }) : null,
+                regionMeta: source.regionMeta ? cloneRegionMeta(source.regionMeta) : null,
                 img: null,
                 undoStack: [],
                 redoStack: [],
@@ -4262,6 +4848,8 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                 fileName: source.fileName + ' (copy)',
                 duration: source.duration || 1000,
                 canvas: newCanvas,
+                scroll: source.scroll ? Object.assign({}, source.scroll, { sprite: cloneCanvasElement(source.scroll.sprite) }) : null,
+                regionMeta: source.regionMeta ? cloneRegionMeta(source.regionMeta) : null,
                 img: null,
                 undoStack: [],
                 redoStack: [],
@@ -4311,6 +4899,8 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                 dctx.drawImage(src.canvas, 0, 0);
             }
             dst.hasCustomEdits = true;
+            dst.scroll = null;
+            dst.regionMeta = null;
             dst.undoStack = [];
             dst.redoStack = [];
             updateFrameThumbnail(dstIdx);
@@ -4368,6 +4958,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
             fctx.clearRect(0, 0, f.canvas.width, f.canvas.height);
             fctx.drawImage(pixelClipboard.canvas, 0, 0, f.canvas.width, f.canvas.height);
             f.hasCustomEdits = true;
+            f.scroll = null;
             f.undoStack = [];
             f.redoStack = [];
 
@@ -4661,7 +5252,8 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                     '  <div class="frame-controls-row">' +
                     '    <div class="frame-duration-wrap" title="Frame duration in milliseconds">' +
                     '      <span>⏱</span>' +
-                    '      <input type="number" value="' + (f.duration || 1000) + '" min="50" max="60000" step="50" ' +
+                    '      <input type="number" value="' + (f.duration || 1000) + '" min="50" step="50" ' +
+                    (f.scroll ? 'readonly title="Auto computed from scroll distance and speed" style="color:#22d3a0;" ' : '') +
                     '        onchange="updateFrameDuration(' + idx + ', this.value)" />' +
                     '      <span>ms</span>' +
                     '    </div>' +
@@ -4690,6 +5282,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
         }
 
         function updateFrameDuration(index, val) {
+            if (frames[index] && frames[index].scroll) return;
             var v = parseInt(val, 10);
             if (isNaN(v) || v < 50) v = 50;
             if (frames[index]) {
@@ -4722,6 +5315,8 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
             syncActiveFrameFromCanvas();
             isPlayingAnimation = true;
             animPlayIndex = currentFrameIndex;
+            animScrollStep = 0;
+            stopRegionMotionPreview();
             updatePlayButtonUI(true);
             scheduleNextFrame();
         }
@@ -4730,6 +5325,30 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
             if (!isPlayingAnimation || frames.length === 0) return;
             var f = frames[animPlayIndex];
             var duration = Math.max(50, f.duration || 500);
+
+            if (f.scroll) {
+                var s = f.scroll;
+                var travel = s.rect.w + s.sprite.width;
+                var titleScroll = document.getElementById('bfCurrentTitle');
+                if (titleScroll) titleScroll.textContent = '▶ Scrolling Frame ' + (animPlayIndex + 1) + ' — ' + animScrollStep + '/' + travel;
+                document.querySelectorAll('#framesList .frame-item').forEach(function (el, idx) {
+                    el.classList.toggle('active', idx === animPlayIndex);
+                });
+                if (animScrollStep <= travel) {
+                    renderScrollingPixels(previewCanvas, f, animScrollStep);
+                    animationTimer = setTimeout(function () {
+                        animScrollStep++;
+                        scheduleNextFrame();
+                    }, s.stepMs);
+                } else {
+                    animationTimer = setTimeout(function () {
+                        animPlayIndex = (animPlayIndex + 1) % frames.length;
+                        animScrollStep = 0;
+                        scheduleNextFrame();
+                    }, s.pauseMs);
+                }
+                return;
+            }
 
             if (f.canvas) {
                 ctx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
@@ -4746,6 +5365,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
 
             animationTimer = setTimeout(function () {
                 animPlayIndex = (animPlayIndex + 1) % frames.length;
+                animScrollStep = 0;
                 scheduleNextFrame();
             }, duration);
         }
@@ -4792,7 +5412,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
         }
 
         // ── Build Blink C++ sketch ──────────────────────────────────────────────
-        function buildBlinkSketch(frameDecls, frameNames, durations, tw, th, isColor, numPanels, pins) {
+        function buildBlinkSketch(frameDecls, frameNames, durations, tw, th, isColor, numPanels, pins, scrolling) {
             var pixCount = tw * th;
             var typeStr = isColor ? 'uint16_t' : 'uint8_t';
             var arrSize = isColor ? pixCount : Math.ceil(tw / 8) * th;
@@ -4826,6 +5446,53 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                     switchCases + '\n' +
                     '  }';
             }
+
+            scrolling = scrolling || [];
+            var scrollingCode = scrolling.map(function (info) {
+                var i = info.frameIndex, r = info.rect, w = info.spriteW, h = info.spriteH;
+                var getBase = isColor
+                    ? 'pgm_read_word(&frame_' + i + '[y * ' + tw + ' + x])'
+                    : '((pgm_read_byte(&frame_' + i + '[(y * ' + tw + ' + x) / 8]) & (0x80 >> ((y * ' + tw + ' + x) & 7))) ? 0xFFFF : 0x0000)';
+                return '// Scroll region for frame ' + i + ': static pixels outside rectangle never change.\n' +
+                    'void drawScrollRegion_' + i + '(int step) {\n' +
+                    '  const int leftX = ' + (info.direction === 'right' ? ('-' + w + ' + step') : (r.w + ' - step')) + ';\n' +
+                    '  for (int ry = 0; ry < ' + r.h + '; ++ry) {\n' +
+                    '    for (int rx = 0; rx < ' + r.w + '; ++rx) {\n' +
+                    '      int x = rx + ' + r.x + ', y = ry + ' + r.y + ';\n' +
+                    '      uint16_t rgb = ' + getBase + ';\n' +
+                    '      int sx = rx - leftX, sy = ry;\n' +
+                    '      if (sx >= 0 && sx < ' + w + ' && sy >= 0 && sy < ' + h + ') {\n' +
+                    '        int si = sy * ' + w + ' + sx;\n' +
+                    '        if (pgm_read_byte(&scrollMask_' + i + '[si >> 3]) & (0x80 >> (si & 7))) {\n' +
+                    '          rgb = pgm_read_word(&scrollSprite_' + i + '[si]);\n' +
+                    '        }\n' +
+                    '      }\n' +
+                    '      dma_display->drawPixel(x, y, rgb);\n' +
+                    '    }\n' +
+                    '  }\n' +
+                    '}\n';
+            }).join('\n');
+
+            var scrollBranches = scrolling.map(function (info) {
+                var i = info.frameIndex;
+                var total = info.rect.w + info.spriteW;
+                return '  ' + (i === scrolling[0].frameIndex ? 'if' : 'else if') + ' (currentFrame == ' + i + ') {\n' +
+                    '    drawFrame(currentFrame);  // draw fixed artwork ONCE\n' +
+                    '    for (int step = 0; step <= ' + total + '; ++step) {\n' +
+                    '      drawScrollRegion_' + i + '(step);\n' +
+                    '      delay(' + info.stepMs + ');\n' +
+                    '    }\n' +
+                    (info.pauseMs > 0 ? '    delay(' + info.pauseMs + ');\n' : '') +
+                    '  }';
+            }).join('\n');
+            var loopCode = scrolling.length ?
+                (scrollBranches + ' else {\n' +
+                    '    drawFrame(currentFrame);\n' +
+                    '    delay(FRAME_DURATIONS[currentFrame]);\n' +
+                    '  }\n') :
+                ('  drawFrame(currentFrame);\n' +
+                    '  Serial.print("Frame: "); Serial.println(currentFrame);\n' +
+                    '  delay(FRAME_DURATIONS[currentFrame]);\n');
 
             return (
                 '/*\n' +
@@ -4890,6 +5557,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                 drawFnBody + '\n' +
                 '}\n' +
                 '\n' +
+                scrollingCode + '\n' +
                 '// ----------------------------------------------------------------\n' +
                 '//  setup()\n' +
                 '// ----------------------------------------------------------------\n' +
@@ -4925,9 +5593,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                 '//  loop() – cycles through all frames\n' +
                 '// ----------------------------------------------------------------\n' +
                 'void loop() {\n' +
-                '  drawFrame(currentFrame);\n' +
-                '  Serial.print("Frame: "); Serial.println(currentFrame);\n' +
-                '  delay(FRAME_DURATIONS[currentFrame]);\n' +
+                loopCode +
                 '  currentFrame = (currentFrame + 1) % FRAME_COUNT;\n' +
                 '}\n'
             );
@@ -4950,7 +5616,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
             // Sync currently active frame from previewCanvas
             syncActiveFrameFromCanvas();
 
-            var frameDecls = [], frameNames = [], durations = [];
+            var frameDecls = [], frameNames = [], durations = [], scrolling = [];
 
             frames.forEach(function (f, i) {
                 var name = 'frame_' + i;
@@ -5012,9 +5678,39 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                 frameDecls.push(decl);
                 frameNames.push(name);
                 durations.push(f.duration || 1000);
+
+                if (f.scroll) {
+                    var ss = f.scroll, sprite = ss.sprite;
+                    var sw = sprite.width, sh = sprite.height;
+                    var sd = sprite.getContext('2d', { willReadFrequently: true }).getImageData(0, 0, sw, sh).data;
+                    var words = [], masks = new Uint8Array(Math.ceil(sw * sh / 8));
+                    for (var pi = 0; pi < sw * sh; pi++) {
+                        var si = pi * 4;
+                        var active = sd[si + 3] > 12;
+                        if (active) masks[pi >> 3] |= (0x80 >> (pi & 7));
+                        var rgb = isColor
+                            ? toRGB565(sd[si], sd[si + 1], sd[si + 2])
+                            : (((sd[si] + sd[si + 1] + sd[si + 2]) / 3) > thresh ? 0xFFFF : 0);
+                        words.push('0x' + rgb.toString(16).padStart(4, '0').toUpperCase());
+                    }
+                    var maskWords = Array.from(masks).map(function (n) { return '0x' + n.toString(16).padStart(2, '0').toUpperCase(); });
+                    function lineGroup(arr, cols) {
+                        var result = [];
+                        for (var start = 0; start < arr.length; start += cols)
+                            result.push('  ' + arr.slice(start, start + cols).join(', '));
+                        return result.join(',\n');
+                    }
+                    frameDecls.push('// Scrolling sprite for Frame ' + (i + 1) + ' (' + sw + 'x' + sh + ')\n' +
+                        'const uint16_t PROGMEM scrollSprite_' + i + '[' + (sw * sh) + '] = {\n' + lineGroup(words, 16) + '\n};\n' +
+                        'const uint8_t PROGMEM scrollMask_' + i + '[' + masks.length + '] = {\n' + lineGroup(maskWords, 24) + '\n};');
+                    scrolling.push({
+                        frameIndex: i, rect: ss.rect, spriteW: sw, spriteH: sh,
+                        stepMs: ss.stepMs, pauseMs: ss.pauseMs, direction: ss.direction
+                    });
+                }
             });
 
-            var sketch = buildBlinkSketch(frameDecls, frameNames, durations, tw, th, isColor, numPanels, pins);
+            var sketch = buildBlinkSketch(frameDecls, frameNames, durations, tw, th, isColor, numPanels, pins, scrolling);
 
             generated.full = sketch;
             generated.data = frameDecls.join('\n\n');
@@ -5025,6 +5721,976 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
             // Update tab label
             document.getElementById('tab-full').textContent = 'Full Blink Sketch';
         }
+
+
+        // ── Region Slide Builder: render text/pictures only inside a chosen area ──
+        // The output is ordinary full-size frame pixels, so no changes are needed
+        // to the existing slideshow compiler or the ESP32 runtime.
+        var regionBuilderState = { rect: null, base: null, picture: null, pictureName: '', customSprite: null };
+        var regionPreviewCache = null;
+
+        function cloneRegionMeta(meta) {
+            var cloned = Object.assign({}, meta, { rect: Object.assign({}, meta.rect) });
+            ['baseCanvas', 'pictureCanvas', 'customSpriteCanvas'].forEach(function (key) {
+                cloned[key] = cloneCanvasElement(meta[key]);
+            });
+            return cloned;
+        }
+
+        function cloneCanvasElement(src) {
+            if (!src) return null;
+            var c = document.createElement('canvas');
+            c.width = src.width; c.height = src.height;
+            c.getContext('2d').drawImage(src, 0, 0);
+            return c;
+        }
+
+        function setRegionStatus(msg, isError) {
+            var el = document.getElementById('regionStatus');
+            if (el) {
+                el.textContent = msg;
+                el.style.color = isError ? 'var(--red)' : 'var(--green)';
+            }
+        }
+
+        function beginRegionSelection() {
+            if (appMode !== 'blink') setMode('blink');
+            if (isPlayingAnimation) pauseBlinkAnimation();
+            setTool('select');
+            // A fresh marquee rectangle makes it clear which area will change.
+            if (selectionState.active) commitSelection();
+            setRegionStatus('Drag a rectangle across the LED preview, then click ② Save Area + Background.');
+            showToast('Drag a rectangle on the matrix to choose the moving region.', '✂️');
+        }
+
+        function captureRegionAndBase() {
+            if (appMode !== 'blink' || !previewCanvas.width) {
+                setRegionStatus('Switch to Blink / Slideshow and open a base picture first.', true);
+                return;
+            }
+            if (!selectionState.active || selectionState.w < 1 || selectionState.h < 1) {
+                setRegionStatus('First click ① and drag a selection on the LED matrix.', true);
+                return;
+            }
+            // Take coordinates before clearing the temporary selection overlay.
+            var chosen = {
+                x: Math.max(0, selectionState.x),
+                y: Math.max(0, selectionState.y),
+                w: selectionState.w,
+                h: selectionState.h
+            };
+            chosen.w = Math.min(chosen.w, previewCanvas.width - chosen.x);
+            chosen.h = Math.min(chosen.h, previewCanvas.height - chosen.y);
+            if (chosen.w < 1 || chosen.h < 1) {
+                setRegionStatus('The selected region must be inside the matrix.', true);
+                return;
+            }
+            // Commit first, in case the user moved / pasted a selection.
+            commitSelection();
+            if (appMode === 'blink') syncActiveFrameFromCanvas();
+            var base = document.createElement('canvas');
+            base.width = previewCanvas.width;
+            base.height = previewCanvas.height;
+            base.getContext('2d').drawImage(previewCanvas, 0, 0);
+            regionBuilderState.rect = chosen;
+            regionBuilderState.base = base;
+            regionBuilderState.customSprite = null;
+            document.getElementById('stripEditorWork').style.display = 'none';
+            stripEditState.open = false;
+            regionPreviewCache = null;
+            var motionCanvas = document.getElementById('regionMotionPreview');
+            if (motionCanvas) {
+                motionCanvas.width = base.width; motionCanvas.height = base.height;
+                motionCanvas.getContext('2d').drawImage(base, 0, 0);
+            }
+            document.getElementById('regionCoords').textContent =
+                'X:' + chosen.x + ' Y:' + chosen.y + ' ' + chosen.w + '×' + chosen.h;
+            setRegionStatus('Region captured! Choose text or picture, then add a slide. The outside will stay fixed.');
+            showToast('Region + fixed background saved.', '✅');
+        }
+
+        function resetRegionBuilder() {
+            stopRegionMotionPreview();
+            regionBuilderState.rect = null;
+            regionBuilderState.base = null;
+            regionBuilderState.picture = null;
+            regionBuilderState.pictureName = '';
+            regionBuilderState.customSprite = null;
+            document.getElementById('stripEditorWork').style.display = 'none';
+            stripEditState.open = false;
+            regionPreviewCache = null;
+            var coord = document.getElementById('regionCoords');
+            if (coord) coord.textContent = 'No region selected';
+            var input = document.getElementById('regionImageInput');
+            if (input) input.value = '';
+            if (selectionState.active) commitSelection();
+            setRegionStatus('Region reset. Select another area to start again.');
+        }
+
+        function toggleRegionContentFields() {
+            var isText = document.getElementById('regionContentType').value === 'text';
+            document.getElementById('regionTextFields').style.display = isText ? '' : 'none';
+            document.getElementById('regionImageFields').style.display = isText ? 'none' : '';
+        }
+
+        function loadRegionPicture(input) {
+            var file = input.files && input.files[0];
+            if (!file) return;
+            if (!file.type.startsWith('image/')) {
+                setRegionStatus('Please select a PNG or JPG picture.', true);
+                return;
+            }
+            var url = URL.createObjectURL(file);
+            var picture = new Image();
+            picture.onload = function () {
+                regionBuilderState.picture = picture;
+                regionBuilderState.pictureName = file.name;
+                invalidateStripSource();
+                URL.revokeObjectURL(url);
+                setRegionStatus('Picture loaded: ' + file.name + '. Add a region slide.');
+            };
+            picture.onerror = function () {
+                URL.revokeObjectURL(url);
+                setRegionStatus('Could not load this image file.', true);
+            };
+            picture.src = url;
+        }
+
+        function regionWrapText(drawCtx, line, maxWidth) {
+            // Pixel-level character wrapping also works when there are no spaces.
+            var groups = [];
+            var cur = '';
+            for (var ch of Array.from(line)) {
+                if (cur && drawCtx.measureText(cur + ch).width > maxWidth) {
+                    groups.push(cur);
+                    cur = ch;
+                } else {
+                    cur += ch;
+                }
+            }
+            groups.push(cur);
+            return groups;
+        }
+
+        function paintRegionText(drawCtx, rect) {
+            var value = document.getElementById('regionTextValue').value;
+            if (!value.trim()) throw new Error('Enter text for this text slide.');
+            var px = Math.min(32, Math.max(5, parseInt(document.getElementById('regionTextSize').value, 10) || 9));
+            var font = document.getElementById('regionTextFont').value === 'monospace' ? 'monospace' : 'sans-serif';
+            var align = document.getElementById('regionTextAlign').value;
+            drawCtx.font = 'bold ' + px + 'px ' + font;
+            drawCtx.fillStyle = document.getElementById('regionTextColor').value;
+            drawCtx.textBaseline = 'middle';
+            drawCtx.textAlign = align;
+            var safeWidth = Math.max(1, rect.w - 2);
+            var lines = [];
+            value.replace(/\r/g, '').split('\n').forEach(function (line) {
+                lines.push.apply(lines, regionWrapText(drawCtx, line, safeWidth));
+            });
+            var lineHeight = Math.max(6, Math.ceil(px * 1.16));
+            var blockHeight = lines.length * lineHeight;
+            var startY = rect.y + (rect.h - blockHeight) / 2 + lineHeight / 2;
+            var textX = align === 'left' ? rect.x + 1 : (align === 'right' ? rect.x + rect.w - 1 : rect.x + rect.w / 2);
+            lines.forEach(function (line, i) {
+                drawCtx.fillText(line, textX, startY + i * lineHeight);
+            });
+        }
+
+        function paintRegionPicture(drawCtx, rect) {
+            var img = regionBuilderState.picture;
+            if (!img) throw new Error('Choose a picture file first.');
+            var sw = img.naturalWidth || img.width, sh = img.naturalHeight || img.height;
+            if (!sw || !sh) throw new Error('The selected picture is not ready.');
+            var fit = document.getElementById('regionPictureFit').value;
+            var targetW = rect.w, targetH = rect.h;
+            var dw, dh, dx, dy;
+            if (fit === 'fill') {
+                dw = targetW; dh = targetH; dx = rect.x; dy = rect.y;
+            } else {
+                var scale = fit === 'fit' ? Math.min(targetW / sw, targetH / sh) : Math.max(targetW / sw, targetH / sh);
+                dw = sw * scale; dh = sh * scale;
+                dx = rect.x + (targetW - dw) / 2;
+                dy = rect.y + (targetH - dh) / 2;
+            }
+            drawCtx.drawImage(img, dx, dy, dw, dh);
+        }
+
+        // ── True scrolling: one compact sprite, not hundreds of oversized static frames ──
+        var motionPreviewTimeout = null;
+        var motionPreviewActive = false;
+        var animScrollStep = 0;
+
+        function toggleRegionMotionControls() {
+            var isMotion = document.getElementById('regionMotion').value !== 'still';
+            document.getElementById('regionMotionControls').style.display = isMotion ? 'block' : 'none';
+            stopRegionMotionPreview();
+        }
+
+        function stopRegionMotionPreview() {
+            motionPreviewActive = false;
+            if (motionPreviewTimeout !== null) clearTimeout(motionPreviewTimeout);
+            motionPreviewTimeout = null;
+            var btn = document.getElementById('regionPreviewBtn');
+            if (btn) btn.textContent = '▶ Preview movement';
+        }
+
+        function createRegionBaseCanvas(rect, base) {
+            var dst = document.createElement('canvas');
+            dst.width = base.width; dst.height = base.height;
+            var c = dst.getContext('2d', { willReadFrequently: true });
+            c.imageSmoothingEnabled = false;
+            c.drawImage(base, 0, 0);
+            var bg = document.getElementById('regionBackground').value;
+            if (bg !== 'keep') {
+                c.fillStyle = bg === 'white' ? '#ffffff' : '#000000';
+                c.fillRect(rect.x, rect.y, rect.w, rect.h);
+            }
+            return dst;
+        }
+
+        function buildRegionSprite(rect) {
+            if (regionBuilderState.customSprite && regionBuilderState.customSprite.height === rect.h) {
+                return cloneCanvasElement(regionBuilderState.customSprite);
+            }
+            var type = document.getElementById('regionContentType').value;
+            var sprite = document.createElement('canvas');
+            var sc = sprite.getContext('2d', { willReadFrequently: true });
+            sprite.height = rect.h;
+            if (type === 'text') {
+                var txt = document.getElementById('regionTextValue').value.replace(/[\r\n]+/g, ' ').trim();
+                if (!txt) throw new Error('Enter text to scroll.');
+                var px = Math.min(32, Math.max(5, parseInt(document.getElementById('regionTextSize').value, 10) || 9));
+                var font = document.getElementById('regionTextFont').value === 'monospace' ? 'monospace' : 'sans-serif';
+                var fontSpec = 'bold ' + px + 'px ' + font;
+                sc.font = fontSpec;
+                var textW = Math.ceil(sc.measureText(txt).width);
+                if (textW + 4 > 4096) throw new Error('Text is too long for ESP32 (maximum 4096 pixels wide). Shorten the text.');
+                sprite.width = Math.max(1, textW + 4);
+                sc = sprite.getContext('2d', { willReadFrequently: true });
+                sc.font = fontSpec;
+                sc.fillStyle = document.getElementById('regionTextColor').value;
+                sc.textBaseline = 'middle'; sc.textAlign = 'left';
+                sc.fillText(txt, 2, rect.h / 2);
+            } else {
+                var img = regionBuilderState.picture;
+                if (!img || !(img.naturalWidth || img.width)) throw new Error('Choose a picture first.');
+                var sw = img.naturalWidth || img.width, sh = img.naturalHeight || img.height;
+                var targetH = Math.max(1, rect.h - 2);
+                var naturalW = Math.max(1, Math.round(sw * targetH / sh));
+                if (naturalW > 4096) throw new Error('Picture is too wide after scaling (maximum 4096 LED pixels).');
+                sprite.width = naturalW;
+                sc = sprite.getContext('2d', { willReadFrequently: true });
+                sc.drawImage(img, 0, 1, naturalW, targetH);
+            }
+            return sprite;
+        }
+
+        function buildRegionMotionSettings() {
+            if (!regionBuilderState.rect || !regionBuilderState.base) {
+                throw new Error('First select a region and click ② Save Area + Background.');
+            }
+            var rect = Object.assign({}, regionBuilderState.rect);
+            var base = regionBuilderState.base;
+            if (base.width !== parseInt(sizeSelect.value, 10)) {
+                throw new Error('Panel size changed; reselect the region.');
+            }
+            var stepMs = Math.min(500, Math.max(20, parseInt(document.getElementById('regionScrollStep').value, 10) || 55));
+            var pauseMs = Math.min(10000, Math.max(0, parseInt(document.getElementById('regionScrollPause').value, 10) || 0));
+            var dir = document.getElementById('regionMotion').value;
+            var sprite = buildRegionSprite(rect);
+            var staticBase = createRegionBaseCanvas(rect, base);
+            return { canvas: staticBase, scroll: { rect: rect, sprite: sprite, stepMs: stepMs, pauseMs: pauseMs, direction: dir } };
+        }
+
+        function renderScrollingPixels(destination, frame, step) {
+            var draw = destination.getContext('2d', { willReadFrequently: true });
+            var slide = frame.scroll, r = slide.rect;
+            draw.clearRect(0, 0, destination.width, destination.height);
+            draw.drawImage(frame.canvas, 0, 0);
+            draw.save();
+            draw.beginPath(); draw.rect(r.x, r.y, r.w, r.h); draw.clip();
+            var startX = slide.direction === 'right' ? (-slide.sprite.width + step) : (r.w - step);
+            draw.drawImage(slide.sprite, r.x + startX, r.y);
+            draw.restore();
+        }
+
+        function drawStripLEDLive(source) {
+            var dest = document.getElementById('stripLivePreview');
+            if (!dest || !source || !stripEditState.open) return;
+            if (dest.width !== source.width || dest.height !== source.height) {
+                dest.width = source.width; dest.height = source.height;
+            }
+            var c = dest.getContext('2d'); c.clearRect(0, 0, dest.width, dest.height);
+            c.imageSmoothingEnabled = false; c.drawImage(source, 0, 0);
+        }
+        function updateRegionPreviewSlider(current, max) {
+            var slider = document.getElementById('regionPreviewSlider');
+            if (!slider) return;
+            slider.max = Math.max(1, max || 1);
+            slider.value = Math.max(0, Math.min(parseInt(current || 0, 10), parseInt(slider.max, 10)));
+            updateStripVisibleWindow(parseInt(slider.value, 10));
+            var inner = document.getElementById('stripScrub');
+            if (inner) { inner.max = slider.max; inner.value = slider.value; }
+        }
+
+        function renderRegionPreviewAt(step, data) {
+            var preview = document.getElementById('regionMotionPreview');
+            if (!data) {
+                data = buildRegionMotionSettings();
+            }
+            regionPreviewCache = data;
+            preview.width = data.canvas.width; preview.height = data.canvas.height;
+            if (data.scroll.direction === 'still') {
+                var ctx = preview.getContext('2d');
+                ctx.clearRect(0, 0, preview.width, preview.height);
+                ctx.drawImage(data.canvas, 0, 0);
+                ctx.save(); ctx.beginPath();
+                var rr = data.scroll.rect;
+                ctx.rect(rr.x, rr.y, rr.w, rr.h); ctx.clip();
+                if (document.getElementById('regionContentType').value === 'text') paintRegionText(ctx, rr);
+                else paintRegionPicture(ctx, rr);
+                ctx.restore();
+                document.getElementById('regionMotionProgress').textContent = 'Still frame';
+                updateRegionPreviewSlider(0, 1);
+                return;
+            }
+            var length = data.scroll.rect.w + data.scroll.sprite.width;
+            var clamped = Math.max(0, Math.min(parseInt(step || 0, 10), length));
+            renderScrollingPixels(preview, data, clamped);
+            updateRegionPreviewSlider(clamped, length);
+            document.getElementById('regionMotionProgress').textContent = 'Position ' + clamped + ' / ' + length + ' px';
+            drawStripLEDLive(preview);
+        }
+
+        function scrubRegionMotionPreview(value) {
+            try {
+                stopRegionMotionPreview();
+                renderRegionPreviewAt(parseInt(value || 0, 10), regionPreviewCache || buildRegionMotionSettings());
+            } catch (err) {
+                setRegionStatus(err.message, true);
+            }
+        }
+
+        function resetRegionPreviewPosition() {
+            scrubRegionMotionPreview(0);
+        }
+
+        function loadSelectedFrameToRegionEditor() {
+            var f = frames[currentFrameIndex];
+            if (!f || !f.regionMeta) {
+                setRegionStatus('Select a slide created from Region Slides first, then click Load Selected Slide to Editor.', true);
+                return;
+            }
+            var m = f.regionMeta;
+            regionBuilderState.rect = Object.assign({}, m.rect);
+            regionBuilderState.base = cloneCanvasElement(m.baseCanvas);
+            regionBuilderState.picture = cloneCanvasElement(m.pictureCanvas);
+            regionBuilderState.pictureName = m.pictureName || '';
+            regionBuilderState.customSprite = cloneCanvasElement(m.customSpriteCanvas || (f.scroll ? f.scroll.sprite : null));
+            regionPreviewCache = null;
+            document.getElementById('regionCoords').textContent = 'x=' + m.rect.x + ', y=' + m.rect.y + ', ' + m.rect.w + '×' + m.rect.h;
+            document.getElementById('regionContentType').value = m.type || 'text';
+            toggleRegionContentFields();
+            document.getElementById('regionDuration').value = m.duration || f.duration || 2000;
+            document.getElementById('regionBackground').value = m.background || 'black';
+            document.getElementById('regionMotion').value = m.motion || 'still';
+            toggleRegionMotionControls();
+            document.getElementById('regionScrollStep').value = m.stepMs || 55;
+            document.getElementById('regionScrollPause').value = m.pauseMs || 400;
+            if ((m.type || 'text') === 'text') {
+                document.getElementById('regionTextValue').value = m.textValue || '';
+                document.getElementById('regionTextSize').value = m.textSize || 9;
+                document.getElementById('regionTextAlign').value = m.textAlign || 'center';
+                document.getElementById('regionTextFont').value = m.textFont || 'sans-serif';
+                document.getElementById('regionTextColor').value = m.textColor || '#ffffff';
+            } else {
+                document.getElementById('regionPictureFit').value = m.pictureFit || 'crop';
+            }
+            setRegionStatus('Loaded slide ' + (currentFrameIndex + 1) + ' into the editor. Change it, then click Replace Current Slide.');
+            try {
+                if (m.motion && m.motion !== 'still') openStripEditor(false);
+                renderRegionPreviewAt(0);
+            } catch (err) { }
+        }
+
+        function toggleRegionMotionPreview() {
+            if (motionPreviewActive) { stopRegionMotionPreview(); return; }
+            if (isPlayingAnimation) pauseBlinkAnimation();
+            try {
+                var data = buildRegionMotionSettings();
+                var preview = document.getElementById('regionMotionPreview');
+                preview.width = data.canvas.width; preview.height = data.canvas.height;
+                var btn = document.getElementById('regionPreviewBtn');
+                btn.textContent = '■ Stop preview';
+                motionPreviewActive = true;
+                if (data.scroll.direction === 'still') {
+                    var composed = data.canvas.getContext('2d');
+                    composed.save(); composed.beginPath();
+                    var r = data.scroll.rect;
+                    composed.rect(r.x, r.y, r.w, r.h); composed.clip();
+                    if (document.getElementById('regionContentType').value === 'text') paintRegionText(composed, r);
+                    else paintRegionPicture(composed, r);
+                    composed.restore();
+                    preview.getContext('2d').drawImage(data.canvas, 0, 0);
+                    drawStripLEDLive(preview);
+                    document.getElementById('regionMotionProgress').textContent = 'Still frame';
+                    updateRegionPreviewSlider(0, 1);
+                    stopRegionMotionPreview();
+                    return;
+                }
+                var step = 0, length = data.scroll.rect.w + data.scroll.sprite.width;
+                function tick() {
+                    if (!motionPreviewActive) return;
+                    if (step > length) {
+                        step = 0;
+                        motionPreviewTimeout = setTimeout(tick, data.scroll.pauseMs);
+                        return;
+                    }
+                    renderScrollingPixels(preview, data, step);
+                    drawStripLEDLive(preview);
+                    updateRegionPreviewSlider(step, length);
+                    document.getElementById('regionMotionProgress').textContent =
+                        'Position ' + step + ' / ' + length + ' px — ' + (data.scroll.stepMs * (length + 1) / 1000).toFixed(1) + 's to exit';
+                    step++;
+                    motionPreviewTimeout = setTimeout(tick, data.scroll.stepMs);
+                }
+                tick();
+            } catch (err) {
+                stopRegionMotionPreview();
+                setRegionStatus(err.message, true);
+            }
+        }
+
+        function createRegionSlide(replaceCurrent) {
+            if (appMode !== 'blink') {
+                setRegionStatus('Select Blink / Slideshow mode first.', true);
+                return;
+            }
+            if (!regionBuilderState.rect || !regionBuilderState.base) {
+                setRegionStatus('Select the desired area and click ② Save Area + Background first.', true);
+                return;
+            }
+            if (selectionState.active) commitSelection();
+            if (isPlayingAnimation) pauseBlinkAnimation();
+            var rect = regionBuilderState.rect;
+            var base = regionBuilderState.base;
+            var parts = sizeSelect.value.split('x');
+            var tw = parseInt(parts[0]), th = parseInt(parts[1]);
+            if (tw !== base.width || th !== base.height) {
+                setRegionStatus('Panel size changed. Capture the region and base again.', true);
+                return;
+            }
+            var duration = parseInt(document.getElementById('regionDuration').value, 10);
+            duration = isNaN(duration) ? 2000 : Math.max(50, Math.min(60000, duration));
+            var type = document.getElementById('regionContentType').value;
+            var moving = document.getElementById('regionMotion').value !== 'still';
+            if (moving) {
+                var spec;
+                try { spec = buildRegionMotionSettings(); }
+                catch (err) { setRegionStatus(err.message, true); return; }
+                stopRegionMotionPreview();
+                var motion = spec.scroll;
+                duration = (motion.rect.w + motion.sprite.width + 1) * motion.stepMs + motion.pauseMs;
+                var moveTitle = (motion.direction === 'left' ? '⬅ ' : '➡ ') + (type === 'text'
+                    ? 'Scrolling text: ' + document.getElementById('regionTextValue').value.replace(/\s+/g, ' ').trim().slice(0, 40)
+                    : 'Scrolling picture: ' + (regionBuilderState.pictureName || 'Image'));
+                if (replaceCurrent && frames[currentFrameIndex]) {
+                    var target = frames[currentFrameIndex];
+                    target.canvas = spec.canvas;
+                    target.scroll = motion;
+                    target.fileName = moveTitle;
+                    target.duration = duration;
+                    target.img = null;
+                    target.undoStack = []; target.redoStack = [];
+                    target.hasCustomEdits = true;
+                    target.regionMeta = {
+                        rect: Object.assign({}, rect),
+                        baseCanvas: cloneCanvasElement(base),
+                        type: type,
+                        background: document.getElementById('regionBackground').value,
+                        duration: duration,
+                        motion: motion.direction,
+                        stepMs: motion.stepMs,
+                        pauseMs: motion.pauseMs,
+                        textValue: document.getElementById('regionTextValue').value,
+                        textSize: parseInt(document.getElementById('regionTextSize').value, 10) || 9,
+                        textAlign: document.getElementById('regionTextAlign').value,
+                        textFont: document.getElementById('regionTextFont').value,
+                        textColor: document.getElementById('regionTextColor').value,
+                        pictureFit: document.getElementById('regionPictureFit').value,
+                        pictureCanvas: cloneCanvasElement(regionBuilderState.picture),
+                        pictureName: regionBuilderState.pictureName || '',
+                        customSpriteCanvas: cloneCanvasElement(motion.sprite)
+                    };
+                } else {
+                    frames.push({
+                        fid: frameIdCounter++, fileName: moveTitle, duration: duration,
+                        canvas: spec.canvas, scroll: motion, img: null,
+                        undoStack: [], redoStack: [], hasCustomEdits: true,
+                        regionMeta: {
+                            rect: Object.assign({}, rect),
+                            baseCanvas: cloneCanvasElement(base),
+                            type: type, background: document.getElementById('regionBackground').value, duration: duration,
+                            motion: motion.direction, stepMs: motion.stepMs, pauseMs: motion.pauseMs,
+                            textValue: document.getElementById('regionTextValue').value,
+                            textSize: parseInt(document.getElementById('regionTextSize').value, 10) || 9,
+                            textAlign: document.getElementById('regionTextAlign').value,
+                            textFont: document.getElementById('regionTextFont').value,
+                            textColor: document.getElementById('regionTextColor').value,
+                            pictureFit: document.getElementById('regionPictureFit').value,
+                            pictureCanvas: cloneCanvasElement(regionBuilderState.picture),
+                            pictureName: regionBuilderState.pictureName || '',
+                            customSpriteCanvas: cloneCanvasElement(motion.sprite)
+                        }
+                    });
+                }
+                renderFrameList();
+                selectFrame(replaceCurrent ? currentFrameIndex : frames.length - 1);
+                setRegionStatus('Scrolling region saved! It enters from off-screen and fully exits. Use Play Animation or ▶ Preview movement, then generate .ino.');
+                showToast('Added real scrolling motion, not hundreds of bitmap frames!', '✅');
+                return;
+            }
+            var created = document.createElement('canvas');
+            created.width = tw; created.height = th;
+            var composed = created.getContext('2d');
+            composed.imageSmoothingEnabled = false;
+            composed.drawImage(base, 0, 0);
+            composed.save();
+            composed.beginPath();
+            composed.rect(rect.x, rect.y, rect.w, rect.h);
+            composed.clip();
+            var background = document.getElementById('regionBackground').value;
+            if (background !== 'keep') {
+                composed.fillStyle = background === 'white' ? '#ffffff' : '#000000';
+                composed.fillRect(rect.x, rect.y, rect.w, rect.h);
+            }
+            try {
+                if (type === 'image') paintRegionPicture(composed, rect);
+                else paintRegionText(composed, rect);
+            } catch (err) {
+                composed.restore();
+                setRegionStatus(err.message, true);
+                return;
+            }
+            composed.restore();
+            var title = type === 'image'
+                ? ('Region picture: ' + (regionBuilderState.pictureName || 'Image'))
+                : ('Region text: ' + document.getElementById('regionTextValue').value.replace(/\s+/g, ' ').trim().slice(0, 30));
+            if (replaceCurrent && frames[currentFrameIndex]) {
+                var idx = currentFrameIndex;
+                // selectFrame(current index) refreshes the preview without replacing frame content.
+                frames[idx].canvas = created;
+                frames[idx].scroll = null;
+                frames[idx].img = null;
+                frames[idx].fileName = title;
+                frames[idx].duration = duration;
+                frames[idx].undoStack = [];
+                frames[idx].redoStack = [];
+                frames[idx].hasCustomEdits = true;
+                frames[idx].regionMeta = {
+                    rect: Object.assign({}, rect),
+                    baseCanvas: cloneCanvasElement(base),
+                    type: type,
+                    background: background,
+                    duration: duration,
+                    motion: 'still',
+                    stepMs: parseInt(document.getElementById('regionScrollStep').value, 10) || 55,
+                    pauseMs: parseInt(document.getElementById('regionScrollPause').value, 10) || 400,
+                    textValue: document.getElementById('regionTextValue').value,
+                    textSize: parseInt(document.getElementById('regionTextSize').value, 10) || 9,
+                    textAlign: document.getElementById('regionTextAlign').value,
+                    textFont: document.getElementById('regionTextFont').value,
+                    textColor: document.getElementById('regionTextColor').value,
+                    pictureFit: document.getElementById('regionPictureFit').value,
+                    pictureCanvas: cloneCanvasElement(regionBuilderState.picture),
+                    pictureName: regionBuilderState.pictureName || ''
+                };
+                renderFrameList();
+                selectFrame(idx);
+                setRegionStatus('Replaced slide ' + (idx + 1) + ' with ' + type + ' inside the selected region.');
+            } else {
+                frames.push({
+                    fid: frameIdCounter++, fileName: title, duration: duration,
+                    canvas: created, img: null, undoStack: [], redoStack: [], hasCustomEdits: true,
+                    regionMeta: {
+                        rect: Object.assign({}, rect),
+                        baseCanvas: cloneCanvasElement(base),
+                        type: type,
+                        background: background,
+                        duration: duration,
+                        motion: 'still',
+                        stepMs: parseInt(document.getElementById('regionScrollStep').value, 10) || 55,
+                        pauseMs: parseInt(document.getElementById('regionScrollPause').value, 10) || 400,
+                        textValue: document.getElementById('regionTextValue').value,
+                        textSize: parseInt(document.getElementById('regionTextSize').value, 10) || 9,
+                        textAlign: document.getElementById('regionTextAlign').value,
+                        textFont: document.getElementById('regionTextFont').value,
+                        textColor: document.getElementById('regionTextColor').value,
+                        pictureFit: document.getElementById('regionPictureFit').value,
+                        pictureCanvas: cloneCanvasElement(regionBuilderState.picture),
+                        pictureName: regionBuilderState.pictureName || ''
+                    }
+                });
+                renderFrameList();
+                selectFrame(frames.length - 1);
+                setRegionStatus('Added slide ' + frames.length + '. Change the text or picture and click Add again.');
+            }
+            showToast('Region ' + type + ' slide ready! Generate .ino when finished.', '✅');
+        }
+
+        // ── Extended editable scrolling artwork. The canvas is the full timeline,
+        //    not the LED panel. [screen-wide padding][sprite][screen-wide padding].
+        //    The moving blue rectangle marks the LED's visible region.
+        var stripEditState = {
+            open: false, tool: 'pencil', zoom: 4, pad: 0, rect: null, trimLeft: 0,
+            isDown: false, last: null, undo: [], redo: [], maxUndo: 24,
+            sel: null, mode: null, origin: null, moveCanvas: null, isCopy: false,
+            clipboard: null
+        };
+
+        function stripCanvas() { return document.getElementById('stripPixelCanvas'); }
+        function stripCtx() { return stripCanvas().getContext('2d', { willReadFrequently: true }); }
+        function stripStatus(msg, error) {
+            var s = document.getElementById('stripStatus');
+            if (s) { s.textContent = msg; s.style.color = error ? '#f87171' : '#34d399'; }
+        }
+        function invalidateStripSource() {
+            regionBuilderState.customSprite = null;
+            stripEditState.open = false;
+            regionPreviewCache = null;
+            document.getElementById('stripEditorWork').style.display = 'none';
+            setRegionStatus('Source changed. Click Open / Edit Entire Scroll Strip to rebuild editable pixels.');
+        }
+        function openStripEditor(forceSource) {
+            try {
+                if (!regionBuilderState.rect || !regionBuilderState.base)
+                    throw new Error('First select a region and click ② Save Area + Background.');
+                if (document.getElementById('regionMotion').value === 'still')
+                    throw new Error('Choose Scroll left or Scroll right for extended editing.');
+                if (forceSource) regionBuilderState.customSprite = null;
+                var spr = buildRegionSprite(regionBuilderState.rect);
+                var pad = regionBuilderState.rect.w;
+                var c = stripCanvas();
+                c.width = pad * 2 + spr.width;
+                c.height = regionBuilderState.rect.h;
+                var ctx = stripCtx(); ctx.clearRect(0, 0, c.width, c.height);
+                ctx.drawImage(spr, pad, 0);
+                stripEditState.pad = pad;
+                stripEditState.trimLeft = pad;
+                stripEditState.rect = Object.assign({}, regionBuilderState.rect);
+                stripEditState.open = true;
+                stripEditState.sel = null;
+                stripEditState.undo = []; stripEditState.redo = [];
+                stripEditState.mode = null;
+                document.getElementById('stripEditorWork').style.display = 'block';
+                setStripTool('pencil');
+                stripUpdateLayout();
+                stripFitWhole();
+                var slider = document.getElementById('regionPreviewSlider');
+                updateStripVisibleWindow(slider ? +slider.value : 0);
+                commitStripToSprite(false);
+                stripStatus('Full scrolling content open: ' + spr.width + '×' + spr.height + ' editable content pixels. Scroll sideways for off-screen pixels.');
+                document.getElementById('stripScrollWrap').scrollLeft = 0;
+            } catch (e) { setRegionStatus(e.message, true); stripStatus(e.message, true); }
+        }
+        function stripUpdateLayout() {
+            var c = stripCanvas(), z = stripEditState.zoom, w = c.width * z, h = c.height * z;
+            c.style.width = w + 'px'; c.style.height = h + 'px';
+            var holder = document.getElementById('stripCanvasHolder');
+            holder.style.width = w + 'px'; holder.style.height = h + 'px';
+            var grid = document.getElementById('stripGrid');
+            grid.style.width = w + 'px'; grid.style.height = h + 'px';
+            grid.style.backgroundSize = z + 'px ' + z + 'px';
+            grid.style.display = z >= 4 ? 'block' : 'none';
+            var ruler = document.getElementById('stripRuler');
+            ruler.style.width = w + 'px';
+            ruler.textContent = '';
+            var interval = z < 4 ? 32 : (z < 9 ? 16 : 8);
+            for (var x = 0; x < c.width; x += interval) {
+                var e = document.createElement('span');
+                e.style.left = (x * z + 5) + 'px'; e.textContent = x;
+                ruler.appendChild(e);
+            }
+            document.getElementById('stripZoomLabel').textContent = z + '×';
+            updateStripVisibleWindow(+(document.getElementById('regionPreviewSlider').value || 0));
+            stripUpdateSelectionUI();
+        }
+        function toggleStripFullscreen() {
+            var el = document.getElementById('stripEditorPanel');
+            el.classList.toggle('fullscreen');
+            document.getElementById('stripExpandBtn').textContent = el.classList.contains('fullscreen')
+                ? '⛶ Close Expanded Editor' : '⛶ Expand Full Pixel Editor';
+            if (stripEditState.open) stripFitWhole();
+        }
+        function stripFitWhole() {
+            if (!stripEditState.open) return;
+            var holder = document.getElementById('stripScrollWrap');
+            var usable = Math.max(150, holder.clientWidth - 24);
+            stripEditState.zoom = Math.max(1, Math.min(16, Math.floor(usable / stripCanvas().width)));
+            stripUpdateLayout();
+        }
+        function stripZoomBy(n) {
+            if (!stripEditState.open) return;
+            stripEditState.zoom = Math.max(1, Math.min(16, stripEditState.zoom + n));
+            stripUpdateLayout();
+        }
+        function updateStripVisibleWindow(step) {
+            if (!stripEditState.open || !stripEditState.rect) return;
+            var box = document.getElementById('stripVisibleWindow');
+            var z = stripEditState.zoom;
+            var c = stripCanvas(), w = stripEditState.rect.w;
+            var direction = document.getElementById('regionMotion').value;
+            var pos = direction === 'right' ? (c.width - w - step) : step;
+            // Sprite data is alpha-trimmed when exported. Shift the outline to
+            // compensate for source transparent margins in this editable strip.
+            pos += (stripEditState.trimLeft - stripEditState.pad);
+            box.style.left = (Math.max(0, Math.min(c.width - w, pos)) * z) + 'px';
+            box.style.width = (stripEditState.rect.w * z) + 'px';
+            box.style.height = (stripCanvas().height * z) + 'px';
+        }
+        function setStripTool(name) {
+            if (!['pencil', 'eraser', 'fill', 'picker', 'select'].includes(name)) return;
+            stripEditState.tool = name;
+            document.querySelectorAll('[data-strip-tool]').forEach(function (b) {
+                b.classList.toggle('selected', b.getAttribute('data-strip-tool') === name);
+            });
+        }
+        function stripCoords(e) {
+            var c = stripCanvas(), b = c.getBoundingClientRect();
+            return {
+                x: Math.max(0, Math.min(c.width - 1, Math.floor((e.clientX - b.left) * c.width / b.width))),
+                y: Math.max(0, Math.min(c.height - 1, Math.floor((e.clientY - b.top) * c.height / b.height)))
+            };
+        }
+        function stripSnapshot() {
+            var c = stripCanvas();
+            stripEditState.undo.push(stripCtx().getImageData(0, 0, c.width, c.height));
+            if (stripEditState.undo.length > stripEditState.maxUndo) stripEditState.undo.shift();
+            stripEditState.redo = [];
+        }
+        function stripUndo() {
+            if (!stripEditState.open || !stripEditState.undo.length) return;
+            var c = stripCanvas();
+            stripEditState.redo.push(stripCtx().getImageData(0, 0, c.width, c.height));
+            stripCtx().putImageData(stripEditState.undo.pop(), 0, 0);
+            commitStripToSprite(false);
+        }
+        function stripRedo() {
+            if (!stripEditState.open || !stripEditState.redo.length) return;
+            var c = stripCanvas();
+            stripEditState.undo.push(stripCtx().getImageData(0, 0, c.width, c.height));
+            stripCtx().putImageData(stripEditState.redo.pop(), 0, 0);
+            commitStripToSprite(false);
+        }
+        function stripSetPixel(x, y, erase) {
+            var ctx = stripCtx();
+            if (erase) ctx.clearRect(x, y, 1, 1);
+            else {
+                ctx.fillStyle = document.getElementById('stripColor').value;
+                ctx.fillRect(x, y, 1, 1);
+            }
+        }
+        function stripLine(from, to, erase) {
+            var x = from.x, y = from.y, dx = Math.abs(to.x - x), dy = Math.abs(to.y - y);
+            var sx = x < to.x ? 1 : -1, sy = y < to.y ? 1 : -1, err = dx - dy;
+            while (true) {
+                stripSetPixel(x, y, erase);
+                if (x === to.x && y === to.y) break;
+                var err2 = 2 * err;
+                if (err2 > -dy) { err -= dy; x += sx; }
+                if (err2 < dx) { err += dx; y += sy; }
+            }
+        }
+        function stripFill(x, y) {
+            var c = stripCanvas(), ctx = stripCtx(), im = ctx.getImageData(0, 0, c.width, c.height);
+            var d = im.data, start = (y * c.width + x) * 4;
+            var old = [d[start], d[start + 1], d[start + 2], d[start + 3]];
+            var col = document.getElementById('stripColor').value;
+            var rr = parseInt(col.slice(1, 3), 16), gg = parseInt(col.slice(3, 5), 16), bb = parseInt(col.slice(5, 7), 16);
+            var target = [rr, gg, bb, 255];
+            if (old.every((v, i) => v === target[i])) return;
+            var seen = new Uint8Array(c.width * c.height), queue = [y * c.width + x]; seen[queue[0]] = 1;
+            while (queue.length) {
+                var p = queue.pop(), idx = p * 4;
+                if (d[idx] !== old[0] || d[idx + 1] !== old[1] || d[idx + 2] !== old[2] || d[idx + 3] !== old[3]) continue;
+                d[idx] = rr; d[idx + 1] = gg; d[idx + 2] = bb; d[idx + 3] = 255;
+                var xx = p % c.width, yy = (p / c.width) | 0;
+                var n = [];
+                if (xx > 0) n.push(p - 1); if (xx < c.width - 1) n.push(p + 1);
+                if (yy > 0) n.push(p - c.width); if (yy < c.height - 1) n.push(p + c.width);
+                for (var k = 0; k < n.length; k++)if (!seen[n[k]]) { seen[n[k]] = 1; queue.push(n[k]); }
+            }
+            ctx.putImageData(im, 0, 0);
+        }
+        function stripUpdateSelectionUI() {
+            var s = stripEditState.sel, el = document.getElementById('stripSelection');
+            if (!s) { el.style.display = 'none'; return; }
+            var z = stripEditState.zoom;
+            el.style.display = 'block'; el.style.left = s.x * z + 'px'; el.style.top = s.y * z + 'px';
+            el.style.width = s.w * z + 'px'; el.style.height = s.h * z + 'px';
+        }
+        function stripDown(e) {
+            if (!stripEditState.open || !(e.button === 0 || e.button === 2)) return;
+            e.preventDefault();
+            document.getElementById('stripScrollWrap').focus({ preventScroll: true });
+            var p = stripCoords(e), tool = stripEditState.tool, sel = stripEditState.sel;
+            stripEditState.isDown = true;
+            stripEditState.last = p;
+            if (tool === 'picker') {
+                var rgba = stripCtx().getImageData(p.x, p.y, 1, 1).data;
+                document.getElementById('stripColor').value = rgbToHex(rgba[0], rgba[1], rgba[2]).toLowerCase();
+                stripEditState.isDown = false; return;
+            }
+            if (tool === 'select') {
+                if (sel && p.x >= sel.x && p.x < sel.x + sel.w && p.y >= sel.y && p.y < sel.y + sel.h) {
+                    stripSnapshot();
+                    var float = document.createElement('canvas'); float.width = sel.w; float.height = sel.h;
+                    float.getContext('2d').drawImage(stripCanvas(), sel.x, sel.y, sel.w, sel.h, 0, 0, sel.w, sel.h);
+                    stripEditState.moveCanvas = float;
+                    stripEditState.isCopy = e.altKey;
+                    stripEditState.mode = 'move';
+                    stripEditState.origin = { mouseX: p.x, mouseY: p.y, x: sel.x, y: sel.y };
+                    if (!stripEditState.isCopy) stripCtx().clearRect(sel.x, sel.y, sel.w, sel.h);
+                    var overlay = document.getElementById('stripFloatCanvas');
+                    overlay.width = sel.w; overlay.height = sel.h; overlay.getContext('2d').drawImage(float, 0, 0);
+                    overlay.style.display = 'block';
+                } else {
+                    stripEditState.mode = 'select';
+                    stripEditState.origin = p;
+                    stripEditState.sel = { x: p.x, y: p.y, w: 1, h: 1 };
+                    document.getElementById('stripFloatCanvas').style.display = 'none';
+                }
+                stripUpdateSelectionUI(); return;
+            }
+            stripSnapshot();
+            if (tool === 'fill') { stripFill(p.x, p.y); stripEditState.isDown = false; commitStripToSprite(false); return; }
+            stripEditState.mode = 'draw';
+            stripSetPixel(p.x, p.y, tool === 'eraser' || e.button === 2);
+            stripEditState.erase = tool === 'eraser' || e.button === 2;
+        }
+        function stripMove(e) {
+            if (!stripEditState.open) return;
+            var p = stripCoords(e);
+            document.getElementById('stripPixelHud').textContent = 'X: ' + p.x + ' Y: ' + p.y;
+            if (!stripEditState.isDown) return;
+            if (stripEditState.mode === 'draw') stripLine(stripEditState.last, p, stripEditState.erase);
+            if (stripEditState.mode === 'select') {
+                var start = stripEditState.origin;
+                var l = Math.min(start.x, p.x), t = Math.min(start.y, p.y);
+                stripEditState.sel = { x: l, y: t, w: Math.abs(start.x - p.x) + 1, h: Math.abs(start.y - p.y) + 1 };
+                stripUpdateSelectionUI();
+            }
+            if (stripEditState.mode === 'move') {
+                var origin = stripEditState.origin, sel = stripEditState.sel, c = stripCanvas();
+                sel.x = Math.max(0, Math.min(c.width - sel.w, origin.x + p.x - origin.mouseX));
+                sel.y = Math.max(0, Math.min(c.height - sel.h, origin.y + p.y - origin.mouseY));
+                stripUpdateSelectionUI();
+            }
+            stripEditState.last = p;
+        }
+        function stripUp() {
+            if (!stripEditState.isDown) return;
+            if (stripEditState.mode === 'move' && stripEditState.moveCanvas && stripEditState.sel) {
+                stripCtx().drawImage(stripEditState.moveCanvas, stripEditState.sel.x, stripEditState.sel.y);
+                document.getElementById('stripFloatCanvas').style.display = 'none';
+                stripEditState.moveCanvas = null;
+            }
+            stripEditState.isDown = false;
+            if (stripEditState.mode !== 'select') commitStripToSprite(false);
+            stripEditState.mode = null;
+        }
+        function stripCopy() {
+            if (!stripEditState.open) return;
+            var s = stripEditState.sel, c = stripCanvas();
+            if (!s) s = { x: 0, y: 0, w: c.width, h: c.height };
+            var copy = document.createElement('canvas'); copy.width = s.w; copy.height = s.h;
+            copy.getContext('2d').drawImage(c, s.x, s.y, s.w, s.h, 0, 0, s.w, s.h);
+            stripEditState.clipboard = copy;
+            stripStatus('Copied ' + s.w + '×' + s.h + ' pixels.');
+        }
+        function stripPaste() {
+            if (!stripEditState.open || !stripEditState.clipboard) { stripStatus('Copy pixels first.', true); return; }
+            var c = stripCanvas(), src = stripEditState.clipboard;
+            var windowX = +(document.getElementById('regionPreviewSlider').value || 0);
+            var x = Math.min(c.width - 1, Math.max(0, windowX)), y = 0;
+            stripSnapshot();
+            stripCtx().drawImage(src, x, y);
+            stripEditState.sel = { x: x, y: y, w: Math.min(src.width, c.width - x), h: Math.min(src.height, c.height - y) };
+            stripUpdateSelectionUI(); commitStripToSprite(false);
+        }
+        function stripDeleteSelection() {
+            if (!stripEditState.open || !stripEditState.sel) return;
+            stripSnapshot();
+            var s = stripEditState.sel;
+            stripCtx().clearRect(s.x, s.y, s.w, s.h);
+            stripEditState.sel = null; stripUpdateSelectionUI(); commitStripToSprite(false);
+        }
+        function stripClear() {
+            if (!stripEditState.open) return;
+            stripSnapshot(); stripCtx().clearRect(0, 0, stripCanvas().width, stripCanvas().height);
+            stripEditState.sel = null; stripUpdateSelectionUI(); commitStripToSprite(false);
+        }
+        function stripExpand(count) {
+            if (!stripEditState.open) return;
+            var c = stripCanvas(), backup = cloneCanvasElement(c);
+            if (c.width + count > 4224) { stripStatus('Maximum extended width is 4224 pixels.', true); return; }
+            c.width += count;
+            stripCtx().drawImage(backup, 0, 0);
+            stripEditState.undo = []; stripEditState.redo = [];
+            stripUpdateLayout(); commitStripToSprite(false);
+            stripStatus('Added ' + count + ' editable off-screen columns to the right.');
+        }
+        function commitStripToSprite(message) {
+            if (!stripEditState.open) return;
+            var c = stripCanvas(), d = stripCtx().getImageData(0, 0, c.width, c.height).data;
+            var left = c.width, right = -1;
+            for (var x = 0; x < c.width; x++)for (var y = 0; y < c.height; y++) {
+                if (d[(y * c.width + x) * 4 + 3] > 8) { left = Math.min(left, x); right = Math.max(right, x); }
+            }
+            if (right < left) { left = 0; right = 0; }
+            var sw = right - left + 1;
+            if (sw > 4096) { stripStatus('Artwork exceeds 4096 pixels wide; shorten it or erase columns.', true); return; }
+            var sprite = document.createElement('canvas'); sprite.width = sw; sprite.height = c.height;
+            sprite.getContext('2d').drawImage(c, left, 0, sw, c.height, 0, 0, sw, c.height);
+            regionBuilderState.customSprite = sprite;
+            stripEditState.trimLeft = left;
+            regionPreviewCache = null;
+            if (document.getElementById('regionMotion').value !== 'still') {
+                try {
+                    var next = buildRegionMotionSettings();
+                    var oldStep = +(document.getElementById('regionPreviewSlider').value || 0);
+                    renderRegionPreviewAt(Math.min(oldStep, next.scroll.rect.w + next.scroll.sprite.width), next);
+                } catch (e) { stripStatus(e.message, true); }
+            }
+            if (message) { stripStatus('Pixel edits applied to scroll preview. Click Add Region Slide or Replace Current Slide to save them.'); }
+        }
+        // Keep edits separate from the original main matrix pixel editor.
+        (function initStripEditor() {
+            var c = stripCanvas(), w = document.getElementById('stripScrollWrap');
+            c.addEventListener('pointerdown', function (e) { stripDown(e); if (stripEditState.isDown) c.setPointerCapture(e.pointerId); });
+            c.addEventListener('pointermove', stripMove);
+            c.addEventListener('pointerup', function (e) { stripUp(); if (c.hasPointerCapture(e.pointerId)) c.releasePointerCapture(e.pointerId); });
+            c.addEventListener('pointercancel', stripUp);
+            c.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+            w.addEventListener('keydown', function (e) {
+                if (!stripEditState.open) return;
+                var key = e.key.toLowerCase();
+                if ((e.ctrlKey || e.metaKey) && key === 'z') { e.preventDefault(); e.stopPropagation(); e.shiftKey ? stripRedo() : stripUndo(); }
+                else if ((e.ctrlKey || e.metaKey) && key === 'y') { e.preventDefault(); e.stopPropagation(); stripRedo(); }
+                else if ((e.ctrlKey || e.metaKey) && key === 'c') { e.preventDefault(); e.stopPropagation(); stripCopy(); }
+                else if ((e.ctrlKey || e.metaKey) && key === 'v') { e.preventDefault(); e.stopPropagation(); stripPaste(); }
+                else if (key === 'delete' || key === 'backspace') { e.preventDefault(); e.stopPropagation(); stripDeleteSelection(); }
+                else if (key === 'b' || key === 'e' || key === 'g' || key === 'i' || key === 's') {
+                    e.preventDefault(); e.stopPropagation();
+                    setStripTool({ b: 'pencil', e: 'eraser', g: 'fill', i: 'picker', s: 'select' }[key]);
+                }
+            });
+            ['regionTextValue', 'regionTextSize', 'regionTextFont', 'regionTextColor', 'regionPictureFit', 'regionContentType'].forEach(function (id) {
+                document.getElementById(id).addEventListener('input', function () {
+                    if (stripEditState.open || regionBuilderState.customSprite) invalidateStripSource();
+                });
+            });
+        })();
 
         // ── Initialize Pixel Editor ──────────────────────────────────────────────
         initPixelEditor();
