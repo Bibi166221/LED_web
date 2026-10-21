@@ -12,10 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
 
-    <script type="text/javascript"
-        src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=gcTGt9ZXv4rro4BOYMeBbP9ouTs9HQMB2X40ualX8z4G71dD2-MPGjHUEdCata1t-2eaTnsvPxtudeoTzBvQ-sT8GX0m4yxqvcZ0wl0-YYUevAgUKUahNCfG7_2Lv6jkNMqew0NnOJge0Sb40WslbEGRN5Dc0GWmy5O_IH4K-ZI25lqAKZrGDknU06EItloVrnGGFJqs1MqgoJPWNfhDFvOZVWmmtqPAB-Vb-Ink4NhiHe0JHRzFuPWjcsMtvAOf1Ih-QeZrunA4obVBZrDQ43AXmtzMmgQJtvhGypRv0idJrN_cNW3f5hApruSxd9qBZi1NSoStyEMMAM2TEZ6khg"
-        charset="UTF-8"></script>
-    <style>
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=ZCb5-AiirBuoY510ju4d9eZUGpjgBmKRR3I6wIKQUKnm9xvBWFqlNrbOkwH5aCrvbC9AZkaEtvbWkCKhwoQCIrxj5lCIlHXKynTgdsHAvZxKlpsGidMFb_pyBHEEWvqisiKVAQi6rym1SjYO5Wek4w5CRTfszCGK54RHHYNhSkhi8hAXpAUZWXID8zqyQ6nXM6oGSY2njHoxvajRUHUB9lBubKTD8PrUgJ8M7QtghAYX1DS4o71mTavTvM-oIS_JjuhS77lnkIWZ4183W5mUww" charset="UTF-8"></script><style>
         :root {
             --bg: #0d0f1a;
             --surface: #141828;
@@ -1463,326 +1460,67 @@
         .region-builder {
             margin: 14px 0;
             padding: 15px;
-            border: 1px solid rgba(79, 142, 247, .38);
+            border: 1px solid rgba(79,142,247,.38);
             border-radius: var(--radius-sm);
-            background: linear-gradient(145deg, rgba(79, 142, 247, .09), rgba(124, 58, 237, .055));
+            background: linear-gradient(145deg, rgba(79,142,247,.09), rgba(124,58,237,.055));
         }
-
-        .region-heading {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 7px;
+        .region-heading { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 7px; }
+        .region-help { font-size: 11px; color: #a1afc8; line-height: 1.7; margin-bottom: 12px; }
+        .region-row { display: flex; gap: 7px; flex-wrap: wrap; align-items: center; margin-bottom: 10px; }
+        .region-coords { color: var(--green); font: 11px 'JetBrains Mono', monospace; }
+        .region-label { display: block; font-size: 11px; font-weight: 600; color: #a1afc8; margin-bottom: 5px; }
+        .region-field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+        .region-builder textarea, .region-builder select, .region-builder input:not([type=file]):not([type=color]) {
+            display: block; width: 100%; min-width: 0; padding: 7px 9px;
+            background: var(--bg); color: var(--text); border: 1px solid var(--border);
+            border-radius: 6px; outline: none; font: 12px 'Inter', sans-serif;
         }
-
-        .region-help {
-            font-size: 11px;
-            color: #a1afc8;
-            line-height: 1.7;
-            margin-bottom: 12px;
-        }
-
-        .region-row {
-            display: flex;
-            gap: 7px;
-            flex-wrap: wrap;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .region-coords {
-            color: var(--green);
-            font: 11px 'JetBrains Mono', monospace;
-        }
-
-        .region-label {
-            display: block;
-            font-size: 11px;
-            font-weight: 600;
-            color: #a1afc8;
-            margin-bottom: 5px;
-        }
-
-        .region-field-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .region-builder textarea,
-        .region-builder select,
-        .region-builder input:not([type=file]):not([type=color]) {
-            display: block;
-            width: 100%;
-            min-width: 0;
-            padding: 7px 9px;
-            background: var(--bg);
-            color: var(--text);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            outline: none;
-            font: 12px 'Inter', sans-serif;
-        }
-
-        .region-builder textarea {
-            resize: vertical;
-            min-height: 60px;
-            line-height: 1.45;
-        }
-
-        .region-builder input[type='color'] {
-            width: 38px;
-            height: 28px;
-            cursor: pointer;
-            border: 0;
-            background: none;
-        }
-
-        .region-builder input[type=file] {
-            color: #a1afc8;
-            font-size: 11px;
-            width: 100%;
-        }
-
-        .region-builder .region-btn {
-            border-radius: 6px;
-            border: 1px solid rgba(79, 142, 247, .45);
-            background: rgba(79, 142, 247, .13);
-            color: #b9d3ff;
-            padding: 8px 10px;
-            font-size: 11px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .region-builder .region-btn:hover {
-            background: rgba(79, 142, 247, .24);
-        }
-
-        .region-builder .region-btn.primary {
-            background: #4f8ef7;
-            color: white;
-        }
-
-        .region-builder .region-btn.primary:hover {
-            background: #3475e7;
-        }
-
-        .region-builder .region-btn.subtle {
-            border-color: var(--border);
-            background: var(--surface2);
-            color: var(--text-muted);
-        }
-
-        .region-color-row {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .region-status {
-            font-size: 11px;
-            color: var(--green);
-            line-height: 1.5;
-            min-height: 16px;
-        }
-
+        .region-builder textarea { resize: vertical; min-height: 60px; line-height: 1.45; }
+        .region-builder input[type='color'] { width: 38px; height: 28px; cursor: pointer; border: 0; background: none; }
+        .region-builder input[type=file] { color: #a1afc8; font-size: 11px; width: 100%; }
+        .region-builder .region-btn { border-radius: 6px; border: 1px solid rgba(79,142,247,.45); background: rgba(79,142,247,.13); color: #b9d3ff; padding: 8px 10px; font-size: 11px; font-weight: 700; cursor: pointer; }
+        .region-builder .region-btn:hover { background: rgba(79,142,247,.24); }
+        .region-builder .region-btn.primary { background: #4f8ef7; color: white; }
+        .region-builder .region-btn.primary:hover { background: #3475e7; }
+        .region-builder .region-btn.subtle { border-color: var(--border); background: var(--surface2); color: var(--text-muted); }
+        .region-color-row { display: flex; align-items: center; gap: 8px; }
+        .region-status { font-size: 11px; color: var(--green); line-height: 1.5; min-height: 16px; }
+        .region-bounds { padding:11px; margin:8px 0 12px; border:1px solid #3f5d8e; border-radius:8px; background:#0c1428; }
+        .region-bound-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; margin-top:7px; }
+        .region-bound-grid label { display:flex; gap:5px; flex-direction:column; color:#bcd3fb; font-size:11px; }
+        .region-bound-grid input { width:100%; box-sizing:border-box; min-width:0; }
+        @media(max-width:480px) { .region-bound-grid {grid-template-columns:repeat(2,minmax(0,1fr));} }
         .region-motion-preview {
-            width: 100%;
-            display: block;
-            background: #000;
-            image-rendering: pixelated;
-            border: 1px solid #35507d;
-            border-radius: 4px;
-            max-height: 155px;
-            margin-top: 7px;
+            width: 100%; display: block; background: #000; image-rendering: pixelated;
+            border: 1px solid #35507d; border-radius: 4px;
+            max-height: 155px; margin-top: 7px;
         }
-
         /* Full off-screen pixel strip: edits are made at the original LED-pixel resolution. */
-        .strip-editor {
-            margin-top: 14px;
-            padding: 12px;
-            background: #080e1d;
-            border: 1px solid #426598;
-            border-radius: 8px;
-        }
+        .strip-editor { margin-top:14px; padding:12px; background:#080e1d; border:1px solid #426598; border-radius:8px; }
+        .strip-editor.fullscreen { position:fixed; z-index:9500; top:2vh; left:2vw; width:96vw; height:95vh; overflow:auto; box-shadow:0 0 0 200vmax rgba(0,0,0,.78); margin:0; }
+        .strip-editor.fullscreen .strip-scroll-wrap { max-height:calc(75vh - 140px); }
+        .strip-live { background:#000; image-rendering:pixelated; display:block; width:min(100%,700px); max-height:145px; margin:9px 0; border:1px solid #426598; }
+        .strip-actions { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin:8px 0; }
+        .strip-actions button { background:#1c2743; border:1px solid #40577a; color:#d6e7ff; border-radius:5px; padding:6px 9px; cursor:pointer; font:600 11px Inter,sans-serif; }
+        .strip-actions button.selected { background:#2563eb; border-color:#60a5fa; color:white; }
+        .strip-actions input[type=color] { width:35px; height:29px; border:1px solid #40577a; border-radius:4px; padding:0; background:transparent; }
+        .strip-scroll-wrap { max-width:100%; overflow:auto; background:#030712; border:1px solid #465674; border-radius:5px; padding:4px 4px 8px; min-height:100px; }
+        .strip-ruler { height:21px; position:relative; background:#dbe5f3; color:#1e293b; font:10px monospace; overflow:hidden; }
+        .strip-ruler span { position:absolute; top:4px; transform:translateX(-50%); white-space:nowrap; }
+        .strip-canvas-holder { position:relative; margin-top:3px; line-height:0; background:#000; }
+        .strip-pixel-canvas { display:block; image-rendering:pixelated; cursor:crosshair; touch-action:none; }
+        .strip-grid { position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(to right,rgba(190,214,255,.19) 1px,transparent 1px),linear-gradient(to bottom,rgba(190,214,255,.19) 1px,transparent 1px); }
+        .strip-visible-region { position:absolute; top:0; pointer-events:none; box-sizing:border-box; background:rgba(50,113,245,.22); border:2px solid #60a5fa; box-shadow:0 0 0 1px #121b31; }
+        .strip-visible-region::before { content:'LED WINDOW'; position:absolute; left:2px; top:1px; font:8px monospace; color:#fff; line-height:1.1; text-shadow:0 1px 2px black; }
+        .strip-selection { position:absolute; border:2px dashed #facc15; box-sizing:border-box; pointer-events:none; }
+        .strip-selection canvas { image-rendering:pixelated; display:block; width:100%; height:100%; }
+        .strip-note { font-size:11px; color:#bfd0ec; margin-top:8px; line-height:1.6; }
+        .strip-status { font-size:11px; color:#34d399; margin-top:5px; min-height:15px; }
+        .region-motion-panel { margin: 12px 0 10px; padding: 12px; border: 1px solid #354666;
+            border-radius: 8px; background: #0a1022; }
+        .region-motion-hint { font-size: 11px; color: #a7c1e9; line-height: 1.6; margin: 8px 0; }
+        @media(max-width: 480px) { .region-field-grid { grid-template-columns: 1fr; } }
 
-        .strip-editor.fullscreen {
-            position: fixed;
-            z-index: 9500;
-            top: 2vh;
-            left: 2vw;
-            width: 96vw;
-            height: 95vh;
-            overflow: auto;
-            box-shadow: 0 0 0 200vmax rgba(0, 0, 0, .78);
-            margin: 0;
-        }
-
-        .strip-editor.fullscreen .strip-scroll-wrap {
-            max-height: calc(75vh - 140px);
-        }
-
-        .strip-live {
-            background: #000;
-            image-rendering: pixelated;
-            display: block;
-            width: min(100%, 700px);
-            max-height: 145px;
-            margin: 9px 0;
-            border: 1px solid #426598;
-        }
-
-        .strip-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-            margin: 8px 0;
-        }
-
-        .strip-actions button {
-            background: #1c2743;
-            border: 1px solid #40577a;
-            color: #d6e7ff;
-            border-radius: 5px;
-            padding: 6px 9px;
-            cursor: pointer;
-            font: 600 11px Inter, sans-serif;
-        }
-
-        .strip-actions button.selected {
-            background: #2563eb;
-            border-color: #60a5fa;
-            color: white;
-        }
-
-        .strip-actions input[type=color] {
-            width: 35px;
-            height: 29px;
-            border: 1px solid #40577a;
-            border-radius: 4px;
-            padding: 0;
-            background: transparent;
-        }
-
-        .strip-scroll-wrap {
-            max-width: 100%;
-            overflow: auto;
-            background: #030712;
-            border: 1px solid #465674;
-            border-radius: 5px;
-            padding: 4px 4px 8px;
-            min-height: 100px;
-        }
-
-        .strip-ruler {
-            height: 21px;
-            position: relative;
-            background: #dbe5f3;
-            color: #1e293b;
-            font: 10px monospace;
-            overflow: hidden;
-        }
-
-        .strip-ruler span {
-            position: absolute;
-            top: 4px;
-            transform: translateX(-50%);
-            white-space: nowrap;
-        }
-
-        .strip-canvas-holder {
-            position: relative;
-            margin-top: 3px;
-            line-height: 0;
-            background: #000;
-        }
-
-        .strip-pixel-canvas {
-            display: block;
-            image-rendering: pixelated;
-            cursor: crosshair;
-            touch-action: none;
-        }
-
-        .strip-grid {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            background-image: linear-gradient(to right, rgba(190, 214, 255, .19) 1px, transparent 1px), linear-gradient(to bottom, rgba(190, 214, 255, .19) 1px, transparent 1px);
-        }
-
-        .strip-visible-region {
-            position: absolute;
-            top: 0;
-            pointer-events: none;
-            box-sizing: border-box;
-            background: rgba(50, 113, 245, .22);
-            border: 2px solid #60a5fa;
-            box-shadow: 0 0 0 1px #121b31;
-        }
-
-        .strip-visible-region::before {
-            content: 'LED WINDOW';
-            position: absolute;
-            left: 2px;
-            top: 1px;
-            font: 8px monospace;
-            color: #fff;
-            line-height: 1.1;
-            text-shadow: 0 1px 2px black;
-        }
-
-        .strip-selection {
-            position: absolute;
-            border: 2px dashed #facc15;
-            box-sizing: border-box;
-            pointer-events: none;
-        }
-
-        .strip-selection canvas {
-            image-rendering: pixelated;
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-
-        .strip-note {
-            font-size: 11px;
-            color: #bfd0ec;
-            margin-top: 8px;
-            line-height: 1.6;
-        }
-
-        .strip-status {
-            font-size: 11px;
-            color: #34d399;
-            margin-top: 5px;
-            min-height: 15px;
-        }
-
-        .region-motion-panel {
-            margin: 12px 0 10px;
-            padding: 12px;
-            border: 1px solid #354666;
-            border-radius: 8px;
-            background: #0a1022;
-        }
-
-        .region-motion-hint {
-            font-size: 11px;
-            color: #a7c1e9;
-            line-height: 1.6;
-            margin: 8px 0;
-        }
-
-        @media(max-width: 480px) {
-            .region-field-grid {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
 </head>
 
@@ -1816,7 +1554,7 @@
                 <!-- Upload -->
                 <div class="upload-zone" id="uploadZone">
                     <input type="file" id="imageInput" multiple
-                        accept="image/png,image/jpeg,image/gif,image/bmp,image/webp,.ino,.h,.cpp,.txt" />
+                        accept="image/png,image/jpeg,image/gif,image/bmp,image/webp,.ino,.h,.cpp,.txt,.json,.ledproj" />
                     <div class="upload-icon">&#128444;&#65039;</div>
                     <div class="upload-text">Drop image or .ino sketch here</div>
                     <div class="upload-sub">JPG, PNG, BMP, GIF, WEBP, and .INO sketches supported (Drag &amp; Drop
@@ -1862,6 +1600,13 @@
                         📥 Import .ino
                     </button>
                 </div>
+                <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
+                    <button type="button" class="btn-blank-canvas" style="flex:1; min-width:145px; margin-top:0;" onclick="saveEditableProject()">💾 Save Editable Project</button>
+                    <label class="btn-blank-canvas" style="flex:1; min-width:145px; margin-top:0; cursor:pointer;">
+                        📂 Open Editable Project
+                        <input type="file" accept=".json,.ledproj,application/json" style="display:none;" onchange="loadEditableProjectFile(this.files[0]); this.value='';" />
+                    </label>
+                </div>
 
                 <div class="frames-list" id="framesList"></div>
 
@@ -1869,15 +1614,25 @@
                 <!-- Partial-screen slideshow composition. Frame C++ export stays compatible. -->
                 <div class="region-builder" id="regionBuilder">
                     <div class="region-heading">✂️ Region Slides — Text + Pictures</div>
-                    <p class="region-help">Keep a logo or picture <strong>fixed outside a selected rectangle</strong>,
-                        while showing different text or pictures <strong>inside</strong> it. Each new slide is a full
-                        LED frame, so the existing .ino export still works.</p>
+                    <p class="region-help">Keep a logo or picture <strong>fixed outside a selected rectangle</strong>, while showing different text or pictures <strong>inside</strong> it. Each new slide is a full LED frame, so the existing .ino export still works.</p>
                     <div class="region-row">
-                        <button type="button" class="region-btn" onclick="beginRegionSelection()">① Select Area on
-                            Matrix</button>
-                        <button type="button" class="region-btn" onclick="captureRegionAndBase()">② Save Area +
-                            Background</button>
+                        <button type="button" class="region-btn" onclick="beginRegionSelection()">① Select Area on Matrix</button>
+                        <button type="button" class="region-btn" onclick="captureRegionAndBase()">② Save Area + Background</button>
                         <span class="region-coords" id="regionCoords">No region selected</span>
+                    </div>
+                    <div class="region-bounds" id="regionBoundsPanel">
+                        <div class="region-label">Edit moving region (LED pixels) — position and size</div>
+                        <div class="region-bound-grid">
+                            <label>X <input id="regionBoundX" type="number" min="0" step="1" value="0" /></label>
+                            <label>Y <input id="regionBoundY" type="number" min="0" step="1" value="0" /></label>
+                            <label>Width <input id="regionBoundW" type="number" min="1" step="1" value="64" /></label>
+                            <label>Height <input id="regionBoundH" type="number" min="1" step="1" value="32" /></label>
+                        </div>
+                        <div class="region-row" style="margin-top:8px;">
+                            <button type="button" class="region-btn primary" onclick="applyRegionBounds(false)">✓ Apply Region Size / Position</button>
+                            <button type="button" class="region-btn" onclick="applyRegionBounds(true)">▣ Use Selection as Region</button>
+                        </div>
+                        <p class="region-help" style="margin-top:6px;">To reposition or resize, edit X/Y/Width/Height and apply. To use a new rectangle, click ①, drag on the main pixel canvas, then Use Selection as Region. Existing scrolling pixels are retained.</p>
                     </div>
                     <div class="region-field-grid">
                         <div>
@@ -1902,40 +1657,24 @@
                             </div>
                             <div>
                                 <label class="region-label" for="regionTextAlign">Text alignment</label>
-                                <select id="regionTextAlign">
-                                    <option value="center">Center</option>
-                                    <option value="left">Left</option>
-                                    <option value="right">Right</option>
-                                </select>
+                                <select id="regionTextAlign"><option value="center">Center</option><option value="left">Left</option><option value="right">Right</option></select>
                             </div>
                             <div>
                                 <label class="region-label" for="regionTextFont">Font</label>
-                                <select id="regionTextFont">
-                                    <option value="sans-serif">Sans-serif</option>
-                                    <option value="monospace">Monospace</option>
-                                </select>
+                                <select id="regionTextFont"><option value="sans-serif">Sans-serif</option><option value="monospace">Monospace</option></select>
                             </div>
                             <div>
                                 <label class="region-label" for="regionTextColor">Text color</label>
-                                <div class="region-color-row"><input type="color" id="regionTextColor"
-                                        value="#ffffff" /><span style="font-size:11px;color:var(--text-muted)">Choose
-                                        color</span></div>
+                                <div class="region-color-row"><input type="color" id="regionTextColor" value="#ffffff" /><span style="font-size:11px;color:var(--text-muted)">Choose color</span></div>
                             </div>
                         </div>
                     </div>
                     <div id="regionImageFields" style="display:none; margin-bottom:10px;">
-                        <label class="region-label" for="regionImageInput">Choose a picture (it will be cropped or
-                            fitted inside the selection)</label>
-                        <input type="file" id="regionImageInput"
-                            accept="image/png,image/jpeg,image/gif,image/bmp,image/webp"
-                            onchange="loadRegionPicture(this)" />
+                        <label class="region-label" for="regionImageInput">Choose a picture (it will be cropped or fitted inside the selection)</label>
+                        <input type="file" id="regionImageInput" accept="image/png,image/jpeg,image/gif,image/bmp,image/webp" onchange="loadRegionPicture(this)" />
                         <div style="margin-top:9px;">
                             <label class="region-label" for="regionPictureFit">Picture fit</label>
-                            <select id="regionPictureFit">
-                                <option value="crop">Crop to fill selected area</option>
-                                <option value="fit">Fit inside selected area</option>
-                                <option value="fill">Stretch to fill</option>
-                            </select>
+                            <select id="regionPictureFit"><option value="crop">Crop to fill selected area</option><option value="fit">Fit inside selected area</option><option value="fill">Stretch to fill</option></select>
                         </div>
                     </div>
                     <div class="region-motion-panel">
@@ -1948,61 +1687,41 @@
                         <div id="regionMotionControls" style="margin-top:10px;">
                             <div class="region-field-grid">
                                 <div>
-                                    <label class="region-label" for="regionScrollStep">Speed: milliseconds per
-                                        pixel</label>
+                                    <label class="region-label" for="regionScrollStep">Speed: milliseconds per pixel</label>
                                     <input type="number" id="regionScrollStep" min="20" max="500" step="5" value="55" />
                                 </div>
                                 <div>
                                     <label class="region-label" for="regionScrollPause">Pause after exiting (ms)</label>
-                                    <input type="number" id="regionScrollPause" min="0" max="10000" step="100"
-                                        value="400" />
+                                    <input type="number" id="regionScrollPause" min="0" max="10000" step="100" value="400" />
                                 </div>
                             </div>
-                            <p class="region-motion-hint">The entire text or picture starts off-screen and keeps moving
-                                until it has completely disappeared. Text stays on one line; it is NOT cut or wrapped at
-                                the region edge.</p>
+                            <p class="region-motion-hint">The entire text or picture starts off-screen and keeps moving until it has completely disappeared. Text stays on one line; it is NOT cut or wrapped at the region edge.</p>
                         </div>
                         <div class="region-row" style="margin-bottom:4px;">
-                            <button type="button" id="regionPreviewBtn" class="region-btn"
-                                onclick="toggleRegionMotionPreview()">▶ Preview movement</button>
+                            <button type="button" id="regionPreviewBtn" class="region-btn" onclick="toggleRegionMotionPreview()">▶ Preview movement</button>
                             <span class="region-coords" id="regionMotionProgress">Ready to preview</span>
                         </div>
                         <canvas id="regionMotionPreview" class="region-motion-preview" width="128" height="32"></canvas>
                         <div class="region-row" style="margin-top:8px; align-items:center;">
-                            <input type="range" id="regionPreviewSlider" min="0" max="100" value="0" step="1"
-                                style="flex:1;" oninput="scrubRegionMotionPreview(this.value)" />
-                            <button type="button" class="region-btn subtle" onclick="resetRegionPreviewPosition()">⟲
-                                Reset</button>
+                            <input type="range" id="regionPreviewSlider" min="0" max="100" value="0" step="1" style="flex:1;" oninput="scrubRegionMotionPreview(this.value)" />
+                            <button type="button" class="region-btn subtle" onclick="resetRegionPreviewPosition()">⟲ Reset</button>
                         </div>
-                        <div class="region-help" style="margin:6px 0 0;">Live LED preview: drag the slider or press
-                            Preview movement to see exactly how it will scroll while the fixed area stays unchanged.
-                        </div>
+                        <div class="region-help" style="margin:6px 0 0;">Live LED preview: drag the slider or press Preview movement to see exactly how it will scroll while the fixed area stays unchanged.</div>
                         <div class="strip-editor" id="stripEditorPanel">
-                            <div class="region-heading" style="margin-bottom:5px;">🧩 FULL SCROLL STRIP — Off-screen
-                                Pixel Editor</div>
-                            <p class="strip-note">The entire long artwork stays visible, including pixels
-                                <strong>outside the LED screen</strong>. The movable blue rectangle shows the actual
-                                screen window. Edit any pixel here, then save the slide.</p>
+                            <div class="region-heading" style="margin-bottom:5px;">🧩 FULL SCROLL STRIP — Off-screen Pixel Editor</div>
+                            <p class="strip-note">The entire long artwork stays visible, including pixels <strong>outside the LED screen</strong>. The movable blue rectangle shows the actual screen window. Edit any pixel here, then save the slide.</p>
                             <div class="strip-actions">
-                                <button type="button" onclick="openStripEditor(false)">✏️ Open / Edit Entire Scroll
-                                    Strip</button>
-                                <button type="button" onclick="openStripEditor(true)">↻ Rebuild from Text /
-                                    Picture</button>
-                                <button type="button" id="stripExpandBtn" onclick="toggleStripFullscreen()">⛶ Expand
-                                    Full Pixel Editor</button>
+                                <button type="button" onclick="openStripEditor(false)">✏️ Open / Edit Entire Scroll Strip</button>
+                                <button type="button" onclick="openStripEditor(true)">↻ Rebuild from Text / Picture</button>
+                                <button type="button" id="stripExpandBtn" onclick="toggleStripFullscreen()">⛶ Expand Full Pixel Editor</button>
                             </div>
                             <div id="stripEditorWork" style="display:none;">
                                 <div class="strip-actions" id="stripToolBar">
-                                    <button type="button" class="selected" data-strip-tool="pencil"
-                                        onclick="setStripTool('pencil')">✏️ Pencil</button>
-                                    <button type="button" data-strip-tool="eraser" onclick="setStripTool('eraser')">🧹
-                                        Eraser</button>
-                                    <button type="button" data-strip-tool="fill" onclick="setStripTool('fill')">🪣
-                                        Fill</button>
-                                    <button type="button" data-strip-tool="picker" onclick="setStripTool('picker')">👁️
-                                        Pick</button>
-                                    <button type="button" data-strip-tool="select" onclick="setStripTool('select')">▣
-                                        Select / Move</button>
+                                    <button type="button" class="selected" data-strip-tool="pencil" onclick="setStripTool('pencil')">✏️ Pencil</button>
+                                    <button type="button" data-strip-tool="eraser" onclick="setStripTool('eraser')">🧹 Eraser</button>
+                                    <button type="button" data-strip-tool="fill" onclick="setStripTool('fill')">🪣 Fill</button>
+                                    <button type="button" data-strip-tool="picker" onclick="setStripTool('picker')">👁️ Pick</button>
+                                    <button type="button" data-strip-tool="select" onclick="setStripTool('select')">▣ Select / Move</button>
                                     <input type="color" id="stripColor" value="#ffffff" title="Pixel color" />
                                     <button type="button" onclick="stripUndo()">↶ Undo</button>
                                     <button type="button" onclick="stripRedo()">↷ Redo</button>
@@ -2019,31 +1738,23 @@
                                     <button type="button" onclick="stripClear()">Clear All Pixels</button>
                                     <span id="stripPixelHud" style="font:11px monospace;color:#a7b8d6;">X: — Y: —</span>
                                 </div>
-                                <div class="strip-scroll-wrap" id="stripScrollWrap" tabindex="0"
-                                    aria-label="Full scrolling art pixel editor">
+                                <div class="strip-scroll-wrap" id="stripScrollWrap" tabindex="0" aria-label="Full scrolling art pixel editor">
                                     <div id="stripRuler" class="strip-ruler"></div>
                                     <div id="stripCanvasHolder" class="strip-canvas-holder">
                                         <canvas id="stripPixelCanvas" class="strip-pixel-canvas"></canvas>
                                         <div id="stripGrid" class="strip-grid"></div>
                                         <div id="stripVisibleWindow" class="strip-visible-region"></div>
-                                        <div id="stripSelection" class="strip-selection" style="display:none;"><canvas
-                                                id="stripFloatCanvas" style="display:none;"></canvas></div>
+                                        <div id="stripSelection" class="strip-selection" style="display:none;"><canvas id="stripFloatCanvas" style="display:none;"></canvas></div>
                                     </div>
                                 </div>
                                 <div class="strip-actions" style="margin-bottom:3px;">
                                     <span style="font-size:11px;color:#bcd3fb;">Move LED viewing window:</span>
-                                    <input id="stripScrub" type="range" min="0" max="100" value="0" step="1"
-                                        style="flex:1;min-width:130px;"
-                                        oninput="scrubRegionMotionPreview(this.value)" />
+                                    <input id="stripScrub" type="range" min="0" max="100" value="0" step="1" style="flex:1;min-width:130px;" oninput="scrubRegionMotionPreview(this.value)" />
                                     <button type="button" onclick="toggleRegionMotionPreview()">▶ Play / Pause</button>
                                 </div>
                                 <canvas id="stripLivePreview" class="strip-live" width="128" height="32"></canvas>
-                                <p class="strip-note">Zoom and scroll horizontally to inspect every pixel. Drag to draw;
-                                    use Select to move/copy an area (Alt+drag duplicates). Click the main movement
-                                    slider above to move the <strong>blue LED-window outline</strong> across the full
-                                    strip. Edits update the preview automatically.</p>
-                                <div class="strip-actions"><button type="button" onclick="commitStripToSprite(true)">✓
-                                        Apply Pixels to Scroll Preview</button></div>
+                                <p class="strip-note">Zoom and scroll horizontally to inspect every pixel. Drag to draw; use Select to move/copy an area (Alt+drag duplicates). Click the main movement slider above to move the <strong>blue LED-window outline</strong> across the full strip. Edits update the preview automatically.</p>
+                                <div class="strip-actions"><button type="button" onclick="commitStripToSprite(true)">✓ Apply Pixels to Scroll Preview</button></div>
                                 <div class="strip-status" id="stripStatus">Ready.</div>
                             </div>
                         </div>
@@ -2051,29 +1762,19 @@
                     <div class="region-field-grid">
                         <div>
                             <label class="region-label" for="regionBackground">Selected area background</label>
-                            <select id="regionBackground">
-                                <option value="black">Black</option>
-                                <option value="keep">Keep original pixels</option>
-                                <option value="white">White</option>
-                            </select>
+                            <select id="regionBackground"><option value="black">Black</option><option value="keep">Keep original pixels</option><option value="white">White</option></select>
                         </div>
                         <div style="display:flex;align-items:end;">
-                            <span class="region-help" style="margin:0;">Outside the selection always stays
-                                unchanged.</span>
+                            <span class="region-help" style="margin:0;">Outside the selection always stays unchanged.</span>
                         </div>
                     </div>
                     <div class="region-row" style="margin:4px 0 8px;">
-                        <button type="button" class="region-btn primary" onclick="createRegionSlide(false)">➕ Add Region
-                            Slide</button>
-                        <button type="button" class="region-btn" onclick="createRegionSlide(true)">↻ Replace Current
-                            Slide</button>
-                        <button type="button" class="region-btn subtle" onclick="resetRegionBuilder()">Reset
-                            Region</button>
-                        <button type="button" class="region-btn" onclick="loadSelectedFrameToRegionEditor()">📝 Load
-                            Selected Slide to Editor</button>
+                        <button type="button" class="region-btn primary" onclick="createRegionSlide(false)">➕ Add Region Slide</button>
+                        <button type="button" class="region-btn" onclick="createRegionSlide(true)">↻ Replace Current Slide</button>
+                        <button type="button" class="region-btn subtle" onclick="resetRegionBuilder()">Reset Region</button>
+                        <button type="button" class="region-btn" onclick="loadSelectedFrameToRegionEditor()">📝 Load Selected Slide to Editor</button>
                     </div>
-                    <div class="region-status" id="regionStatus">Tip: Start with the picture or logo you want to stay
-                        fixed.</div>
+                    <div class="region-status" id="regionStatus">Tip: Start with the picture or logo you want to stay fixed.</div>
                 </div>
 
                 <div class="blink-info">
@@ -2447,13 +2148,13 @@
                 <p style="font-size:12px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
                     Upload an Arduino <strong>.ino</strong> sketch or paste C++ <code>const uint16_t PROGMEM</code> /
                     <code>uint8_t</code> arrays below. Supports <strong>single images</strong> and <strong>multi-frame
-                        Blink / Slideshow animations</strong> with frame durations!
+                        Blink / Slideshow animations</strong> with frame durations. Scrolling sketches generated by this editor can also be reopened. For exact pixel edits, use Save/Open Editable Project (.json).
                 </p>
 
                 <div class="modal-upload-row">
                     <label class="btn-mini-upload">
-                        📁 Choose .ino / .h / .txt File
-                        <input type="file" id="importFileInput" accept=".ino,.h,.cpp,.txt" style="display:none;"
+                        📁 Choose .ino / .h / .txt / Project
+                        <input type="file" id="importFileInput" accept=".ino,.h,.cpp,.txt,.json,.ledproj" style="display:none;"
                             onchange="handleImportFile(this)" />
                     </label>
                     <span id="importFileStatus"
@@ -3529,6 +3230,100 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
             e.target.value = '';
         });
 
+        // Native project: round trips all frames, scrolling sprites and pixel edits.
+        function saveEditableProject() {
+            if (appMode !== 'blink') setMode('blink');
+            if (isPlayingAnimation) pauseBlinkAnimation();
+            if (selectionState.active) commitSelection();
+            syncActiveFrameFromCanvas();
+            var state = {format:'ESP32-HUB75-LED-PROJECT',version:1,size:sizeSelect.value,
+                colorMode:colorModeEl.value,activeFrame:currentFrameIndex,
+                pins:getPins(),frames:frames.map(function(f){
+                    var result={name:f.fileName||'Slide',duration:f.duration||1000,
+                        image:f.canvas?f.canvas.toDataURL('image/png'):null};
+                    if(f.scroll){var sc=f.scroll;result.scroll={rect:sc.rect,direction:sc.direction,
+                        stepMs:sc.stepMs,pauseMs:sc.pauseMs,sprite:sc.sprite.toDataURL('image/png')};}
+                    if(f.regionMeta){var rm=Object.assign({},f.regionMeta);
+                        ['baseCanvas','pictureCanvas','customSpriteCanvas'].forEach(function(k){
+                            rm[k]=rm[k]?rm[k].toDataURL('image/png'):null;
+                        });
+                        result.regionMeta=rm;
+                    }
+                    return result;
+                })};
+            var blob=new Blob([JSON.stringify(state)],{type:'application/json'});
+            var url=URL.createObjectURL(blob),link=document.createElement('a');
+            link.href=url;link.download='led_matrix_editable_project.json';link.click();
+            setTimeout(function(){URL.revokeObjectURL(url);},1000);
+            showToast('Editable project saved! You can reopen it later.', '💾');
+        }
+        function decodeProjectCanvas(url) {
+            if(!url)return Promise.resolve(null);
+            if(typeof url!=='string'||!url.startsWith('data:image/png;base64,'))
+                return Promise.reject(new Error('Invalid pixel image in project.'));
+            return new Promise(function(resolve,reject){
+                var img=new Image();
+                img.onload=function(){
+                    if(!img.width||!img.height||img.width>16384||img.height>256){reject(new Error('Invalid canvas dimensions'));return;}
+                    var c=document.createElement('canvas');c.width=img.width;c.height=img.height;
+                    c.getContext('2d').drawImage(img,0,0);resolve(c);
+                };
+                img.onerror=function(){reject(new Error('Could not decode image pixels from project.'));};
+                img.src=url;
+            });
+        }
+        async function importEditableProjectJSON(json) {
+            if(!json||json.format!=='ESP32-HUB75-LED-PROJECT'||json.version!==1||!Array.isArray(json.frames))
+                throw new Error('Unsupported project. Use a project exported by Save Editable Project.');
+            if(!['64x32','128x32'].includes(json.size)||json.frames.length>100||json.frames.length<1)
+                throw new Error('Invalid project panel size or number of slides.');
+            var parts=json.size.split('x'),tw=+parts[0],th=+parts[1];
+            var imported=[];
+            for(var i=0;i<json.frames.length;i++) {
+                var saved=json.frames[i],canvas=await decodeProjectCanvas(saved.image);
+                if(!canvas||canvas.width!==tw||canvas.height!==th)throw new Error('Invalid image dimensions on slide '+(i+1));
+                var f={fid:frameIdCounter++,fileName:String(saved.name||('Slide '+(i+1))).slice(0,150),
+                    duration:Math.max(50,+saved.duration||1000),canvas:canvas,img:null,undoStack:[],redoStack:[],hasCustomEdits:true};
+                if(saved.scroll) {
+                    var scroll=saved.scroll,sp=await decodeProjectCanvas(scroll.sprite);
+                    if(!sp||!scroll.rect||sp.height!==scroll.rect.h||scroll.rect.x<0||scroll.rect.y<0||scroll.rect.x+scroll.rect.w>tw||scroll.rect.y+scroll.rect.h>th)
+                        throw new Error('Invalid scroll pixels on slide '+(i+1));
+                    f.scroll={rect:scroll.rect,sprite:sp,direction:scroll.direction==='right'?'right':'left',
+                        stepMs:Math.max(20,+scroll.stepMs||55),pauseMs:Math.max(0,+scroll.pauseMs||0)};
+                }
+                if(saved.regionMeta){
+                    var rm=Object.assign({},saved.regionMeta);
+                    for(var key of ['baseCanvas','pictureCanvas','customSpriteCanvas'])rm[key]=await decodeProjectCanvas(rm[key]);
+                    f.regionMeta=rm;
+                }
+                imported.push(f);
+            }
+            if (isPlayingAnimation) pauseBlinkAnimation();
+            stopRegionMotionPreview();
+            sizeSelect.value=json.size;colorModeEl.value=json.colorMode==='bw'?'bw':'color';
+            document.getElementById('thresholdRow').style.display=colorModeEl.value==='bw'?'':'none';
+            if(json.pins){var mapping={R1:'pinR1',G1:'pinG1',B1:'pinB1',R2:'pinR2',G2:'pinG2',B2:'pinB2',A:'pinA',B:'pinB_',C:'pinC',D:'pinD',E:'pinE',LAT:'pinLAT',OE:'pinOE',CLK:'pinCLK'};
+                Object.keys(mapping).forEach(function(key){if(Number.isInteger(json.pins[key]))document.getElementById(mapping[key]).value=json.pins[key];});}
+            // Avoid syncing a stale previously selected canvas over newly loaded slides.
+            if(appMode!=='blink')setMode('blink');
+            frames=imported;currentFrameIndex=Math.max(0,Math.min(imported.length-1,+json.activeFrame||0));
+            regionBuilderState={rect:null,base:null,picture:null,pictureName:'',customSprite:null};
+            regionPreviewCache=null;stripEditState.open=false;
+            document.getElementById('stripEditorWork').style.display='none';
+            renderFrameList();selectFrame(currentFrameIndex);
+            if(frames[currentFrameIndex].regionMeta)loadSelectedFrameToRegionEditor();
+            showToast('Editable project restored: '+frames.length+' slides', '✅');
+        }
+        function loadEditableProjectFile(file) {
+            if(!file)return;
+            if(file.size>30*1024*1024){alert('This project file is too large (max 30 MB).');return;}
+            var r=new FileReader();
+            r.onload=async function(){try {await importEditableProjectJSON(JSON.parse(r.result));}
+                catch(e){alert('Could not open editable project: '+e.message);}};
+            r.onerror=function(){alert('Could not read selected project file.');};
+            r.readAsText(file);
+        }
+
         // ── Import .ino / C++ Code ───────────────────────────────────────────────
         function openImportModal() {
             var modal = document.getElementById('importModal');
@@ -3548,6 +3343,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
         function handleImportFile(input) {
             var file = input.files[0];
             if (!file) return;
+            if (/\.(json|ledproj)$/i.test(file.name)) {closeImportModal();loadEditableProjectFile(file);return;}
             var reader = new FileReader();
             reader.onload = function (ev) {
                 document.getElementById('importCodeTextarea').value = ev.target.result;
@@ -3575,202 +3371,102 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
             }
         }
 
+        // Read RGB565/B&W frame arrays. Scroll sprite and mask arrays are NOT slides.
         function parseMultiFrameInoCode(text, overrideSize, overrideFormat) {
-            if (!text || typeof text !== 'string') {
-                throw new Error('No code provided to parse.');
-            }
-
-            // 1. Detect dimension from code or comments
-            var tw = 64, th = 32;
-            if (overrideSize && overrideSize !== 'auto') {
-                var sp = overrideSize.split('x');
-                tw = parseInt(sp[0]);
-                th = parseInt(sp[1]);
-            } else {
-                var dimMatch = text.match(/(?:ledImage_|frame_\d+_|bitmap_)(\d+)x(\d+)/i) ||
-                    text.match(/(\d+)\s*x\s*(\d+)\s*pixels/i) ||
-                    text.match(/PANEL_CHAIN\s+(\d+)/i);
-                if (dimMatch && dimMatch[1] && dimMatch[2]) {
-                    tw = parseInt(dimMatch[1]);
-                    th = parseInt(dimMatch[2]);
-                } else if (dimMatch && dimMatch[1]) {
-                    var chain = parseInt(dimMatch[1]);
-                    tw = chain * 64;
-                    th = 32;
-                }
-            }
-
-            // 2. Extract durations from FRAME_DURATIONS array, frame_delays, or loop delays
-            var extractedDurations = [];
-            var durMatch = text.match(/(?:FRAME_DURATIONS|frame_delays|delays|durations)\s*\[\s*\d*\s*\]\s*=\s*\{([^}]+)\}/i);
-            if (durMatch) {
-                var dNums = durMatch[1].match(/\d+/g);
-                if (dNums) {
-                    extractedDurations = dNums.map(function (n) { return parseInt(n, 10); });
-                }
-            } else {
-                var loopMatch = text.match(/void\s+loop\s*\(\s*\)\s*\{([\s\S]*?)\}/);
-                if (loopMatch) {
-                    var delayCalls = loopMatch[1].match(/delay\s*\(\s*(\d+)\s*\)/g);
-                    if (delayCalls && delayCalls.length > 0) {
-                        extractedDurations = delayCalls.map(function (d) {
-                            var num = d.match(/\d+/);
-                            return num ? parseInt(num[0], 10) : 1000;
-                        });
-                    }
-                }
-            }
-
-            // 3. Find all candidate array definitions
-            var arrayRegex = /(?:\/\/[^\n]*\n|\/\*[\s\S]*?\*\/)*\s*(?:(?:const|static|PROGMEM|unsigned|uint16_t|uint8_t|uint32_t|char|short|int)\s+)*([a-zA-Z0-9_]+)\s*(?:\[[^\]]*\])*\s*=\s*\{([^}]+)\}\s*;/g;
-
-            var matches = [];
+            if (!text || typeof text !== 'string') throw new Error('The file is empty. Choose an Arduino .ino, .h or .txt file.');
+            var arrays = {};
+            // Supports both generated sketches and normal uint16_t/uint8_t C++ arrays.
+            var regex = /\b(?:const\s+)?(?:static\s+)?(?:uint16_t|uint8_t|unsigned\s+short|unsigned\s+char)\s+(?:PROGMEM\s+)?([A-Za-z_]\w*)\s*\[\s*(\d*)\s*\]\s*(?:PROGMEM\s*)?=\s*\{([\s\S]*?)\}\s*;/g;
             var m;
-            while ((m = arrayRegex.exec(text)) !== null) {
-                var fullMatch = m[0];
-                var arrName = m[1];
-                var arrBody = m[2];
-
-                if (arrName.match(/^(?:frames|FRAME_DURATIONS|frame_delays|delays|durations|pins)$/i)) {
-                    continue;
-                }
-
-                var hexTokens = arrBody.match(/0x[0-9a-fA-F]+/g);
-                if (!hexTokens || hexTokens.length === 0) {
-                    var decTokens = arrBody.match(/\b\d+\b/g);
-                    if (decTokens && decTokens.length >= 256) {
-                        hexTokens = decTokens.map(function (n) { return '0x' + parseInt(n, 10).toString(16); });
-                    }
-                }
-
-                if (hexTokens && hexTokens.length >= 100) {
-                    var frameDur = 1000;
-                    var durCommentMatch = fullMatch.match(/(?:duration|delay|frame)?\s*[:\-–]?\s*(\d+)\s*ms/i) ||
-                        fullMatch.match(/\((\d+)\s*ms\)/i);
-                    if (durCommentMatch) {
-                        frameDur = parseInt(durCommentMatch[1], 10);
-                    } else if (extractedDurations[matches.length] !== undefined) {
-                        frameDur = extractedDurations[matches.length];
-                    }
-
-                    var titleMatch = fullMatch.match(/\/\/\s*Frame\s*\d+\s*[–\-:]\s*([^\n\r(]+)/i);
-                    var frameTitle = titleMatch ? titleMatch[1].trim() : arrName;
-
-                    matches.push({
-                        name: frameTitle || arrName,
-                        tokens: hexTokens,
-                        duration: frameDur
-                    });
-                }
+            while ((m = regex.exec(text)) !== null) {
+                var raw = m[0], noComments = m[3].replace(/\/\*[\s\S]*?\*\/|\/\/[^\n]*/g, '');
+                var numbers = (noComments.match(/0x[\da-fA-F]+|0b[01]+|\b\d+\b/g) || []).map(function(t){
+                    return /^0x/i.test(t) ? parseInt(t,16) : /^0b/i.test(t) ? parseInt(t.slice(2),2) : parseInt(t,10);
+                });
+                arrays[m[1]] = { name:m[1], count:m[2] ? +m[2] : numbers.length, numbers:numbers,
+                    type:/uint16_t|unsigned\s+short/.test(raw.slice(0,raw.indexOf('{'))) ? 'color':'bw',
+                    offset:m.index };
             }
-
-            // Fallback for single array without declaration header
-            if (matches.length === 0) {
-                var singleTokens = text.match(/0x[0-9a-fA-F]+/g);
-                if (!singleTokens || singleTokens.length === 0) {
-                    var singleDec = text.match(/\b\d+\b/g);
-                    if (singleDec && singleDec.length >= 256) {
-                        singleTokens = singleDec.map(function (n) { return '0x' + parseInt(n, 10).toString(16); });
-                    }
-                }
-                if (singleTokens && singleTokens.length >= 100) {
-                    matches.push({
-                        name: 'Imported Frame',
-                        tokens: singleTokens,
-                        duration: 1000
-                    });
-                }
-            }
-
-            if (matches.length === 0) {
-                throw new Error('No valid hex pixel array (e.g. 0x0000, 0xF800) found in code.');
-            }
-
-            // Determine format
-            var isColor = true;
-            if (overrideFormat && overrideFormat !== 'auto') {
-                isColor = (overrideFormat === 'color');
-            } else {
-                var sampleNumbers = matches[0].tokens.slice(0, 50).map(function (t) { return parseInt(t, 16); });
-                var has16Bit = sampleNumbers.some(function (n) { return n > 255; });
-                var hasColorKey = /uint16_t/i.test(text) || /RGB565/i.test(text) || /drawRGBBitmap/i.test(text);
-                var hasBwKey = /uint8_t/i.test(text) && !/uint16_t/i.test(text);
-
-                if (has16Bit || hasColorKey) {
-                    isColor = true;
-                } else if (hasBwKey) {
-                    isColor = false;
-                } else {
-                    isColor = (matches[0].tokens.length >= 2048);
-                }
-            }
-
-            // Refine dimensions based on count if auto
-            if (!overrideSize || overrideSize === 'auto') {
-                var count = matches[0].tokens.length;
-                if (isColor) {
-                    if (count >= 4096) { tw = 128; th = 32; }
-                    else { tw = 64; th = 32; }
-                } else {
-                    if (count >= 512) { tw = 128; th = 32; }
-                    else { tw = 64; th = 32; }
-                }
-            }
-
-            var totalPixels = tw * th;
-
-            var parsedFrames = matches.map(function (m, idx) {
-                var numbers = m.tokens.map(function (t) { return parseInt(t, 16); });
-                var pixelData = new Uint8ClampedArray(totalPixels * 4);
-
-                if (isColor) {
-                    for (var i = 0; i < totalPixels; i++) {
-                        var val = (i < numbers.length ? numbers[i] : 0);
-                        var r5 = (val >> 11) & 0x1F;
-                        var g6 = (val >> 5) & 0x3F;
-                        var b5 = val & 0x1F;
-                        var r8 = Math.round((r5 * 255) / 31);
-                        var g8 = Math.round((g6 * 255) / 63);
-                        var b8 = Math.round((b5 * 255) / 31);
-
-                        var p = i * 4;
-                        pixelData[p] = r8;
-                        pixelData[p + 1] = g8;
-                        pixelData[p + 2] = b8;
-                        pixelData[p + 3] = 255;
-                    }
-                } else {
-                    var bpr = Math.ceil(tw / 8);
-                    for (var y = 0; y < th; y++) {
-                        for (var x = 0; x < tw; x++) {
-                            var byteIdx = y * bpr + Math.floor(x / 8);
-                            var bitIdx = 7 - (x % 8);
-                            var byteVal = (byteIdx < numbers.length ? numbers[byteIdx] : 0);
-                            var on = (byteVal >> bitIdx) & 1;
-                            var c = on ? 255 : 0;
-
-                            var p2 = (y * tw + x) * 4;
-                            pixelData[p2] = c;
-                            pixelData[p2 + 1] = c;
-                            pixelData[p2 + 2] = c;
-                            pixelData[p2 + 3] = 255;
-                        }
-                    }
-                }
-
-                return {
-                    fileName: m.name || ('Frame ' + (idx + 1)),
-                    duration: m.duration || 1000,
-                    pixelData: pixelData
-                };
+            var baseEntries = Object.keys(arrays).filter(function(name){return /^frame_\d+$|^ledImage_\d+x\d+$|^bitmap_\d+x\d+$/i.test(name);}).map(function(name){return arrays[name];});
+            baseEntries.sort(function(a,b){
+                function order(x) { var f=x.name.match(/^frame_(\d+)$/);return f?+f[1]:0; }
+                return order(a)-order(b);
             });
-
-            return {
-                tw: tw,
-                th: th,
-                isColor: isColor,
-                frames: parsedFrames
-            };
+            if (!baseEntries.length) {
+                baseEntries = Object.keys(arrays).filter(function(name){
+                    return !/^(scrollSprite_|scrollMask_|FRAME_DURATIONS|frame_delays|delays|durations|pins)/i.test(name) && arrays[name].numbers.length >= 128;
+                }).map(function(name){return arrays[name];});
+            }
+            if (!baseEntries.length) throw new Error('No complete frame pixel arrays found. Use a generated .ino file or Open Editable Project for .json projects.');
+            var dims = text.match(/Resolution\s*:\s*(\d+)\s*[x×]\s*(\d+)/i) ||
+                text.match(/Image size\s*:\s*(\d+)\s*[x×]\s*(\d+)/i) ||
+                text.match(/(?:ledImage_|bitmap_)(\d+)x(\d+)/i);
+            var chain = text.match(/^\s*#define\s+PANEL_CHAIN\s+(\d+)/m);
+            var tw = dims ? +dims[1] : chain ? +chain[1]*64 : 0;
+            var th = dims ? +dims[2] : 32;
+            var expected = +baseEntries[0].numbers.length;
+            var isColor = overrideFormat && overrideFormat !== 'auto' ? overrideFormat === 'color' : baseEntries[0].type === 'color';
+            if (overrideSize && overrideSize !== 'auto') {
+                var parts=overrideSize.split('x'); tw=+parts[0];th=+parts[1];
+            } else if (!tw) {
+                if(isColor) tw = expected >= 4096 ? 128 : 64;
+                else tw = expected >= 512 ? 128 : 64;
+            }
+            if (![64,128].includes(tw) || th!==32) throw new Error('Unsupported LED size: '+tw+'x'+th+'. Choose 64x32 or 128x32.');
+            var total = tw*th, required = isColor ? total : Math.ceil(tw/8)*th;
+            var durationArr = text.match(/\bFRAME_DURATIONS\s*\[\s*\d*\s*\]\s*=\s*\{([^}]+)\}/i);
+            var durations = durationArr ? (durationArr[1].match(/\d+/g)||[]).map(Number) : [];
+            function rgb565(value) {
+                return [Math.round(((value>>11)&31)*255/31),Math.round(((value>>5)&63)*255/63),Math.round((value&31)*255/31)];
+            }
+            function decodeBitmap(nums,width,height,color, mask) {
+                var pix=new Uint8ClampedArray(width*height*4);
+                for(var p=0;p<width*height;p++) {
+                    var value=color ? (nums[p]||0):(((nums[p>>3]||0) >> (7-(p&7)))&1 ? 0xffff:0);
+                    var rgb=rgb565(value), k=p*4;
+                    pix[k]=rgb[0];pix[k+1]=rgb[1];pix[k+2]=rgb[2];
+                    pix[k+3] = mask ? (((mask[p>>3]||0) & (0x80>>(p&7))) ? 255 : 0) : 255;
+                }
+                return pix;
+            }
+            function getScrollSpec(frameId) {
+                var marker = text.match(new RegExp('LED_SCROLL_META\\s+frame='+frameId+'\\s+rect=(\\d+),(\\d+),(\\d+),(\\d+)\\s+sprite=(\\d+),(\\d+)\\s+direction=(left|right)\\s+step=(\\d+)\\s+pause=(\\d+)'));
+                if(marker) return {rect:{x:+marker[1],y:+marker[2],w:+marker[3],h:+marker[4]},spriteW:+marker[5],spriteH:+marker[6],direction:marker[7],stepMs:+marker[8],pauseMs:+marker[9]};
+                // Older versions encoded these values in the generated C++ function.
+                var body = text.match(new RegExp('void\\s+drawScrollRegion_'+frameId+'\\s*\\(int step\\)\\s*\\{([\\s\\S]*?)(?=\\n\\s*void\\s+|\\n\\s*// -{5,}|$)'));
+                if(!body) return null;
+                var code=body[1];
+                var x=code.match(/int\s+x\s*=\s*rx\s*\+\s*(\d+)/), y=code.match(/y\s*=\s*ry\s*\+\s*(\d+)/);
+                var rw=code.match(/for\s*\(int\s+rx\s*=\s*0;\s*rx\s*<\s*(\d+)/);
+                var rh=code.match(/for\s*\(int\s+ry\s*=\s*0;\s*ry\s*<\s*(\d+)/);
+                var dir=/leftX\s*=\s*-\s*\d+\s*\+\s*step/.test(code)?'right':'left';
+                var call = text.match(new RegExp('drawScrollRegion_'+frameId+'\\s*\\(step\\)\\s*;\\s*delay\\s*\\(\\s*(\\d+)\\s*\\)\\s*;\\s*(?:}\\s*)?(?:delay\\s*\\(\\s*(\\d+)\\s*\\))?'));
+                return (x&&y&&rw&&rh) ? {rect:{x:+x[1],y:+y[1],w:+rw[1],h:+rh[1]},direction:dir,stepMs:call?+call[1]:55,pauseMs:call&&call[2]?+call[2]:0} : null;
+            }
+            var parsed=baseEntries.map(function(a,index){
+                if(a.numbers.length !== required) throw new Error('Frame '+(index+1)+' has '+a.numbers.length+' values; expected '+required+' for '+tw+'x'+th+'.');
+                var idMatch=a.name.match(/^frame_(\d+)$/), id=idMatch?+idMatch[1]:index;
+                var durationComment = text.slice(Math.max(0,a.offset-160),a.offset).match(/\((\d+)\s*ms\)/i);
+                var duration=durations[index]|| (durationComment?+durationComment[1]:1000);
+                var nameMatch = text.slice(Math.max(0,a.offset-160),a.offset).match(/\/\/\s*Frame\s*\d+\s*[–\-:]\s*([^\n\r(]+)/i);
+                var frame={fileName:nameMatch?nameMatch[1].trim():a.name,duration:duration,pixelData:decodeBitmap(a.numbers,tw,th,isColor)};
+                var sprite=arrays['scrollSprite_'+id],mask=arrays['scrollMask_'+id];
+                if(sprite){
+                    var info=getScrollSpec(id);
+                    var spec=text.match(new RegExp('Scrolling sprite for Frame\\s+'+(id+1)+'\\s*\\((\\d+)x(\\d+)\\)','i'));
+                    var sw=info&&info.spriteW || (spec ? +spec[1] : 0);
+                    var sh=info&&info.spriteH || (spec ? +spec[2] : 0);
+                    if (!sw && info && info.rect && info.rect.h) {sw=Math.floor(sprite.numbers.length/info.rect.h);sh=info.rect.h;}
+                    if (!sw || !sh || sw*sh!==sprite.numbers.length) throw new Error('Could not reconstruct scroll sprite dimensions for frame '+(index+1)+'.');
+                    if(!info || !info.rect) throw new Error('Could not locate scroll position for frame '+(index+1)+'. Try opening an Editable Project (.json).');
+                    if(info.rect.x+info.rect.w>tw||info.rect.y+info.rect.h>th)throw new Error('Scroll rectangle is outside the panel.');
+                    frame.scroll={rect:info.rect,spriteW:sw,spriteH:sh,
+                        spriteData:decodeBitmap(sprite.numbers,sw,sh,true,mask&&mask.numbers),
+                        direction:info.direction||'left',stepMs:info.stepMs||55,pauseMs:info.pauseMs||0};
+                }
+                return frame;
+            });
+            return {tw:tw,th:th,isColor:isColor,frames:parsed};
         }
 
         // Backward compatibility wrapper
@@ -3796,7 +3492,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
             var parsedFrames = result.frames;
 
             // If multi-frame or in Blink mode, import full slideshow sequence
-            if (parsedFrames.length > 1 || appMode === 'blink') {
+            if (parsedFrames.length > 1 || parsedFrames.some(function(f){return !!f.scroll;}) || appMode === 'blink') {
                 if (appMode !== 'blink') {
                     setMode('blink');
                 }
@@ -3810,16 +3506,24 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                     imgData.data.set(pf.pixelData);
                     fctx.putImageData(imgData, 0, 0);
 
-                    return {
-                        fid: frameIdCounter++,
-                        fileName: pf.fileName || ('Frame ' + (idx + 1)),
-                        duration: pf.duration || 1000,
-                        canvas: fCanvas,
-                        img: null,
-                        undoStack: [],
-                        redoStack: [],
-                        hasCustomEdits: true
+                    var item = {
+                        fid: frameIdCounter++, fileName: pf.fileName || ('Frame ' + (idx + 1)),
+                        duration: pf.duration || 1000, canvas: fCanvas, img: null,
+                        undoStack: [], redoStack: [], hasCustomEdits: true
                     };
+                    if (pf.scroll) {
+                        var sc = pf.scroll;
+                        var sp = document.createElement('canvas'); sp.width=sc.spriteW; sp.height=sc.spriteH;
+                        var scCtx=sp.getContext('2d');
+                        var scImage=scCtx.createImageData(sc.spriteW,sc.spriteH);scImage.data.set(sc.spriteData);
+                        scCtx.putImageData(scImage,0,0);
+                        item.scroll={rect:sc.rect,sprite:sp,stepMs:sc.stepMs,pauseMs:sc.pauseMs,direction:sc.direction};
+                        item.regionMeta={rect:Object.assign({},sc.rect),baseCanvas:cloneCanvasElement(fCanvas),
+                            customSpriteCanvas:cloneCanvasElement(sp),pictureCanvas:cloneCanvasElement(sp),
+                            pictureName:pf.fileName||'Imported scroll',type:'image',background:'keep',
+                            duration:item.duration,motion:sc.direction,stepMs:sc.stepMs,pauseMs:sc.pauseMs,pictureFit:'fill'};
+                    }
+                    return item;
                 });
 
                 currentFrameIndex = 0;
@@ -3933,7 +3637,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                 reader.onload = function (ev) {
                     try {
                         var res = parseMultiFrameInoCode(ev.target.result, 'auto', 'auto');
-                        if (res.frames.length > 1) {
+                        if (res.frames.length > 1 || res.frames[0].scroll) {
                             applyImportedCode(res, file.name);
                         } else {
                             selectFrame(idx);
@@ -4016,13 +3720,21 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
         function loadMultipleFiles(files, targetFid) {
             if (!files || files.length === 0) return;
             var fileArr = Array.from(files).filter(function (f) {
-                return f.type.startsWith('image/') || f.name.match(/\.(png|jpe?g|gif|webp|bmp|svg|ico|ino|h|cpp|txt)$/i);
+                return f.type.startsWith('image/') || f.name.match(/\.(png|jpe?g|gif|webp|bmp|svg|ico|ino|h|cpp|txt|json|ledproj)$/i);
             });
             if (fileArr.length === 0) {
                 fileArr = Array.from(files);
             }
             if (fileArr.length === 0) return;
 
+            // Sketch/project imports represent entire editable slide collections,
+            // not picture frames, regardless of the active mode.
+            var special = fileArr.find(function(f){return /\.(ino|h|cpp|txt|json|ledproj)$/i.test(f.name);});
+            if (special && targetFid == null) {
+                if (/\.(json|ledproj)$/i.test(special.name)) loadEditableProjectFile(special);
+                else loadFile(special);
+                return;
+            }
             if (appMode !== 'blink') {
                 loadFile(fileArr[0]);
                 return;
@@ -4078,6 +3790,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
         }
 
         function loadFile(file) {
+            if (/\.(json|ledproj)$/i.test(file.name)) {loadEditableProjectFile(file);return;}
             if (file.name.match(/\.(ino|h|cpp|txt)$/i)) {
                 var reader = new FileReader();
                 reader.onload = function (ev) {
@@ -4809,7 +4522,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                 fileName: source.fileName + ' (copy)',
                 duration: source.duration || 1000,
                 canvas: newCanvas,
-                scroll: source.scroll ? Object.assign({}, source.scroll, { sprite: cloneCanvasElement(source.scroll.sprite) }) : null,
+                scroll: source.scroll ? Object.assign({}, source.scroll, {sprite:cloneCanvasElement(source.scroll.sprite)}) : null,
                 regionMeta: source.regionMeta ? cloneRegionMeta(source.regionMeta) : null,
                 img: null,
                 undoStack: [],
@@ -4848,7 +4561,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                 fileName: source.fileName + ' (copy)',
                 duration: source.duration || 1000,
                 canvas: newCanvas,
-                scroll: source.scroll ? Object.assign({}, source.scroll, { sprite: cloneCanvasElement(source.scroll.sprite) }) : null,
+                scroll: source.scroll ? Object.assign({}, source.scroll, {sprite:cloneCanvasElement(source.scroll.sprite)}) : null,
                 regionMeta: source.regionMeta ? cloneRegionMeta(source.regionMeta) : null,
                 img: null,
                 undoStack: [],
@@ -5264,6 +4977,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                     '  </div>' +
                     '</div>' +
                     '<div class="frame-actions-end">' +
+                    '  <button type="button" class="btn-frame-icon" onclick="editFrameRegion(' + idx + ', event)" title="Edit moving region and its pixels">✂️</button>' +
                     '  <button type="button" class="btn-frame-icon" onclick="copyFramePixels(' + idx + ', event)" title="Copy this slide\'s pixels (Ctrl+C)">📋</button>' +
                     '  <button type="button" class="btn-frame-icon" onclick="pasteFramePixels(' + idx + ', event)" title="Paste copied pixels into this slide (Ctrl+V)">📥</button>' +
                     '  <button type="button" class="btn-frame-icon" onclick="duplicateFrame(' + idx + ')" title="Duplicate frame (or Alt-drag card)">➕</button>' +
@@ -5331,17 +5045,17 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                 var travel = s.rect.w + s.sprite.width;
                 var titleScroll = document.getElementById('bfCurrentTitle');
                 if (titleScroll) titleScroll.textContent = '▶ Scrolling Frame ' + (animPlayIndex + 1) + ' — ' + animScrollStep + '/' + travel;
-                document.querySelectorAll('#framesList .frame-item').forEach(function (el, idx) {
+                document.querySelectorAll('#framesList .frame-item').forEach(function(el,idx) {
                     el.classList.toggle('active', idx === animPlayIndex);
                 });
                 if (animScrollStep <= travel) {
                     renderScrollingPixels(previewCanvas, f, animScrollStep);
-                    animationTimer = setTimeout(function () {
+                    animationTimer = setTimeout(function() {
                         animScrollStep++;
                         scheduleNextFrame();
                     }, s.stepMs);
                 } else {
-                    animationTimer = setTimeout(function () {
+                    animationTimer = setTimeout(function(){
                         animPlayIndex = (animPlayIndex + 1) % frames.length;
                         animScrollStep = 0;
                         scheduleNextFrame();
@@ -5448,7 +5162,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
             }
 
             scrolling = scrolling || [];
-            var scrollingCode = scrolling.map(function (info) {
+            var scrollingCode = scrolling.map(function(info) {
                 var i = info.frameIndex, r = info.rect, w = info.spriteW, h = info.spriteH;
                 var getBase = isColor
                     ? 'pgm_read_word(&frame_' + i + '[y * ' + tw + ' + x])'
@@ -5473,7 +5187,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                     '}\n';
             }).join('\n');
 
-            var scrollBranches = scrolling.map(function (info) {
+            var scrollBranches = scrolling.map(function(info) {
                 var i = info.frameIndex;
                 var total = info.rect.w + info.spriteW;
                 return '  ' + (i === scrolling[0].frameIndex ? 'if' : 'else if') + ' (currentFrame == ' + i + ') {\n' +
@@ -5487,12 +5201,12 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
             }).join('\n');
             var loopCode = scrolling.length ?
                 (scrollBranches + ' else {\n' +
-                    '    drawFrame(currentFrame);\n' +
-                    '    delay(FRAME_DURATIONS[currentFrame]);\n' +
-                    '  }\n') :
+                 '    drawFrame(currentFrame);\n' +
+                 '    delay(FRAME_DURATIONS[currentFrame]);\n' +
+                 '  }\n') :
                 ('  drawFrame(currentFrame);\n' +
-                    '  Serial.print("Frame: "); Serial.println(currentFrame);\n' +
-                    '  delay(FRAME_DURATIONS[currentFrame]);\n');
+                 '  Serial.print("Frame: "); Serial.println(currentFrame);\n' +
+                 '  delay(FRAME_DURATIONS[currentFrame]);\n');
 
             return (
                 '/*\n' +
@@ -5540,6 +5254,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                 '// ----------------------------------------------------------------\n' +
                 frameDecls.join('\n\n') + '\n' +
                 '\n' +
+                scrolling.map(function(info){return '// LED_SCROLL_META frame=' + info.frameIndex + ' rect=' + info.rect.x + ',' + info.rect.y + ',' + info.rect.w + ',' + info.rect.h + ' sprite=' + info.spriteW + ',' + info.spriteH + ' direction=' + info.direction + ' step=' + info.stepMs + ' pause=' + info.pauseMs + '\n';}).join('') +
                 '// Frame durations in milliseconds\n' +
                 'const uint32_t FRAME_DURATIONS[' + durations.length + '] = { ' + durations.join(', ') + ' };\n' +
                 'const int      FRAME_COUNT     = ' + durations.length + ';\n' +
@@ -5682,31 +5397,29 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                 if (f.scroll) {
                     var ss = f.scroll, sprite = ss.sprite;
                     var sw = sprite.width, sh = sprite.height;
-                    var sd = sprite.getContext('2d', { willReadFrequently: true }).getImageData(0, 0, sw, sh).data;
-                    var words = [], masks = new Uint8Array(Math.ceil(sw * sh / 8));
-                    for (var pi = 0; pi < sw * sh; pi++) {
-                        var si = pi * 4;
-                        var active = sd[si + 3] > 12;
-                        if (active) masks[pi >> 3] |= (0x80 >> (pi & 7));
+                    var sd = sprite.getContext('2d',{willReadFrequently:true}).getImageData(0,0,sw,sh).data;
+                    var words = [], masks = new Uint8Array(Math.ceil(sw*sh/8));
+                    for (var pi = 0; pi < sw*sh; pi++) {
+                        var si = pi*4;
+                        var active = sd[si+3] > 12;
+                        if (active) masks[pi>>3] |= (0x80 >> (pi&7));
                         var rgb = isColor
-                            ? toRGB565(sd[si], sd[si + 1], sd[si + 2])
-                            : (((sd[si] + sd[si + 1] + sd[si + 2]) / 3) > thresh ? 0xFFFF : 0);
-                        words.push('0x' + rgb.toString(16).padStart(4, '0').toUpperCase());
+                            ? toRGB565(sd[si],sd[si+1],sd[si+2])
+                            : (((sd[si]+sd[si+1]+sd[si+2])/3) > thresh ? 0xFFFF : 0);
+                        words.push('0x'+rgb.toString(16).padStart(4,'0').toUpperCase());
                     }
-                    var maskWords = Array.from(masks).map(function (n) { return '0x' + n.toString(16).padStart(2, '0').toUpperCase(); });
+                    var maskWords = Array.from(masks).map(function(n){return '0x'+n.toString(16).padStart(2,'0').toUpperCase();});
                     function lineGroup(arr, cols) {
                         var result = [];
-                        for (var start = 0; start < arr.length; start += cols)
-                            result.push('  ' + arr.slice(start, start + cols).join(', '));
+                        for(var start = 0; start < arr.length; start += cols)
+                            result.push('  '+arr.slice(start,start+cols).join(', '));
                         return result.join(',\n');
                     }
-                    frameDecls.push('// Scrolling sprite for Frame ' + (i + 1) + ' (' + sw + 'x' + sh + ')\n' +
-                        'const uint16_t PROGMEM scrollSprite_' + i + '[' + (sw * sh) + '] = {\n' + lineGroup(words, 16) + '\n};\n' +
-                        'const uint8_t PROGMEM scrollMask_' + i + '[' + masks.length + '] = {\n' + lineGroup(maskWords, 24) + '\n};');
-                    scrolling.push({
-                        frameIndex: i, rect: ss.rect, spriteW: sw, spriteH: sh,
-                        stepMs: ss.stepMs, pauseMs: ss.pauseMs, direction: ss.direction
-                    });
+                    frameDecls.push('// Scrolling sprite for Frame '+(i+1)+' ('+sw+'x'+sh+')\n' +
+                        'const uint16_t PROGMEM scrollSprite_'+i+'['+(sw*sh)+'] = {\n'+lineGroup(words,16)+'\n};\n' +
+                        'const uint8_t PROGMEM scrollMask_'+i+'['+masks.length+'] = {\n'+lineGroup(maskWords,24)+'\n};');
+                    scrolling.push({frameIndex:i,rect:ss.rect,spriteW:sw,spriteH:sh,
+                        stepMs:ss.stepMs,pauseMs:ss.pauseMs,direction:ss.direction});
                 }
             });
 
@@ -5726,12 +5439,12 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
         // ── Region Slide Builder: render text/pictures only inside a chosen area ──
         // The output is ordinary full-size frame pixels, so no changes are needed
         // to the existing slideshow compiler or the ESP32 runtime.
-        var regionBuilderState = { rect: null, base: null, picture: null, pictureName: '', customSprite: null };
+        var regionBuilderState = {rect: null, base: null, picture: null, pictureName: '', customSprite: null};
         var regionPreviewCache = null;
 
         function cloneRegionMeta(meta) {
-            var cloned = Object.assign({}, meta, { rect: Object.assign({}, meta.rect) });
-            ['baseCanvas', 'pictureCanvas', 'customSpriteCanvas'].forEach(function (key) {
+            var cloned = Object.assign({}, meta, {rect:Object.assign({},meta.rect)});
+            ['baseCanvas','pictureCanvas','customSpriteCanvas'].forEach(function(key){
                 cloned[key] = cloneCanvasElement(meta[key]);
             });
             return cloned;
@@ -5794,6 +5507,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
             base.getContext('2d').drawImage(previewCanvas, 0, 0);
             regionBuilderState.rect = chosen;
             regionBuilderState.base = base;
+            setRegionBoundInputs(chosen);
             regionBuilderState.customSprite = null;
             document.getElementById('stripEditorWork').style.display = 'none';
             stripEditState.open = false;
@@ -5801,7 +5515,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
             var motionCanvas = document.getElementById('regionMotionPreview');
             if (motionCanvas) {
                 motionCanvas.width = base.width; motionCanvas.height = base.height;
-                motionCanvas.getContext('2d').drawImage(base, 0, 0);
+                motionCanvas.getContext('2d').drawImage(base,0,0);
             }
             document.getElementById('regionCoords').textContent =
                 'X:' + chosen.x + ' Y:' + chosen.y + ' ' + chosen.w + '×' + chosen.h;
@@ -5937,7 +5651,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
         function createRegionBaseCanvas(rect, base) {
             var dst = document.createElement('canvas');
             dst.width = base.width; dst.height = base.height;
-            var c = dst.getContext('2d', { willReadFrequently: true });
+            var c = dst.getContext('2d', {willReadFrequently:true});
             c.imageSmoothingEnabled = false;
             c.drawImage(base, 0, 0);
             var bg = document.getElementById('regionBackground').value;
@@ -5954,19 +5668,19 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
             }
             var type = document.getElementById('regionContentType').value;
             var sprite = document.createElement('canvas');
-            var sc = sprite.getContext('2d', { willReadFrequently: true });
+            var sc = sprite.getContext('2d', {willReadFrequently:true});
             sprite.height = rect.h;
             if (type === 'text') {
                 var txt = document.getElementById('regionTextValue').value.replace(/[\r\n]+/g, ' ').trim();
                 if (!txt) throw new Error('Enter text to scroll.');
-                var px = Math.min(32, Math.max(5, parseInt(document.getElementById('regionTextSize').value, 10) || 9));
+                var px = Math.min(32, Math.max(5, parseInt(document.getElementById('regionTextSize').value,10) || 9));
                 var font = document.getElementById('regionTextFont').value === 'monospace' ? 'monospace' : 'sans-serif';
                 var fontSpec = 'bold ' + px + 'px ' + font;
                 sc.font = fontSpec;
                 var textW = Math.ceil(sc.measureText(txt).width);
                 if (textW + 4 > 4096) throw new Error('Text is too long for ESP32 (maximum 4096 pixels wide). Shorten the text.');
                 sprite.width = Math.max(1, textW + 4);
-                sc = sprite.getContext('2d', { willReadFrequently: true });
+                sc = sprite.getContext('2d', {willReadFrequently:true});
                 sc.font = fontSpec;
                 sc.fillStyle = document.getElementById('regionTextColor').value;
                 sc.textBaseline = 'middle'; sc.textAlign = 'left';
@@ -5979,7 +5693,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                 var naturalW = Math.max(1, Math.round(sw * targetH / sh));
                 if (naturalW > 4096) throw new Error('Picture is too wide after scaling (maximum 4096 LED pixels).');
                 sprite.width = naturalW;
-                sc = sprite.getContext('2d', { willReadFrequently: true });
+                sc = sprite.getContext('2d', {willReadFrequently:true});
                 sc.drawImage(img, 0, 1, naturalW, targetH);
             }
             return sprite;
@@ -5991,19 +5705,19 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
             }
             var rect = Object.assign({}, regionBuilderState.rect);
             var base = regionBuilderState.base;
-            if (base.width !== parseInt(sizeSelect.value, 10)) {
+            if (base.width !== parseInt(sizeSelect.value,10)) {
                 throw new Error('Panel size changed; reselect the region.');
             }
-            var stepMs = Math.min(500, Math.max(20, parseInt(document.getElementById('regionScrollStep').value, 10) || 55));
-            var pauseMs = Math.min(10000, Math.max(0, parseInt(document.getElementById('regionScrollPause').value, 10) || 0));
+            var stepMs = Math.min(500, Math.max(20, parseInt(document.getElementById('regionScrollStep').value,10) || 55));
+            var pauseMs = Math.min(10000, Math.max(0, parseInt(document.getElementById('regionScrollPause').value,10) || 0));
             var dir = document.getElementById('regionMotion').value;
             var sprite = buildRegionSprite(rect);
             var staticBase = createRegionBaseCanvas(rect, base);
-            return { canvas: staticBase, scroll: { rect: rect, sprite: sprite, stepMs: stepMs, pauseMs: pauseMs, direction: dir } };
+            return {canvas: staticBase, scroll: {rect:rect, sprite:sprite, stepMs:stepMs, pauseMs:pauseMs, direction:dir}};
         }
 
         function renderScrollingPixels(destination, frame, step) {
-            var draw = destination.getContext('2d', { willReadFrequently: true });
+            var draw = destination.getContext('2d', {willReadFrequently:true});
             var slide = frame.scroll, r = slide.rect;
             draw.clearRect(0, 0, destination.width, destination.height);
             draw.drawImage(frame.canvas, 0, 0);
@@ -6015,13 +5729,13 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
         }
 
         function drawStripLEDLive(source) {
-            var dest = document.getElementById('stripLivePreview');
-            if (!dest || !source || !stripEditState.open) return;
-            if (dest.width !== source.width || dest.height !== source.height) {
-                dest.width = source.width; dest.height = source.height;
+            var dest=document.getElementById('stripLivePreview');
+            if(!dest || !source || !stripEditState.open)return;
+            if(dest.width!==source.width || dest.height!==source.height){
+                dest.width=source.width;dest.height=source.height;
             }
-            var c = dest.getContext('2d'); c.clearRect(0, 0, dest.width, dest.height);
-            c.imageSmoothingEnabled = false; c.drawImage(source, 0, 0);
+            var c=dest.getContext('2d'); c.clearRect(0,0,dest.width,dest.height);
+            c.imageSmoothingEnabled=false;c.drawImage(source,0,0);
         }
         function updateRegionPreviewSlider(current, max) {
             var slider = document.getElementById('regionPreviewSlider');
@@ -6029,8 +5743,8 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
             slider.max = Math.max(1, max || 1);
             slider.value = Math.max(0, Math.min(parseInt(current || 0, 10), parseInt(slider.max, 10)));
             updateStripVisibleWindow(parseInt(slider.value, 10));
-            var inner = document.getElementById('stripScrub');
-            if (inner) { inner.max = slider.max; inner.value = slider.value; }
+            var inner=document.getElementById('stripScrub');
+            if(inner){inner.max=slider.max;inner.value=slider.value;}
         }
 
         function renderRegionPreviewAt(step, data) {
@@ -6075,20 +5789,104 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
             scrubRegionMotionPreview(0);
         }
 
+        function setRegionBoundInputs(rect) {
+            if(!rect) return;
+            ['X','Y','W','H'].forEach(function(k){
+                document.getElementById('regionBound'+k).value=rect[k.toLowerCase()];
+            });
+            var w=previewCanvas.width || +(sizeSelect.value.split('x')[0]);
+            var h=previewCanvas.height || 32;
+            document.getElementById('regionBoundX').max=w-1;
+            document.getElementById('regionBoundY').max=h-1;
+            document.getElementById('regionBoundW').max=w;
+            document.getElementById('regionBoundH').max=h;
+        }
+
+        function applyRegionBounds(fromSelection) {
+            if(appMode!=='blink' || !frames[currentFrameIndex]) {
+                setRegionStatus('Open a slide in Blink / Slideshow first.',true);return;
+            }
+            if(!regionBuilderState.base || !regionBuilderState.rect) {
+                // Permit modifying regions from older and non-scrolling imports too.
+                loadSelectedFrameToRegionEditor();
+            }
+            if(!regionBuilderState.base || !regionBuilderState.rect) return;
+            var old=Object.assign({},regionBuilderState.rect), next;
+            if(fromSelection) {
+                if(!selectionState.active || !selectionState.w || !selectionState.h) {
+                    setRegionStatus('Click ① Select Area on Matrix, drag a rectangle, then Use Selection as Region.',true);return;
+                }
+                next={x:selectionState.x,y:selectionState.y,w:selectionState.w,h:selectionState.h};
+            } else {
+                next={x:Number(document.getElementById('regionBoundX').value),
+                    y:Number(document.getElementById('regionBoundY').value),
+                    w:Number(document.getElementById('regionBoundW').value),
+                    h:Number(document.getElementById('regionBoundH').value)};
+            }
+            var base=regionBuilderState.base;
+            if(![next.x,next.y,next.w,next.h].every(Number.isInteger) || next.x<0 || next.y<0 || next.w<1 || next.h<1 || next.x+next.w>base.width || next.y+next.h>base.height) {
+                setRegionStatus('Invalid region. Keep X + Width within '+base.width+' and Y + Height within '+base.height+'.',true);return;
+            }
+            if (selectionState.active) commitSelection();
+            if (isPlayingAnimation) pauseBlinkAnimation();
+            stopRegionMotionPreview();
+            if (stripEditState.open) commitStripToSprite(false);
+            var sprite=regionBuilderState.customSprite;
+            // Height changes resample saved LED artwork with nearest-neighbour (no smoothing).
+            if(sprite && sprite.height!==next.h) {
+                var resized=document.createElement('canvas');
+                resized.width=sprite.width;resized.height=next.h;
+                var rctx=resized.getContext('2d');rctx.imageSmoothingEnabled=false;
+                rctx.drawImage(sprite,0,0,sprite.width,next.h);
+                regionBuilderState.customSprite=resized;
+            }
+            regionBuilderState.rect=next;
+            regionPreviewCache=null;
+            setRegionBoundInputs(next);
+            document.getElementById('regionCoords').textContent='X:'+next.x+' Y:'+next.y+' '+next.w+'×'+next.h;
+            if(stripEditState.open){
+                stripEditState.open=false;
+                openStripEditor(false);
+            }
+            try { renderRegionPreviewAt(0); }
+            catch(err) {setRegionStatus('Region updated. '+err.message,true);return;}
+            setRegionStatus('Region changed to X:'+next.x+' Y:'+next.y+' '+next.w+'×'+next.h+'. The scrolling pixels were preserved. Click Replace Current Slide to save.');
+        }
+
+        function editFrameRegion(index, event) {
+            if(event)event.stopPropagation();
+            if(index<0||index>=frames.length)return;
+            selectFrame(index);
+            loadSelectedFrameToRegionEditor();
+            document.getElementById('regionBuilder').scrollIntoView({behavior:'smooth',block:'start'});
+        }
+
         function loadSelectedFrameToRegionEditor() {
             var f = frames[currentFrameIndex];
-            if (!f || !f.regionMeta) {
-                setRegionStatus('Select a slide created from Region Slides first, then click Load Selected Slide to Editor.', true);
-                return;
+            if (!f) return;
+            if (!f.regionMeta) {
+                // Plain .ino imports may contain bitmap slides without authoring metadata.
+                // Give them editable region geometry and allow conversion to a region slide.
+                var w=f.canvas ? f.canvas.width : previewCanvas.width;
+                var h=f.canvas ? f.canvas.height : previewCanvas.height;
+                var r=f.scroll && f.scroll.rect ? Object.assign({},f.scroll.rect) : {x:0,y:0,w:w,h:h};
+                f.regionMeta={rect:r,baseCanvas:cloneCanvasElement(f.canvas || previewCanvas),
+                    pictureCanvas: f.scroll ? cloneCanvasElement(f.scroll.sprite) : null,
+                    customSpriteCanvas:f.scroll ? cloneCanvasElement(f.scroll.sprite) : null,
+                    pictureName:'Imported artwork',type:f.scroll?'image':'text',
+                    background:'keep',duration:f.duration||1000,motion:f.scroll ? f.scroll.direction:'still',
+                    stepMs:f.scroll ? f.scroll.stepMs:55,pauseMs:f.scroll ? f.scroll.pauseMs:400,
+                    textValue:'',textSize:9,textAlign:'center',textFont:'sans-serif',textColor:'#ffffff',pictureFit:'fit'};
             }
             var m = f.regionMeta;
             regionBuilderState.rect = Object.assign({}, m.rect);
-            regionBuilderState.base = cloneCanvasElement(m.baseCanvas);
+            regionBuilderState.base = cloneCanvasElement(m.baseCanvas || f.canvas || previewCanvas);
             regionBuilderState.picture = cloneCanvasElement(m.pictureCanvas);
             regionBuilderState.pictureName = m.pictureName || '';
             regionBuilderState.customSprite = cloneCanvasElement(m.customSpriteCanvas || (f.scroll ? f.scroll.sprite : null));
             regionPreviewCache = null;
             document.getElementById('regionCoords').textContent = 'x=' + m.rect.x + ', y=' + m.rect.y + ', ' + m.rect.w + '×' + m.rect.h;
+            setRegionBoundInputs(m.rect);
             document.getElementById('regionContentType').value = m.type || 'text';
             toggleRegionContentFields();
             document.getElementById('regionDuration').value = m.duration || f.duration || 2000;
@@ -6106,11 +5904,11 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
             } else {
                 document.getElementById('regionPictureFit').value = m.pictureFit || 'crop';
             }
-            setRegionStatus('Loaded slide ' + (currentFrameIndex + 1) + ' into the editor. Change it, then click Replace Current Slide.');
+            setRegionStatus('Loaded slide ' + (currentFrameIndex + 1) + '. Edit X/Y/Width/Height, or paint pixels in the Full Scroll Strip; then click Replace Current Slide.');
             try {
                 if (m.motion && m.motion !== 'still') openStripEditor(false);
                 renderRegionPreviewAt(0);
-            } catch (err) { }
+            } catch (err) {}
         }
 
         function toggleRegionMotionPreview() {
@@ -6128,8 +5926,8 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                     composed.save(); composed.beginPath();
                     var r = data.scroll.rect;
                     composed.rect(r.x, r.y, r.w, r.h); composed.clip();
-                    if (document.getElementById('regionContentType').value === 'text') paintRegionText(composed, r);
-                    else paintRegionPicture(composed, r);
+                    if (document.getElementById('regionContentType').value === 'text') paintRegionText(composed,r);
+                    else paintRegionPicture(composed,r);
                     composed.restore();
                     preview.getContext('2d').drawImage(data.canvas, 0, 0);
                     drawStripLEDLive(preview);
@@ -6150,7 +5948,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                     drawStripLEDLive(preview);
                     updateRegionPreviewSlider(step, length);
                     document.getElementById('regionMotionProgress').textContent =
-                        'Position ' + step + ' / ' + length + ' px — ' + (data.scroll.stepMs * (length + 1) / 1000).toFixed(1) + 's to exit';
+                        'Position ' + step + ' / ' + length + ' px — ' + (data.scroll.stepMs * (length+1) / 1000).toFixed(1) + 's to exit';
                     step++;
                     motionPreviewTimeout = setTimeout(tick, data.scroll.stepMs);
                 }
@@ -6192,7 +5990,7 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                 var motion = spec.scroll;
                 duration = (motion.rect.w + motion.sprite.width + 1) * motion.stepMs + motion.pauseMs;
                 var moveTitle = (motion.direction === 'left' ? '⬅ ' : '➡ ') + (type === 'text'
-                    ? 'Scrolling text: ' + document.getElementById('regionTextValue').value.replace(/\s+/g, ' ').trim().slice(0, 40)
+                    ? 'Scrolling text: ' + document.getElementById('regionTextValue').value.replace(/\s+/g,' ').trim().slice(0,40)
                     : 'Scrolling picture: ' + (regionBuilderState.pictureName || 'Image'));
                 if (replaceCurrent && frames[currentFrameIndex]) {
                     var target = frames[currentFrameIndex];
@@ -6223,14 +6021,13 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                         customSpriteCanvas: cloneCanvasElement(motion.sprite)
                     };
                 } else {
-                    frames.push({
-                        fid: frameIdCounter++, fileName: moveTitle, duration: duration,
-                        canvas: spec.canvas, scroll: motion, img: null,
-                        undoStack: [], redoStack: [], hasCustomEdits: true,
-                        regionMeta: {
-                            rect: Object.assign({}, rect),
+                    frames.push({fid:frameIdCounter++, fileName:moveTitle, duration:duration,
+                        canvas:spec.canvas, scroll:motion, img:null,
+                        undoStack:[], redoStack:[], hasCustomEdits:true,
+                        regionMeta:{
+                            rect:Object.assign({}, rect),
                             baseCanvas: cloneCanvasElement(base),
-                            type: type, background: document.getElementById('regionBackground').value, duration: duration,
+                            type:type, background: document.getElementById('regionBackground').value, duration:duration,
                             motion: motion.direction, stepMs: motion.stepMs, pauseMs: motion.pauseMs,
                             textValue: document.getElementById('regionTextValue').value,
                             textSize: parseInt(document.getElementById('regionTextSize').value, 10) || 9,
@@ -6241,11 +6038,10 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                             pictureCanvas: cloneCanvasElement(regionBuilderState.picture),
                             pictureName: regionBuilderState.pictureName || '',
                             customSpriteCanvas: cloneCanvasElement(motion.sprite)
-                        }
-                    });
+                        }});
                 }
                 renderFrameList();
-                selectFrame(replaceCurrent ? currentFrameIndex : frames.length - 1);
+                selectFrame(replaceCurrent ? currentFrameIndex : frames.length-1);
                 setRegionStatus('Scrolling region saved! It enters from off-screen and fully exits. Use Play Animation or ▶ Preview movement, then generate .ino.');
                 showToast('Added real scrolling motion, not hundreds of bitmap frames!', '✅');
                 return;
@@ -6342,14 +6138,14 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
         //    not the LED panel. [screen-wide padding][sprite][screen-wide padding].
         //    The moving blue rectangle marks the LED's visible region.
         var stripEditState = {
-            open: false, tool: 'pencil', zoom: 4, pad: 0, rect: null, trimLeft: 0,
-            isDown: false, last: null, undo: [], redo: [], maxUndo: 24,
-            sel: null, mode: null, origin: null, moveCanvas: null, isCopy: false,
-            clipboard: null
+            open:false, tool:'pencil', zoom:4, pad:0, rect:null, trimLeft:0,
+            isDown:false, last:null, undo:[], redo:[], maxUndo:24,
+            sel:null, mode:null, origin:null, moveCanvas:null, isCopy:false,
+            clipboard:null
         };
 
         function stripCanvas() { return document.getElementById('stripPixelCanvas'); }
-        function stripCtx() { return stripCanvas().getContext('2d', { willReadFrequently: true }); }
+        function stripCtx() { return stripCanvas().getContext('2d',{willReadFrequently:true}); }
         function stripStatus(msg, error) {
             var s = document.getElementById('stripStatus');
             if (s) { s.textContent = msg; s.style.color = error ? '#f87171' : '#34d399'; }
@@ -6373,321 +6169,319 @@ const uint16_t PROGMEM ledImage_64x32[2048] = {
                 var c = stripCanvas();
                 c.width = pad * 2 + spr.width;
                 c.height = regionBuilderState.rect.h;
-                var ctx = stripCtx(); ctx.clearRect(0, 0, c.width, c.height);
-                ctx.drawImage(spr, pad, 0);
-                stripEditState.pad = pad;
-                stripEditState.trimLeft = pad;
-                stripEditState.rect = Object.assign({}, regionBuilderState.rect);
-                stripEditState.open = true;
-                stripEditState.sel = null;
-                stripEditState.undo = []; stripEditState.redo = [];
-                stripEditState.mode = null;
+                var ctx = stripCtx(); ctx.clearRect(0,0,c.width,c.height);
+                ctx.drawImage(spr,pad,0);
+                stripEditState.pad=pad;
+                stripEditState.trimLeft=pad;
+                stripEditState.rect=Object.assign({}, regionBuilderState.rect);
+                stripEditState.open=true;
+                stripEditState.sel=null;
+                stripEditState.undo=[]; stripEditState.redo=[];
+                stripEditState.mode=null;
                 document.getElementById('stripEditorWork').style.display = 'block';
                 setStripTool('pencil');
                 stripUpdateLayout();
                 stripFitWhole();
                 var slider = document.getElementById('regionPreviewSlider');
-                updateStripVisibleWindow(slider ? +slider.value : 0);
+                updateStripVisibleWindow(slider?+slider.value:0);
                 commitStripToSprite(false);
-                stripStatus('Full scrolling content open: ' + spr.width + '×' + spr.height + ' editable content pixels. Scroll sideways for off-screen pixels.');
-                document.getElementById('stripScrollWrap').scrollLeft = 0;
-            } catch (e) { setRegionStatus(e.message, true); stripStatus(e.message, true); }
+                stripStatus('Full scrolling content open: '+spr.width+'×'+spr.height+' editable content pixels. Scroll sideways for off-screen pixels.');
+                document.getElementById('stripScrollWrap').scrollLeft=0;
+            } catch(e) { setRegionStatus(e.message,true); stripStatus(e.message,true); }
         }
         function stripUpdateLayout() {
-            var c = stripCanvas(), z = stripEditState.zoom, w = c.width * z, h = c.height * z;
-            c.style.width = w + 'px'; c.style.height = h + 'px';
-            var holder = document.getElementById('stripCanvasHolder');
-            holder.style.width = w + 'px'; holder.style.height = h + 'px';
-            var grid = document.getElementById('stripGrid');
-            grid.style.width = w + 'px'; grid.style.height = h + 'px';
-            grid.style.backgroundSize = z + 'px ' + z + 'px';
-            grid.style.display = z >= 4 ? 'block' : 'none';
-            var ruler = document.getElementById('stripRuler');
-            ruler.style.width = w + 'px';
-            ruler.textContent = '';
+            var c=stripCanvas(), z=stripEditState.zoom, w=c.width*z, h=c.height*z;
+            c.style.width=w+'px'; c.style.height=h+'px';
+            var holder=document.getElementById('stripCanvasHolder');
+            holder.style.width=w+'px'; holder.style.height=h+'px';
+            var grid=document.getElementById('stripGrid');
+            grid.style.width=w+'px'; grid.style.height=h+'px';
+            grid.style.backgroundSize=z+'px '+z+'px';
+            grid.style.display=z>=4?'block':'none';
+            var ruler=document.getElementById('stripRuler');
+            ruler.style.width=w+'px';
+            ruler.textContent='';
             var interval = z < 4 ? 32 : (z < 9 ? 16 : 8);
-            for (var x = 0; x < c.width; x += interval) {
-                var e = document.createElement('span');
-                e.style.left = (x * z + 5) + 'px'; e.textContent = x;
+            for(var x=0; x<c.width; x+=interval) {
+                var e=document.createElement('span');
+                e.style.left=(x*z + 5)+'px'; e.textContent=x;
                 ruler.appendChild(e);
             }
-            document.getElementById('stripZoomLabel').textContent = z + '×';
-            updateStripVisibleWindow(+(document.getElementById('regionPreviewSlider').value || 0));
+            document.getElementById('stripZoomLabel').textContent=z+'×';
+            updateStripVisibleWindow(+(document.getElementById('regionPreviewSlider').value||0));
             stripUpdateSelectionUI();
         }
         function toggleStripFullscreen() {
-            var el = document.getElementById('stripEditorPanel');
+            var el=document.getElementById('stripEditorPanel');
             el.classList.toggle('fullscreen');
-            document.getElementById('stripExpandBtn').textContent = el.classList.contains('fullscreen')
+            document.getElementById('stripExpandBtn').textContent=el.classList.contains('fullscreen')
                 ? '⛶ Close Expanded Editor' : '⛶ Expand Full Pixel Editor';
-            if (stripEditState.open) stripFitWhole();
+            if(stripEditState.open)stripFitWhole();
         }
         function stripFitWhole() {
-            if (!stripEditState.open) return;
-            var holder = document.getElementById('stripScrollWrap');
-            var usable = Math.max(150, holder.clientWidth - 24);
-            stripEditState.zoom = Math.max(1, Math.min(16, Math.floor(usable / stripCanvas().width)));
+            if(!stripEditState.open)return;
+            var holder=document.getElementById('stripScrollWrap');
+            var usable=Math.max(150,holder.clientWidth-24);
+            stripEditState.zoom=Math.max(1,Math.min(16,Math.floor(usable/stripCanvas().width)));
             stripUpdateLayout();
         }
         function stripZoomBy(n) {
-            if (!stripEditState.open) return;
-            stripEditState.zoom = Math.max(1, Math.min(16, stripEditState.zoom + n));
+            if(!stripEditState.open)return;
+            stripEditState.zoom=Math.max(1,Math.min(16,stripEditState.zoom+n));
             stripUpdateLayout();
         }
         function updateStripVisibleWindow(step) {
-            if (!stripEditState.open || !stripEditState.rect) return;
-            var box = document.getElementById('stripVisibleWindow');
-            var z = stripEditState.zoom;
-            var c = stripCanvas(), w = stripEditState.rect.w;
-            var direction = document.getElementById('regionMotion').value;
-            var pos = direction === 'right' ? (c.width - w - step) : step;
+            if(!stripEditState.open || !stripEditState.rect)return;
+            var box=document.getElementById('stripVisibleWindow');
+            var z=stripEditState.zoom;
+            var c=stripCanvas(),w=stripEditState.rect.w;
+            var direction=document.getElementById('regionMotion').value;
+            var pos= direction==='right' ? (c.width-w-step) : step;
             // Sprite data is alpha-trimmed when exported. Shift the outline to
             // compensate for source transparent margins in this editable strip.
-            pos += (stripEditState.trimLeft - stripEditState.pad);
-            box.style.left = (Math.max(0, Math.min(c.width - w, pos)) * z) + 'px';
-            box.style.width = (stripEditState.rect.w * z) + 'px';
-            box.style.height = (stripCanvas().height * z) + 'px';
+            pos += (stripEditState.trimLeft-stripEditState.pad);
+            box.style.left=(Math.max(0,Math.min(c.width-w,pos))*z)+'px';
+            box.style.width=(stripEditState.rect.w*z)+'px';
+            box.style.height=(stripCanvas().height*z)+'px';
         }
         function setStripTool(name) {
-            if (!['pencil', 'eraser', 'fill', 'picker', 'select'].includes(name)) return;
-            stripEditState.tool = name;
-            document.querySelectorAll('[data-strip-tool]').forEach(function (b) {
-                b.classList.toggle('selected', b.getAttribute('data-strip-tool') === name);
+            if(!['pencil','eraser','fill','picker','select'].includes(name))return;
+            stripEditState.tool=name;
+            document.querySelectorAll('[data-strip-tool]').forEach(function(b){
+                b.classList.toggle('selected',b.getAttribute('data-strip-tool')===name);
             });
         }
         function stripCoords(e) {
-            var c = stripCanvas(), b = c.getBoundingClientRect();
-            return {
-                x: Math.max(0, Math.min(c.width - 1, Math.floor((e.clientX - b.left) * c.width / b.width))),
-                y: Math.max(0, Math.min(c.height - 1, Math.floor((e.clientY - b.top) * c.height / b.height)))
-            };
+            var c=stripCanvas(), b=c.getBoundingClientRect();
+            return {x:Math.max(0,Math.min(c.width-1,Math.floor((e.clientX-b.left)*c.width/b.width))),
+                y:Math.max(0,Math.min(c.height-1,Math.floor((e.clientY-b.top)*c.height/b.height)))};
         }
         function stripSnapshot() {
-            var c = stripCanvas();
-            stripEditState.undo.push(stripCtx().getImageData(0, 0, c.width, c.height));
-            if (stripEditState.undo.length > stripEditState.maxUndo) stripEditState.undo.shift();
-            stripEditState.redo = [];
+            var c=stripCanvas();
+            stripEditState.undo.push(stripCtx().getImageData(0,0,c.width,c.height));
+            if(stripEditState.undo.length>stripEditState.maxUndo)stripEditState.undo.shift();
+            stripEditState.redo=[];
         }
         function stripUndo() {
-            if (!stripEditState.open || !stripEditState.undo.length) return;
-            var c = stripCanvas();
-            stripEditState.redo.push(stripCtx().getImageData(0, 0, c.width, c.height));
-            stripCtx().putImageData(stripEditState.undo.pop(), 0, 0);
+            if(!stripEditState.open||!stripEditState.undo.length)return;
+            var c=stripCanvas();
+            stripEditState.redo.push(stripCtx().getImageData(0,0,c.width,c.height));
+            stripCtx().putImageData(stripEditState.undo.pop(),0,0);
             commitStripToSprite(false);
         }
         function stripRedo() {
-            if (!stripEditState.open || !stripEditState.redo.length) return;
-            var c = stripCanvas();
-            stripEditState.undo.push(stripCtx().getImageData(0, 0, c.width, c.height));
-            stripCtx().putImageData(stripEditState.redo.pop(), 0, 0);
+            if(!stripEditState.open||!stripEditState.redo.length)return;
+            var c=stripCanvas();
+            stripEditState.undo.push(stripCtx().getImageData(0,0,c.width,c.height));
+            stripCtx().putImageData(stripEditState.redo.pop(),0,0);
             commitStripToSprite(false);
         }
-        function stripSetPixel(x, y, erase) {
-            var ctx = stripCtx();
-            if (erase) ctx.clearRect(x, y, 1, 1);
+        function stripSetPixel(x,y,erase) {
+            var ctx=stripCtx();
+            if(erase)ctx.clearRect(x,y,1,1);
             else {
-                ctx.fillStyle = document.getElementById('stripColor').value;
-                ctx.fillRect(x, y, 1, 1);
+                ctx.fillStyle=document.getElementById('stripColor').value;
+                ctx.fillRect(x,y,1,1);
             }
         }
-        function stripLine(from, to, erase) {
-            var x = from.x, y = from.y, dx = Math.abs(to.x - x), dy = Math.abs(to.y - y);
-            var sx = x < to.x ? 1 : -1, sy = y < to.y ? 1 : -1, err = dx - dy;
-            while (true) {
-                stripSetPixel(x, y, erase);
-                if (x === to.x && y === to.y) break;
-                var err2 = 2 * err;
-                if (err2 > -dy) { err -= dy; x += sx; }
-                if (err2 < dx) { err += dx; y += sy; }
+        function stripLine(from,to,erase) {
+            var x=from.x,y=from.y, dx=Math.abs(to.x-x),dy=Math.abs(to.y-y);
+            var sx=x<to.x?1:-1,sy=y<to.y?1:-1,err=dx-dy;
+            while(true) {
+                stripSetPixel(x,y,erase);
+                if(x===to.x && y===to.y)break;
+                var err2=2*err;
+                if(err2>-dy){err-=dy;x+=sx;}
+                if(err2<dx){err+=dx;y+=sy;}
             }
         }
-        function stripFill(x, y) {
-            var c = stripCanvas(), ctx = stripCtx(), im = ctx.getImageData(0, 0, c.width, c.height);
-            var d = im.data, start = (y * c.width + x) * 4;
-            var old = [d[start], d[start + 1], d[start + 2], d[start + 3]];
-            var col = document.getElementById('stripColor').value;
-            var rr = parseInt(col.slice(1, 3), 16), gg = parseInt(col.slice(3, 5), 16), bb = parseInt(col.slice(5, 7), 16);
-            var target = [rr, gg, bb, 255];
-            if (old.every((v, i) => v === target[i])) return;
-            var seen = new Uint8Array(c.width * c.height), queue = [y * c.width + x]; seen[queue[0]] = 1;
-            while (queue.length) {
-                var p = queue.pop(), idx = p * 4;
-                if (d[idx] !== old[0] || d[idx + 1] !== old[1] || d[idx + 2] !== old[2] || d[idx + 3] !== old[3]) continue;
-                d[idx] = rr; d[idx + 1] = gg; d[idx + 2] = bb; d[idx + 3] = 255;
-                var xx = p % c.width, yy = (p / c.width) | 0;
-                var n = [];
-                if (xx > 0) n.push(p - 1); if (xx < c.width - 1) n.push(p + 1);
-                if (yy > 0) n.push(p - c.width); if (yy < c.height - 1) n.push(p + c.width);
-                for (var k = 0; k < n.length; k++)if (!seen[n[k]]) { seen[n[k]] = 1; queue.push(n[k]); }
+        function stripFill(x,y) {
+            var c=stripCanvas(),ctx=stripCtx(),im=ctx.getImageData(0,0,c.width,c.height);
+            var d=im.data,start=(y*c.width+x)*4;
+            var old=[d[start],d[start+1],d[start+2],d[start+3]];
+            var col=document.getElementById('stripColor').value;
+            var rr=parseInt(col.slice(1,3),16),gg=parseInt(col.slice(3,5),16),bb=parseInt(col.slice(5,7),16);
+            var target=[rr,gg,bb,255];
+            if(old.every((v,i)=>v===target[i]))return;
+            var seen=new Uint8Array(c.width*c.height), queue=[y*c.width+x];seen[queue[0]]=1;
+            while(queue.length){
+                var p=queue.pop(),idx=p*4;
+                if(d[idx]!==old[0]||d[idx+1]!==old[1]||d[idx+2]!==old[2]||d[idx+3]!==old[3])continue;
+                d[idx]=rr;d[idx+1]=gg;d[idx+2]=bb;d[idx+3]=255;
+                var xx=p%c.width, yy=(p/c.width)|0;
+                var n=[];
+                if(xx>0)n.push(p-1);if(xx<c.width-1)n.push(p+1);
+                if(yy>0)n.push(p-c.width);if(yy<c.height-1)n.push(p+c.width);
+                for(var k=0;k<n.length;k++)if(!seen[n[k]]){seen[n[k]]=1;queue.push(n[k]);}
             }
-            ctx.putImageData(im, 0, 0);
+            ctx.putImageData(im,0,0);
         }
         function stripUpdateSelectionUI() {
-            var s = stripEditState.sel, el = document.getElementById('stripSelection');
-            if (!s) { el.style.display = 'none'; return; }
-            var z = stripEditState.zoom;
-            el.style.display = 'block'; el.style.left = s.x * z + 'px'; el.style.top = s.y * z + 'px';
-            el.style.width = s.w * z + 'px'; el.style.height = s.h * z + 'px';
+            var s=stripEditState.sel,el=document.getElementById('stripSelection');
+            if(!s){el.style.display='none';return;}
+            var z=stripEditState.zoom;
+            el.style.display='block';el.style.left=s.x*z+'px';el.style.top=s.y*z+'px';
+            el.style.width=s.w*z+'px';el.style.height=s.h*z+'px';
         }
         function stripDown(e) {
-            if (!stripEditState.open || !(e.button === 0 || e.button === 2)) return;
+            if(!stripEditState.open||!(e.button===0||e.button===2))return;
             e.preventDefault();
-            document.getElementById('stripScrollWrap').focus({ preventScroll: true });
-            var p = stripCoords(e), tool = stripEditState.tool, sel = stripEditState.sel;
-            stripEditState.isDown = true;
-            stripEditState.last = p;
-            if (tool === 'picker') {
-                var rgba = stripCtx().getImageData(p.x, p.y, 1, 1).data;
-                document.getElementById('stripColor').value = rgbToHex(rgba[0], rgba[1], rgba[2]).toLowerCase();
-                stripEditState.isDown = false; return;
+            document.getElementById('stripScrollWrap').focus({preventScroll:true});
+            var p=stripCoords(e),tool=stripEditState.tool,sel=stripEditState.sel;
+            stripEditState.isDown=true;
+            stripEditState.last=p;
+            if(tool==='picker') {
+                var rgba=stripCtx().getImageData(p.x,p.y,1,1).data;
+                document.getElementById('stripColor').value=rgbToHex(rgba[0],rgba[1],rgba[2]).toLowerCase();
+                stripEditState.isDown=false; return;
             }
-            if (tool === 'select') {
-                if (sel && p.x >= sel.x && p.x < sel.x + sel.w && p.y >= sel.y && p.y < sel.y + sel.h) {
+            if(tool==='select'){
+                if(sel && p.x>=sel.x&&p.x<sel.x+sel.w&&p.y>=sel.y&&p.y<sel.y+sel.h){
                     stripSnapshot();
-                    var float = document.createElement('canvas'); float.width = sel.w; float.height = sel.h;
-                    float.getContext('2d').drawImage(stripCanvas(), sel.x, sel.y, sel.w, sel.h, 0, 0, sel.w, sel.h);
-                    stripEditState.moveCanvas = float;
-                    stripEditState.isCopy = e.altKey;
-                    stripEditState.mode = 'move';
-                    stripEditState.origin = { mouseX: p.x, mouseY: p.y, x: sel.x, y: sel.y };
-                    if (!stripEditState.isCopy) stripCtx().clearRect(sel.x, sel.y, sel.w, sel.h);
-                    var overlay = document.getElementById('stripFloatCanvas');
-                    overlay.width = sel.w; overlay.height = sel.h; overlay.getContext('2d').drawImage(float, 0, 0);
-                    overlay.style.display = 'block';
-                } else {
-                    stripEditState.mode = 'select';
-                    stripEditState.origin = p;
-                    stripEditState.sel = { x: p.x, y: p.y, w: 1, h: 1 };
-                    document.getElementById('stripFloatCanvas').style.display = 'none';
+                    var float=document.createElement('canvas'); float.width=sel.w; float.height=sel.h;
+                    float.getContext('2d').drawImage(stripCanvas(),sel.x,sel.y,sel.w,sel.h,0,0,sel.w,sel.h);
+                    stripEditState.moveCanvas=float;
+                    stripEditState.isCopy=e.altKey;
+                    stripEditState.mode='move';
+                    stripEditState.origin={mouseX:p.x,mouseY:p.y,x:sel.x,y:sel.y};
+                    if(!stripEditState.isCopy)stripCtx().clearRect(sel.x,sel.y,sel.w,sel.h);
+                    var overlay=document.getElementById('stripFloatCanvas');
+                    overlay.width=sel.w;overlay.height=sel.h;overlay.getContext('2d').drawImage(float,0,0);
+                    overlay.style.display='block';
+                }else{
+                    stripEditState.mode='select';
+                    stripEditState.origin=p;
+                    stripEditState.sel={x:p.x,y:p.y,w:1,h:1};
+                    document.getElementById('stripFloatCanvas').style.display='none';
                 }
-                stripUpdateSelectionUI(); return;
+                stripUpdateSelectionUI();return;
             }
             stripSnapshot();
-            if (tool === 'fill') { stripFill(p.x, p.y); stripEditState.isDown = false; commitStripToSprite(false); return; }
-            stripEditState.mode = 'draw';
-            stripSetPixel(p.x, p.y, tool === 'eraser' || e.button === 2);
-            stripEditState.erase = tool === 'eraser' || e.button === 2;
+            if(tool==='fill'){stripFill(p.x,p.y);stripEditState.isDown=false;commitStripToSprite(false);return;}
+            stripEditState.mode='draw';
+            stripSetPixel(p.x,p.y,tool==='eraser'||e.button===2);
+            stripEditState.erase=tool==='eraser'||e.button===2;
         }
         function stripMove(e) {
-            if (!stripEditState.open) return;
-            var p = stripCoords(e);
-            document.getElementById('stripPixelHud').textContent = 'X: ' + p.x + ' Y: ' + p.y;
-            if (!stripEditState.isDown) return;
-            if (stripEditState.mode === 'draw') stripLine(stripEditState.last, p, stripEditState.erase);
-            if (stripEditState.mode === 'select') {
-                var start = stripEditState.origin;
-                var l = Math.min(start.x, p.x), t = Math.min(start.y, p.y);
-                stripEditState.sel = { x: l, y: t, w: Math.abs(start.x - p.x) + 1, h: Math.abs(start.y - p.y) + 1 };
+            if(!stripEditState.open)return;
+            var p=stripCoords(e);
+            document.getElementById('stripPixelHud').textContent='X: '+p.x+' Y: '+p.y;
+            if(!stripEditState.isDown)return;
+            if(stripEditState.mode==='draw')stripLine(stripEditState.last,p,stripEditState.erase);
+            if(stripEditState.mode==='select'){
+                var start=stripEditState.origin;
+                var l=Math.min(start.x,p.x),t=Math.min(start.y,p.y);
+                stripEditState.sel={x:l,y:t,w:Math.abs(start.x-p.x)+1,h:Math.abs(start.y-p.y)+1};
                 stripUpdateSelectionUI();
             }
-            if (stripEditState.mode === 'move') {
-                var origin = stripEditState.origin, sel = stripEditState.sel, c = stripCanvas();
-                sel.x = Math.max(0, Math.min(c.width - sel.w, origin.x + p.x - origin.mouseX));
-                sel.y = Math.max(0, Math.min(c.height - sel.h, origin.y + p.y - origin.mouseY));
+            if(stripEditState.mode==='move'){
+                var origin=stripEditState.origin,sel=stripEditState.sel,c=stripCanvas();
+                sel.x=Math.max(0,Math.min(c.width-sel.w,origin.x+p.x-origin.mouseX));
+                sel.y=Math.max(0,Math.min(c.height-sel.h,origin.y+p.y-origin.mouseY));
                 stripUpdateSelectionUI();
             }
-            stripEditState.last = p;
+            stripEditState.last=p;
         }
         function stripUp() {
-            if (!stripEditState.isDown) return;
-            if (stripEditState.mode === 'move' && stripEditState.moveCanvas && stripEditState.sel) {
-                stripCtx().drawImage(stripEditState.moveCanvas, stripEditState.sel.x, stripEditState.sel.y);
-                document.getElementById('stripFloatCanvas').style.display = 'none';
-                stripEditState.moveCanvas = null;
+            if(!stripEditState.isDown)return;
+            if(stripEditState.mode==='move'&&stripEditState.moveCanvas&&stripEditState.sel){
+                stripCtx().drawImage(stripEditState.moveCanvas,stripEditState.sel.x,stripEditState.sel.y);
+                document.getElementById('stripFloatCanvas').style.display='none';
+                stripEditState.moveCanvas=null;
             }
-            stripEditState.isDown = false;
-            if (stripEditState.mode !== 'select') commitStripToSprite(false);
-            stripEditState.mode = null;
+            stripEditState.isDown=false;
+            if(stripEditState.mode!=='select')commitStripToSprite(false);
+            stripEditState.mode=null;
         }
-        function stripCopy() {
-            if (!stripEditState.open) return;
-            var s = stripEditState.sel, c = stripCanvas();
-            if (!s) s = { x: 0, y: 0, w: c.width, h: c.height };
-            var copy = document.createElement('canvas'); copy.width = s.w; copy.height = s.h;
-            copy.getContext('2d').drawImage(c, s.x, s.y, s.w, s.h, 0, 0, s.w, s.h);
-            stripEditState.clipboard = copy;
-            stripStatus('Copied ' + s.w + '×' + s.h + ' pixels.');
+        function stripCopy(){
+            if(!stripEditState.open)return;
+            var s=stripEditState.sel,c=stripCanvas();
+            if(!s)s={x:0,y:0,w:c.width,h:c.height};
+            var copy=document.createElement('canvas');copy.width=s.w;copy.height=s.h;
+            copy.getContext('2d').drawImage(c,s.x,s.y,s.w,s.h,0,0,s.w,s.h);
+            stripEditState.clipboard=copy;
+            stripStatus('Copied '+s.w+'×'+s.h+' pixels.');
         }
-        function stripPaste() {
-            if (!stripEditState.open || !stripEditState.clipboard) { stripStatus('Copy pixels first.', true); return; }
-            var c = stripCanvas(), src = stripEditState.clipboard;
-            var windowX = +(document.getElementById('regionPreviewSlider').value || 0);
-            var x = Math.min(c.width - 1, Math.max(0, windowX)), y = 0;
+        function stripPaste(){
+            if(!stripEditState.open||!stripEditState.clipboard){stripStatus('Copy pixels first.',true);return;}
+            var c=stripCanvas(),src=stripEditState.clipboard;
+            var windowX=+(document.getElementById('regionPreviewSlider').value||0);
+            var x=Math.min(c.width-1,Math.max(0,windowX)),y=0;
             stripSnapshot();
-            stripCtx().drawImage(src, x, y);
-            stripEditState.sel = { x: x, y: y, w: Math.min(src.width, c.width - x), h: Math.min(src.height, c.height - y) };
-            stripUpdateSelectionUI(); commitStripToSprite(false);
+            stripCtx().drawImage(src,x,y);
+            stripEditState.sel={x:x,y:y,w:Math.min(src.width,c.width-x),h:Math.min(src.height,c.height-y)};
+            stripUpdateSelectionUI();commitStripToSprite(false);
         }
-        function stripDeleteSelection() {
-            if (!stripEditState.open || !stripEditState.sel) return;
+        function stripDeleteSelection(){
+            if(!stripEditState.open||!stripEditState.sel)return;
             stripSnapshot();
-            var s = stripEditState.sel;
-            stripCtx().clearRect(s.x, s.y, s.w, s.h);
-            stripEditState.sel = null; stripUpdateSelectionUI(); commitStripToSprite(false);
+            var s=stripEditState.sel;
+            stripCtx().clearRect(s.x,s.y,s.w,s.h);
+            stripEditState.sel=null;stripUpdateSelectionUI();commitStripToSprite(false);
         }
-        function stripClear() {
-            if (!stripEditState.open) return;
-            stripSnapshot(); stripCtx().clearRect(0, 0, stripCanvas().width, stripCanvas().height);
-            stripEditState.sel = null; stripUpdateSelectionUI(); commitStripToSprite(false);
+        function stripClear(){
+            if(!stripEditState.open)return;
+            stripSnapshot();stripCtx().clearRect(0,0,stripCanvas().width,stripCanvas().height);
+            stripEditState.sel=null;stripUpdateSelectionUI();commitStripToSprite(false);
         }
         function stripExpand(count) {
-            if (!stripEditState.open) return;
-            var c = stripCanvas(), backup = cloneCanvasElement(c);
-            if (c.width + count > 4224) { stripStatus('Maximum extended width is 4224 pixels.', true); return; }
-            c.width += count;
-            stripCtx().drawImage(backup, 0, 0);
-            stripEditState.undo = []; stripEditState.redo = [];
-            stripUpdateLayout(); commitStripToSprite(false);
-            stripStatus('Added ' + count + ' editable off-screen columns to the right.');
+            if(!stripEditState.open)return;
+            var c=stripCanvas(), backup=cloneCanvasElement(c);
+            if(c.width+count>4224){stripStatus('Maximum extended width is 4224 pixels.',true);return;}
+            c.width+=count;
+            stripCtx().drawImage(backup,0,0);
+            stripEditState.undo=[];stripEditState.redo=[];
+            stripUpdateLayout();commitStripToSprite(false);
+            stripStatus('Added '+count+' editable off-screen columns to the right.');
         }
         function commitStripToSprite(message) {
-            if (!stripEditState.open) return;
-            var c = stripCanvas(), d = stripCtx().getImageData(0, 0, c.width, c.height).data;
-            var left = c.width, right = -1;
-            for (var x = 0; x < c.width; x++)for (var y = 0; y < c.height; y++) {
-                if (d[(y * c.width + x) * 4 + 3] > 8) { left = Math.min(left, x); right = Math.max(right, x); }
+            if(!stripEditState.open)return;
+            var c=stripCanvas(),d=stripCtx().getImageData(0,0,c.width,c.height).data;
+            var left=c.width,right=-1;
+            for(var x=0;x<c.width;x++)for(var y=0;y<c.height;y++){
+                if(d[(y*c.width+x)*4+3]>8){left=Math.min(left,x);right=Math.max(right,x);}
             }
-            if (right < left) { left = 0; right = 0; }
-            var sw = right - left + 1;
-            if (sw > 4096) { stripStatus('Artwork exceeds 4096 pixels wide; shorten it or erase columns.', true); return; }
-            var sprite = document.createElement('canvas'); sprite.width = sw; sprite.height = c.height;
-            sprite.getContext('2d').drawImage(c, left, 0, sw, c.height, 0, 0, sw, c.height);
-            regionBuilderState.customSprite = sprite;
-            stripEditState.trimLeft = left;
-            regionPreviewCache = null;
-            if (document.getElementById('regionMotion').value !== 'still') {
-                try {
-                    var next = buildRegionMotionSettings();
-                    var oldStep = +(document.getElementById('regionPreviewSlider').value || 0);
-                    renderRegionPreviewAt(Math.min(oldStep, next.scroll.rect.w + next.scroll.sprite.width), next);
-                } catch (e) { stripStatus(e.message, true); }
+            if(right<left){left=0;right=0;}
+            var sw=right-left+1;
+            if(sw>4096){stripStatus('Artwork exceeds 4096 pixels wide; shorten it or erase columns.',true);return;}
+            var sprite=document.createElement('canvas');sprite.width=sw;sprite.height=c.height;
+            sprite.getContext('2d').drawImage(c,left,0,sw,c.height,0,0,sw,c.height);
+            regionBuilderState.customSprite=sprite;
+            stripEditState.trimLeft=left;
+            regionPreviewCache=null;
+            if(document.getElementById('regionMotion').value!=='still'){
+                try{
+                    var next=buildRegionMotionSettings();
+                    var oldStep=+(document.getElementById('regionPreviewSlider').value||0);
+                    renderRegionPreviewAt(Math.min(oldStep,next.scroll.rect.w+next.scroll.sprite.width),next);
+                }catch(e){stripStatus(e.message,true);}
             }
-            if (message) { stripStatus('Pixel edits applied to scroll preview. Click Add Region Slide or Replace Current Slide to save them.'); }
+            if(message){stripStatus('Pixel edits applied to scroll preview. Click Add Region Slide or Replace Current Slide to save them.');}
         }
         // Keep edits separate from the original main matrix pixel editor.
-        (function initStripEditor() {
-            var c = stripCanvas(), w = document.getElementById('stripScrollWrap');
-            c.addEventListener('pointerdown', function (e) { stripDown(e); if (stripEditState.isDown) c.setPointerCapture(e.pointerId); });
-            c.addEventListener('pointermove', stripMove);
-            c.addEventListener('pointerup', function (e) { stripUp(); if (c.hasPointerCapture(e.pointerId)) c.releasePointerCapture(e.pointerId); });
-            c.addEventListener('pointercancel', stripUp);
-            c.addEventListener('contextmenu', function (e) { e.preventDefault(); });
-            w.addEventListener('keydown', function (e) {
-                if (!stripEditState.open) return;
-                var key = e.key.toLowerCase();
-                if ((e.ctrlKey || e.metaKey) && key === 'z') { e.preventDefault(); e.stopPropagation(); e.shiftKey ? stripRedo() : stripUndo(); }
-                else if ((e.ctrlKey || e.metaKey) && key === 'y') { e.preventDefault(); e.stopPropagation(); stripRedo(); }
-                else if ((e.ctrlKey || e.metaKey) && key === 'c') { e.preventDefault(); e.stopPropagation(); stripCopy(); }
-                else if ((e.ctrlKey || e.metaKey) && key === 'v') { e.preventDefault(); e.stopPropagation(); stripPaste(); }
-                else if (key === 'delete' || key === 'backspace') { e.preventDefault(); e.stopPropagation(); stripDeleteSelection(); }
-                else if (key === 'b' || key === 'e' || key === 'g' || key === 'i' || key === 's') {
-                    e.preventDefault(); e.stopPropagation();
-                    setStripTool({ b: 'pencil', e: 'eraser', g: 'fill', i: 'picker', s: 'select' }[key]);
+        (function initStripEditor(){
+            var c=stripCanvas(),w=document.getElementById('stripScrollWrap');
+            c.addEventListener('pointerdown',function(e){stripDown(e);if(stripEditState.isDown)c.setPointerCapture(e.pointerId);});
+            c.addEventListener('pointermove',stripMove);
+            c.addEventListener('pointerup',function(e){stripUp();if(c.hasPointerCapture(e.pointerId))c.releasePointerCapture(e.pointerId);});
+            c.addEventListener('pointercancel',stripUp);
+            c.addEventListener('contextmenu',function(e){e.preventDefault();});
+            w.addEventListener('keydown',function(e){
+                if(!stripEditState.open)return;
+                var key=e.key.toLowerCase();
+                if((e.ctrlKey||e.metaKey)&&key==='z'){e.preventDefault();e.stopPropagation();e.shiftKey?stripRedo():stripUndo();}
+                else if((e.ctrlKey||e.metaKey)&&key==='y'){e.preventDefault();e.stopPropagation();stripRedo();}
+                else if((e.ctrlKey||e.metaKey)&&key==='c'){e.preventDefault();e.stopPropagation();stripCopy();}
+                else if((e.ctrlKey||e.metaKey)&&key==='v'){e.preventDefault();e.stopPropagation();stripPaste();}
+                else if(key==='delete'||key==='backspace'){e.preventDefault();e.stopPropagation();stripDeleteSelection();}
+                else if(key==='b'||key==='e'||key==='g'||key==='i'||key==='s'){
+                    e.preventDefault();e.stopPropagation();
+                    setStripTool({b:'pencil',e:'eraser',g:'fill',i:'picker',s:'select'}[key]);
                 }
             });
-            ['regionTextValue', 'regionTextSize', 'regionTextFont', 'regionTextColor', 'regionPictureFit', 'regionContentType'].forEach(function (id) {
-                document.getElementById(id).addEventListener('input', function () {
-                    if (stripEditState.open || regionBuilderState.customSprite) invalidateStripSource();
+            ['regionTextValue','regionTextSize','regionTextFont','regionTextColor','regionPictureFit','regionContentType'].forEach(function(id){
+                document.getElementById(id).addEventListener('input',function(){
+                    if(stripEditState.open||regionBuilderState.customSprite)invalidateStripSource();
                 });
             });
         })();
